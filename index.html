@@ -1,161 +1,184 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tanishq Singhal | Finance & Strategy</title>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Tanishq Singhal | Finance & Strategy</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            color: #111;
-            transition: 0.3s;
-        }
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #111827;
+    transition: 0.3s;
+}
 
-        .dark-mode {
-            background-color: #111;
-            color: #f5f5f5;
-        }
+.dark-mode {
+    background: #0f172a;
+    color: #f1f5f9;
+}
 
-        .container {
-            max-width: 950px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
+.container {
+    max-width: 1000px;
+    margin: 70px auto;
+    padding: 50px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.dark-mode .container {
+    background: #1e293b;
+    box-shadow: none;
+}
 
-        .header-left {
-            max-width: 70%;
-        }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 5px;
-        }
+.text-section {
+    max-width: 65%;
+}
 
-        .subtitle {
-            font-size: 18px;
-            color: #555;
-        }
+h1 {
+    font-size: 44px;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
 
-        .dark-mode .subtitle {
-            color: #bbb;
-        }
+.subtitle {
+    font-size: 18px;
+    color: #475569;
+    margin-bottom: 18px;
+}
 
-        .contact a {
-            text-decoration: none;
-            margin-right: 15px;
-            font-size: 14px;
-            color: inherit;
-        }
+.dark-mode .subtitle {
+    color: #cbd5e1;
+}
 
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+.contact a {
+    text-decoration: none;
+    margin-right: 18px;
+    font-size: 14px;
+    color: #1e3a8a;
+    font-weight: 500;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            border: 1px solid #111;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+.dark-mode .contact a {
+    color: #93c5fd;
+}
 
-        .dark-mode .button {
-            border: 1px solid #f5f5f5;
-        }
+.profile-wrapper {
+    padding: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+}
 
-        .button:hover {
-            background-color: #111;
-            color: #fff;
-        }
+.profile-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
 
-        .dark-mode .button:hover {
-            background-color: #f5f5f5;
-            color: #111;
-        }
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
 
-        .divider {
-            height: 1px;
-            background: #e5e5e5;
-            margin: 50px 0;
-        }
+.button:hover {
+    background: #0f172a;
+}
 
-        .dark-mode .divider {
-            background: #333;
-        }
+.section {
+    margin-top: 60px;
+}
 
-        h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1e3a8a;
+}
 
-        ul {
-            padding-left: 18px;
-        }
+.dark-mode h2 {
+    color: #93c5fd;
+}
 
-        .metrics {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+.metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
 
-        .metric-box {
-            width: 30%;
-            margin-bottom: 20px;
-        }
+.metric-box {
+    flex: 1 1 180px;
+    background: #f1f5f9;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        .metric-number {
-            font-size: 28px;
-            font-weight: 700;
-        }
+.metric-box:hover {
+    transform: translateY(-6px);
+}
 
-        footer {
-            margin-top: 80px;
-            font-size: 12px;
-            text-align: center;
-            color: #777;
-        }
+.dark-mode .metric-box {
+    background: #334155;
+}
 
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 6px 12px;
-            font-size: 12px;
-            cursor: pointer;
-            border: 1px solid #111;
-            background: none;
-        }
+.metric-number {
+    font-size: 28px;
+    font-weight: 700;
+}
 
-        .dark-mode .toggle-btn {
-            border: 1px solid #f5f5f5;
-            color: #f5f5f5;
-        }
+ul {
+    padding-left: 22px;
+}
 
-        @media(max-width: 768px){
-            .metric-box { width: 45%; }
-            .header-left { max-width: 100%; }
-        }
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #1e3a8a;
+    background: white;
+    cursor: pointer;
+}
 
-        @media(max-width: 500px){
-            .metric-box { width: 100%; }
-        }
+.dark-mode .toggle-btn {
+    background: #1e293b;
+    border: 1px solid #93c5fd;
+    color: #93c5fd;
+}
 
-    </style>
+footer {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+@media(max-width:768px){
+    .text-section { max-width: 100%; }
+    .profile-wrapper { margin-top: 30px; }
+}
+
+</style>
 </head>
 
 <body>
@@ -164,64 +187,69 @@
 
 <div class="container">
 
-    <div class="header">
-        <div class="header-left">
-            <h1>Tanishq Singhal</h1>
-            <div class="subtitle">
-                Finance & Strategy Undergraduate | Financial Modeling | Growth Execution
-            </div>
-
-            <div class="contact">
-                <a href="mailto:tanishqsinghal018@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank">LinkedIn</a>
-            </div>
-
-            <a class="button" href="Tanishq_Singhal_Resume.pdf" download>
-                Download Resume
-            </a>
+<div class="header">
+    <div class="text-section">
+        <h1>Tanishq Singhal</h1>
+        <div class="subtitle">
+            Finance & Strategy Undergraduate | Financial Modeling | Growth Execution
         </div>
 
-        <img src="profile.jpg" alt="Tanishq Singhal" class="profile-img">
+        <div class="contact">
+            <a href="mailto:tanishqsinghal018@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank">LinkedIn</a>
+        </div>
+
+        <a class="button" href="Tanishq_Singhal_Resume.pdf" download>
+            Download Resume
+        </a>
     </div>
 
-    <div class="divider"></div>
-
-    <h2>Executive Profile</h2>
-    <p>
-        BBA Finance & Banking candidate (2024–2027) with hands-on experience in financial modeling,
-        revenue analysis, and startup ecosystem execution. Delivered measurable operational improvements
-        and built multi-college partnerships across Delhi NCR & Pune.
-    </p>
-
-    <div class="metrics">
-        <div class="metric-box"><div class="metric-number">30%</div>Faster Evaluations</div>
-        <div class="metric-box"><div class="metric-number">150%</div>Engagement Growth</div>
-        <div class="metric-box"><div class="metric-number">25+</div>College Partnerships</div>
-        <div class="metric-box"><div class="metric-number">40+</div>Registrations</div>
-        <div class="metric-box"><div class="metric-number">6</div>Startup Credits</div>
+    <div class="profile-wrapper">
+        <img src="profile.jpg.jpeg" alt="Tanishq Singhal" class="profile-img">
     </div>
+</div>
 
-    <div class="divider"></div>
+<div class="section">
+<h2>Executive Profile</h2>
+<p>
+Finance & Banking undergraduate with demonstrated impact in financial modeling,
+strategic execution, and startup ecosystem development. Delivered measurable
+efficiency improvements and built structured partnerships across multiple institutions.
+</p>
+</div>
 
-    <h2>Selected Projects</h2>
-    <ul>
-        <li><strong>Financial Model Development:</strong> Built Excel-based forecasting model improving evaluation efficiency by 30%.</li>
-        <li><strong>Hackathon Execution Strategy:</strong> Designed and executed multi-college hackathon with 30+ participants.</li>
-        <li><strong>Revenue Trend Analysis:</strong> Conducted structured cost & revenue trend analysis using Excel dashboards.</li>
-    </ul>
+<div class="section">
+<h2>Key Highlights</h2>
+<div class="metrics">
+    <div class="metric-box"><div class="metric-number">30%</div>Faster Evaluations</div>
+    <div class="metric-box"><div class="metric-number">150%</div>Engagement Growth</div>
+    <div class="metric-box"><div class="metric-number">25+</div>College Partnerships</div>
+    <div class="metric-box"><div class="metric-number">40+</div>Registrations</div>
+    <div class="metric-box"><div class="metric-number">6</div>Startup Credits</div>
+</div>
+</div>
 
-    <div class="divider"></div>
+<div class="section">
+<h2>Selected Projects</h2>
+<ul>
+<li>Designed Excel-based financial forecasting model improving evaluation efficiency by 30%.</li>
+<li>Structured and executed multi-college hackathon with 30+ participants.</li>
+<li>Built revenue & cost trend dashboards using advanced Excel tools.</li>
+</ul>
+</div>
 
-    <h2>Professional Experience</h2>
-    <ul>
-        <li><strong>Founder Fellow | 23 Ventures:</strong> Secured startup credits and led cross-college ecosystem partnerships.</li>
-        <li><strong>Finance Intern | Yhills:</strong> Built financial models and structured company reports.</li>
-        <li><strong>Campus Ambassador | Yhills:</strong> Delivered 150% engagement growth through outreach strategy.</li>
-    </ul>
+<div class="section">
+<h2>Professional Experience</h2>
+<ul>
+<li><strong>Founder Fellow | 23 Ventures:</strong> Led startup credit acquisition & ecosystem partnerships.</li>
+<li><strong>Finance Intern | Yhills:</strong> Built financial models and structured analytical reports.</li>
+<li><strong>Campus Ambassador | Yhills:</strong> Delivered 150% engagement growth via outreach strategy.</li>
+</ul>
+</div>
 
-    <footer>
-        © 2026 Tanishq Singhal
-    </footer>
+<footer>
+© 2026 Tanishq Singhal
+</footer>
 
 </div>
 
