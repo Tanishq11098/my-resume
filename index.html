@@ -630,12 +630,7 @@
   .project-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 
   .project-img-placeholder {
-    height: 200px;
-    background: linear-gradient(135deg, #0f1520, #1a2035);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+    height: 180px;
     position: relative;
     overflow: hidden;
   }
@@ -644,7 +639,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(11,14,20,0.9));
+    background: linear-gradient(to bottom, transparent 30%, rgba(11,14,20,0.95));
+    pointer-events: none;
+  }
+
+  /* Shared SVG/canvas banner base */
+  .project-banner {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .project-body { padding: 24px; }
@@ -1146,7 +1149,33 @@
   <h2 class="section-title">PROJECTS &amp; <span>EVENTS</span></h2>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <div class="project-img-placeholder">⚡</div>
+      <div class="project-img-placeholder">
+      <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#0a0e18"/>
+        <!-- grid lines -->
+        <line x1="0" y1="180" x2="180" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="60" y1="180" x2="240" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="120" y1="180" x2="300" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="180" y1="180" x2="360" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="240" y1="180" x2="420" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="300" y1="180" x2="480" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="360" y1="180" x2="540" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="420" y1="180" x2="600" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="480" y1="180" x2="600" y2="60" stroke="#1e2535" stroke-width="1"/>
+        <!-- glow circle -->
+        <circle cx="300" cy="90" r="55" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="1.5"/>
+        <circle cx="300" cy="90" r="35" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+        <circle cx="300" cy="90" r="6" fill="#c9a84c" opacity="0.7"/>
+        <!-- radial lines from center -->
+        <line x1="300" y1="90" x2="300" y2="20" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="355" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="245" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="370" y2="90" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="230" y2="90" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <!-- label -->
+        <text x="300" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(201,168,76,0.5)" letter-spacing="3">BVIMR HACKATHON</text>
+      </svg>
+    </div>
       <div class="project-body">
         <div class="project-tag">// Startup Venture · 23 Ventures</div>
         <div class="project-title">BVIMR Offline Hackathon</div>
@@ -1160,7 +1189,32 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-img-placeholder">🌐</div>
+      <div class="project-img-placeholder">
+      <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#080c14"/>
+        <!-- connection lines -->
+        <line x1="80" y1="50" x2="200" y2="90" stroke="rgba(77,217,192,0.15)" stroke-width="1"/>
+        <line x1="200" y1="90" x2="310" y2="40" stroke="rgba(77,217,192,0.15)" stroke-width="1"/>
+        <line x1="310" y1="40" x2="430" y2="100" stroke="rgba(77,217,192,0.15)" stroke-width="1"/>
+        <line x1="430" y1="100" x2="530" y2="55" stroke="rgba(77,217,192,0.15)" stroke-width="1"/>
+        <line x1="200" y1="90" x2="310" y2="130" stroke="rgba(77,217,192,0.12)" stroke-width="1"/>
+        <line x1="310" y1="130" x2="430" y2="100" stroke="rgba(77,217,192,0.12)" stroke-width="1"/>
+        <line x1="80" y1="50" x2="310" y2="130" stroke="rgba(77,217,192,0.08)" stroke-width="1"/>
+        <line x1="310" y1="40" x2="530" y2="55" stroke="rgba(77,217,192,0.08)" stroke-width="1"/>
+        <!-- nodes -->
+        <circle cx="80" cy="50" r="4" fill="#4dd9c0" opacity="0.5"/>
+        <circle cx="200" cy="90" r="6" fill="#4dd9c0" opacity="0.7"/>
+        <circle cx="310" cy="40" r="5" fill="#4dd9c0" opacity="0.6"/>
+        <circle cx="430" cy="100" r="7" fill="#4dd9c0" opacity="0.8"/>
+        <circle cx="530" cy="55" r="4" fill="#4dd9c0" opacity="0.5"/>
+        <circle cx="310" cy="130" r="5" fill="#c9a84c" opacity="0.6"/>
+        <!-- rings on main node -->
+        <circle cx="430" cy="100" r="14" fill="none" stroke="rgba(77,217,192,0.2)" stroke-width="1"/>
+        <circle cx="430" cy="100" r="22" fill="none" stroke="rgba(77,217,192,0.1)" stroke-width="1"/>
+        <!-- label -->
+        <text x="300" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(77,217,192,0.4)" letter-spacing="3">STARTUP NETWORK · 6 CREDITS SECURED</text>
+      </svg>
+    </div>
       <div class="project-body">
         <div class="project-tag">// Startup Venture · 23 Ventures</div>
         <div class="project-title">Online Events & Startup Credits</div>
@@ -1174,7 +1228,31 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-img-placeholder">📈</div>
+      <div class="project-img-placeholder">
+      <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#080d12"/>
+        <!-- horizontal grid -->
+        <line x1="40" y1="40" x2="560" y2="40" stroke="#1e2535" stroke-width="1" stroke-dasharray="4,6"/>
+        <line x1="40" y1="70" x2="560" y2="70" stroke="#1e2535" stroke-width="1" stroke-dasharray="4,6"/>
+        <line x1="40" y1="100" x2="560" y2="100" stroke="#1e2535" stroke-width="1" stroke-dasharray="4,6"/>
+        <line x1="40" y1="130" x2="560" y2="130" stroke="#1e2535" stroke-width="1" stroke-dasharray="4,6"/>
+        <!-- rising bars -->
+        <rect x="60"  y="120" width="30" height="10"  fill="rgba(201,168,76,0.25)" rx="1"/>
+        <rect x="110" y="110" width="30" height="20"  fill="rgba(201,168,76,0.30)" rx="1"/>
+        <rect x="160" y="95"  width="30" height="35"  fill="rgba(201,168,76,0.40)" rx="1"/>
+        <rect x="210" y="105" width="30" height="25"  fill="rgba(201,168,76,0.35)" rx="1"/>
+        <rect x="260" y="80"  width="30" height="50"  fill="rgba(201,168,76,0.50)" rx="1"/>
+        <rect x="310" y="70"  width="30" height="60"  fill="rgba(201,168,76,0.60)" rx="1"/>
+        <rect x="360" y="55"  width="30" height="75"  fill="rgba(201,168,76,0.70)" rx="1"/>
+        <rect x="410" y="45"  width="30" height="85"  fill="rgba(201,168,76,0.80)" rx="1"/>
+        <rect x="460" y="35"  width="30" height="95"  fill="#c9a84c"              rx="1"/>
+        <!-- trend line -->
+        <polyline points="75,118 125,108 175,92 225,102 275,77 325,67 375,52 425,42 475,32"
+          fill="none" stroke="rgba(77,217,192,0.6)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- label -->
+        <text x="300" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(201,168,76,0.5)" letter-spacing="3">FINANCIAL MODELLING · 30% FASTER ANALYSIS</text>
+      </svg>
+    </div>
       <div class="project-body">
         <div class="project-tag">// Finance Project · YHills</div>
         <div class="project-title">Financial Analysis & Modelling</div>
@@ -1187,7 +1265,29 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-img-placeholder">🎤</div>
+      <div class="project-img-placeholder">
+      <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#090b10"/>
+        <!-- outer ring dashes -->
+        <circle cx="300" cy="85" r="65" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="6,5"/>
+        <circle cx="300" cy="85" r="50" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="1"/>
+        <circle cx="300" cy="85" r="36" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <!-- star polygon -->
+        <polygon points="300,52 308,74 332,74 313,88 320,112 300,98 280,112 287,88 268,74 292,74"
+          fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+        <polygon points="300,58 306,74 324,74 310,84 315,103 300,93 285,103 290,84 276,74 294,74"
+          fill="rgba(201,168,76,0.08)"/>
+        <!-- center dot -->
+        <circle cx="300" cy="85" r="4" fill="#c9a84c" opacity="0.9"/>
+        <!-- tick marks around ring -->
+        <line x1="300" y1="18" x2="300" y2="25" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+        <line x1="300" y1="145" x2="300" y2="152" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+        <line x1="233" y1="85" x2="240" y2="85" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+        <line x1="360" y1="85" x2="367" y2="85" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+        <!-- label -->
+        <text x="300" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(201,168,76,0.5)" letter-spacing="3">1ST PLACE · SHYAM LAL COLLEGE · DU</text>
+      </svg>
+    </div>
       <div class="project-body">
         <div class="project-tag">// Competition · Shyam Lal College, DU</div>
         <div class="project-title">Poster Making — 1st Position</div>
