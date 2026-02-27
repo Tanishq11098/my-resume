@@ -3,156 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanishq Singhal | Finance & Strategy</title>
+    <title>Tanishq Singhal | Strategy & Finance Lead</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #0f172a; --accent: #2563eb; --gold: #f59e0b;
-            --bg: #fdfdfd; --card: #ffffff; --text: #1e293b; --text-sub: #64748b;
-        }
+        :root { --primary: #0f172a; --accent: #2563eb; --gold: #f59e0b; --bg: #ffffff; --card: #f8fafc; --text: #0f172a; --text-sub: #475569; }
         .dark-mode { --bg: #020617; --card: #0f172a; --text: #f8fafc; --text-sub: #94a3b8; }
-        * { transition: all 0.3s ease; box-sizing: border-box; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); 
-            color: var(--text); line-height: 1.6;
-            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; position: sticky; top: 0; background: rgba(253,253,253,0.9); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .hero { padding: 80px 0 40px 0; text-align: center; }
-        h1 { font-size: clamp(40px, 8vw, 72px); font-weight: 800; margin: 0; letter-spacing: -3px; color: var(--primary); }
+        * { transition: all 0.2s ease; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* MARQUEE (OLD STYLE) */
+        .marquee { background: var(--primary); color: white; padding: 15px 0; overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: scroll 30s linear infinite; }
+        .marquee-item { margin: 0 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* HERO WITH PHOTO */
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 100px 0; gap: 50px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .hero-text { flex: 1; text-align: left; }
+        .hero-image { width: 320px; height: 320px; border-radius: 30px; object-fit: cover; border: 8px solid var(--card); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        h1 { font-size: 72px; font-weight: 800; margin: 0; letter-spacing: -4px; line-height: 1; }
+        .hero-tagline { font-size: 22px; color: var(--accent); font-weight: 700; margin-top: 15px; }
+
+        /* CTA BUTTONS */
+        .cta-group { margin-top: 40px; display: flex; gap: 20px; }
+        .btn-hire { background: var(--accent); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 800; box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
+        .btn-portfolio { background: transparent; color: var(--text); padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; border: 2px solid var(--text); }
+
+        /* TIMELINE SECTION */
+        .timeline-container { margin-top: 80px; padding-left: 20px; border-left: 4px solid var(--accent); }
+        .timeline-item { position: relative; padding-bottom: 40px; padding-left: 30px; }
+        .timeline-item::before { content: ""; position: absolute; left: -39px; top: 5px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 4px solid var(--bg); }
+        .time-date { font-weight: 800; color: var(--accent); font-size: 14px; }
+        .time-title { font-weight: 700; font-size: 18px; margin: 5px 0; }
+
+        /* GRID & CARDS */
+        .section-title { font-size: 14px; text-transform: uppercase; color: var(--accent); letter-spacing: 3px; font-weight: 800; margin: 80px 0 40px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03); }
+        .stat { font-size: 48px; font-weight: 800; color: var(--accent); display: block; }
+
+        footer { margin-top: 100px; padding: 80px 20px; text-align: center; background: var(--primary); color: white; }
+        .footer-mail { font-size: 24px; font-weight: 800; color: var(--accent); text-decoration: none; }
         
-        .snapshot-box { 
-            background: var(--primary); color: white; padding: 30px; border-radius: 20px; 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 20px; text-align: left; margin: 40px 0;
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 60px 20px; }
+            .hero-text { text-align: center; }
+            .cta-group { justify-content: center; }
+            h1 { font-size: 50px; }
         }
-        .snapshot-item { border-left: 3px solid var(--accent); padding-left: 15px; }
-        .snapshot-item h5 { margin: 0; font-size: 11px; text-transform: uppercase; color: var(--accent); }
-        .snapshot-item p { margin: 5px 0 0 0; font-size: 14px; font-weight: 600; }
-
-        .stat-strip { display: flex; justify-content: space-around; padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 60px; text-align: center; }
-        .stat-val { font-size: 36px; font-weight: 800; color: var(--accent); display: block; }
-        .stat-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-sub); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--card); padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); position: relative; }
-        .micro-h { font-size: 10px; font-weight: 900; color: var(--accent); text-transform: uppercase; margin-top: 15px; display: block; }
-        .micro-p { font-size: 14px; margin: 5px 0 10px 0; opacity: 0.85; }
-
-        .div-title { font-size: 12px; font-weight: 800; letter-spacing: 3px; color: var(--text-sub); margin-bottom: 30px; display: block; border-bottom: 2px solid var(--accent); width: fit-content; padding-bottom: 5px; }
-        
-        footer { text-align: center; padding: 80px 0; background: rgba(0,0,0,0.02); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <nav>
-        <div style="font-weight: 900; font-size: 24px;">TS.</div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--text-sub);">DELHI NCR | 9313921414</div>
-    </nav>
+<div class="marquee">
+    <div class="marquee-content">
+        <span class="marquee-item">🚀 TOP 10% IIT GUWAHATI CONSULTING</span>
+        <span class="marquee-item">💼 FOUNDERS FELLOW @ 23VENTURES</span>
+        <span class="marquee-item">📊 FINANCE SPECIALIST</span>
+        <span class="marquee-item">🏆 NATIONAL CASE COMPETITION FINALIST</span>
+        <span class="marquee-item">🚀 TOP 10% IIT GUWAHATI CONSULTING</span>
+    </div>
+</div>
 
+<div class="container">
     <header class="hero">
-        <h1>Tanishq Singhal</h1>
-        <p style="font-weight: 600; color: var(--text-sub); font-size: 18px;">“Structured thinking drives measurable impact.”</p>
-        
-        <div class="snapshot-box">
-            <div class="snapshot-item"><h5>Education</h5><p>BBA Finance (2024-2027)</p></div>
-            <div class="snapshot-item"><h5>Internship Path</h5><p>23Ventures & Yhills Finance</p></div>
-            <div class="snapshot-item"><h5>Efficiency Metric</h5><p>30% Faster Project Analysis</p></div>
-            <div class="snapshot-item"><h5>IITG Rank</h5><p>Top 10% Percentile</p></div>
+        <div class="hero-text">
+            <h1>Tanishq Singhal</h1>
+            <div class="hero-tagline">Strategic Growth & Financial Operations</div>
+            <p style="font-size: 18px; color: var(--text-sub); margin-top: 20px; max-width: 600px;">
+                Specializing in scaling startup ecosystems and high-impact financial modeling. Delivering 30% efficiency in project evaluations.
+            </p>
+            <div class="cta-group">
+                <a href="mailto:tanishqsinghal018@gmail.com" class="btn-hire">Book a Strategic Interview</a>
+                <a href="Tanishq_Singhal_Resume.pdf" download class="btn-portfolio">Download Resume</a>
+            </div>
         </div>
+        <img src="your-photo.jpg" alt="Tanishq Singhal" class="hero-image">
     </header>
 
-    <div class="stat-strip">
-        <div><span class="stat-val">30%</span><span class="stat-label">Model Efficiency</span></div>
-        <div><span class="stat-val">40+</span><span class="stat-label">Verified Registrations</span></div>
-        <div><span class="stat-val">6</span><span class="stat-label">SaaS Deals Secured</span></div>
-        <div><span class="stat-val">16.75h</span><span class="stat-label">Certified Soft Skills</span></div>
-    </div>
-
-    <section id="gallery" style="margin-bottom: 60px;">
-        <span class="div-title">FIELD EXECUTION & EVIDENCE</span>
-        <div class="grid">
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="event (4).jpg" alt="BVIMR Event" style="width:100%; height:200px; object-fit:cover;">
-                <div style="padding:20px;">
-                    <h4 style="margin:0;">Offline Event Execution</h4>
-                    <p style="font-size:14px; color:var(--text-sub);">BVIMR Hackathon: Managed 14 teams and industry judges.</p>
-                </div>
+    <section id="timeline">
+        <p class="section-title">Professional Timeline</p>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="time-date">DEC 2025 – FEB 2026</div>
+                <div class="time-title">Founders Fellow | 23Ventures</div>
+                <p>Secured 6 SaaS deals (OpenAI, Cloudflare). Managed 25+ college outreaches and hosted BVIMR offline events.</p>
             </div>
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="event (3).jpg" alt="Strategic Pitch" style="width:100%; height:200px; object-fit:cover;">
-                <div style="padding:20px;">
-                    <h4 style="margin:0;">Strategic Pitching</h4>
-                    <p style="font-size:14px; color:var(--text-sub);">Presenting ecosystem roadmaps to 23Ventures leadership.</p>
-                </div>
+            <div class="timeline-item">
+                <div class="time-date">JUNE 2025 – JULY 2025</div>
+                <div class="time-title">Finance Intern | Yhills</div>
+                <p>Built financial models enabling 30% faster analysis. Prepared 5+ stakeholder reports.</p>
             </div>
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="event (5).jpg" alt="Leadership" style="width:100%; height:200px; object-fit:cover;">
-                <div style="padding:20px;">
-                    <h4 style="margin:0;">Ecosystem Management</h4>
-                    <p style="font-size:14px; color:var(--text-sub);">Facilitating 50+ member online events and mentor MOUs.</p>
-                </div>
+            <div class="timeline-item">
+                <div class="time-date">JAN 2025</div>
+                <div class="time-title">IIT Guwahati Winter Consulting</div>
+                <p>Top 10% Percentile nationwide in Consulting and Business Strategy coursework.</p>
             </div>
         </div>
     </section>
 
-    <section id="experience">
-        <span class="div-title">PROFESSIONAL EXPERIENCE</span>
+    <section id="metrics">
+        <p class="section-title">Core Performance Metrics</p>
         <div class="grid">
             <div class="card">
-                <h3>Founders Fellow | 23Ventures</h3>
-                <p style="font-size:12px; font-weight:700;">Dec 2025 – Feb 2026</p>
-                <span class="micro-h">Field Execution</span>
-                <p class="micro-p">Hosted offline event at BVIMR with 14 teams and 2 industry judges.</p>
-                <span class="micro-h">Strategic Impact</span>
-                <p class="micro-p">Secured 6 deals with Cloudflare, OpenAI, and Mixpanel. Signed MOU with veteran MNC mentor.</p>
+                <span class="stat">30%</span>
+                <h3>Model Efficiency</h3>
+                <p>Faster project evaluation turnaround achieved through automated financial modeling in Advanced Excel.</p>
             </div>
-
             <div class="card">
-                <h3>Finance Intern | Yhills</h3>
-                <p style="font-size:12px; font-weight:700;">June 2025 – July 2025</p>
-                <span class="micro-h">Financial Modeling</span>
-                <p class="micro-p">Built models enabling 30% faster analysis. Prepared 5+ financial reports.</p>
+                <span class="stat">16.75h</span>
+                <h3>Verified Training</h3>
+                <p>Total hours from Wadhwani Foundation in Problem Solving, Innovation, and Effective Speaking.</p>
             </div>
-
             <div class="card">
-                <h3>Campus Ambassador | Yhills</h3>
-                <p style="font-size:12px; font-weight:700;">May 2025 – June 2025</p>
-                <span class="micro-h">Growth Results</span>
-                <p class="micro-p">Generated 40+ registrations. Coordinated 5+ campus events with 150% engagement increase.</p>
+                <span class="stat">150%</span>
+                <h3>Engagement Growth</h3>
+                <p>Boost in brand engagement through the coordination of 5+ campus awareness sessions.</p>
             </div>
         </div>
     </section>
 
-    <section style="margin-top:60px;">
-        <span class="div-title">CERTIFIED TRAINING</span>
+    <section id="gallery">
+        <p class="section-title">Project Evidence</p>
         <div class="grid">
-            <div class="card">
-                <h4>IIT Guwahati (Technical Board)</h4>
-                <p class="micro-p">Placed in Top 10 Percentile in Consulting & Business Strategy (Winter Consulting 2025).</p>
+            <div class="card" style="padding:0; overflow:hidden;">
+                <img src="event (4).jpg" alt="BVIMR Event" style="width:100%; height:250px; object-fit:cover; display:block;">
+                <div style="padding:20px;">
+                    <h3>Offline Event Execution</h3>
+                    <p>Leading 14 teams and industry judges at the BVIMR Hackathon.</p>
+                </div>
             </div>
-            <div class="card">
-                <h4>Wadhwani Foundation</h4>
-                <p class="micro-p">16.75 Total Hours: Effective Speaking, Listening, Problem Solving & Innovation.</p>
-            </div>
-            <div class="card">
-                <h4>National Case Competitions</h4>
-                <p class="micro-p">Finalist: Schbang X Marksoc SBSC (DU) Elixir'25.</p>
+            <div class="card" style="padding:0; overflow:hidden;">
+                <img src="event (3).jpg" alt="Presentation" style="width:100%; height:250px; object-fit:cover; display:block;">
+                <div style="padding:20px;">
+                    <h3>Strategic Pitching</h3>
+                    <p>Presenting growth roadmaps to senior leadership at 23Ventures.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="font-weight: 800; font-size: 20px; margin-bottom: 5px;">Tanishq Singhal</p>
-        <p style="font-size: 16px; color:var(--accent); font-weight: 700; margin-bottom: 25px;">tanishqsinghal018@gmail.com</p>
-        <div>
-            <a href="Tanishq_Singhal_Resume.pdf" download style="background:var(--accent); color:white; padding:15px 30px; text-decoration:none; border-radius:50px; font-weight:800;">Download Official Resume PDF</a>
-        </div>
-        <p style="font-size: 12px; color:var(--text-sub); margin-top: 40px;">DELHI NCR • 9313921414 • IMS UCC GHAZIABAD</p>
+        <p class="section-title" style="color:white;">Let's Build Something Great</p>
+        <a href="mailto:tanishqsinghal018@gmail.com" class="footer-mail">tanishqsinghal018@gmail.com</a>
+        <p style="margin-top: 20px; font-weight: 700;">Delhi NCR • 9313921414</p>
+        <p style="opacity: 0.5; font-size: 12px; margin-top: 40px;">© 2026 Tanishq Singhal | Strategy, Finance & Execution</p>
     </footer>
 </div>
 
