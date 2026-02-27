@@ -6,26 +6,10 @@
     <title>Tanishq Singhal | Strategy & Finance Lead</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #0f172a; 
-            --accent: #2563eb; 
-            --gold: #f59e0b;
-            --bg: #ffffff; 
-            --card: #f8fafc; 
-            --text: #0f172a; 
-            --text-sub: #475569;
-        }
-
-        .dark-mode { 
-            --bg: #020617; 
-            --card: #0f172a; 
-            --text: #f8fafc; 
-            --text-sub: #94a3b8; 
-        }
-
+        :root { --primary: #0f172a; --accent: #2563eb; --gold: #f59e0b; --bg: #ffffff; --card: #f8fafc; --text: #0f172a; --text-sub: #475569; }
+        .dark-mode { --bg: #020617; --card: #0f172a; --text: #f8fafc; --text-sub: #94a3b8; }
         * { transition: all 0.2s ease; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
-        
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
 
         /* HERO SECTION */
@@ -34,34 +18,34 @@
         .hero-tagline { font-size: 24px; color: var(--accent); font-weight: 600; margin-top: 10px; }
         .hero-desc { max-width: 700px; margin: 20px auto; font-size: 18px; color: var(--text-sub); }
 
-        .btn-primary { 
-            background: var(--accent); color: white; padding: 15px 35px; 
-            border-radius: 12px; text-decoration: none; font-weight: 700; 
-            display: inline-block; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        }
+        /* AGGRESSIVE CTA BUTTONS */
+        .cta-group { margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn-hire { background: var(--accent); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 18px; box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
+        .btn-portfolio { background: transparent; color: var(--text); padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; border: 2px solid var(--text); }
+        .btn-hire:hover { transform: scale(1.05); background: #1d4ed8; }
 
-        /* STRATEGIC MARQUEE */
+        /* MARQUEE */
         .marquee { background: var(--primary); color: white; padding: 15px 0; overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-block; animation: scroll 30s linear infinite; }
         .marquee-item { margin: 0 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* CARDS */
-        .section-title { font-size: 14px; text-transform: uppercase; color: var(--accent); letter-spacing: 3px; font-weight: 800; margin-bottom: 40px; }
+        /* SECTIONS */
+        .section-title { font-size: 14px; text-transform: uppercase; color: var(--accent); letter-spacing: 3px; font-weight: 800; margin-bottom: 40px; margin-top: 80px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03); position: relative; }
-        .card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        .card { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03); }
         
+        /* CASE STUDIES (PAR FRAMEWORK) */
+        .case-card { border-left: 6px solid var(--accent); }
+        .case-label { font-weight: 800; color: var(--accent); font-size: 12px; text-transform: uppercase; }
+        .result-box { margin-top: 15px; padding: 10px; background: rgba(37, 99, 235, 0.1); border-radius: 8px; color: var(--accent); font-weight: 800; }
+
         .stat { font-size: 48px; font-weight: 800; color: var(--accent); display: block; }
-        .verified-badge { background: var(--gold); color: white; font-size: 10px; padding: 5px 10px; border-radius: 4px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
+        .verified-badge { background: var(--gold); color: white; font-size: 10px; padding: 5px 12px; border-radius: 50px; font-weight: 800; margin-bottom: 15px; display: inline-block; }
 
-        /* SKILLS */
-        .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .skill-item { background: rgba(37, 99, 235, 0.05); padding: 15px; border-radius: 12px; font-weight: 600; }
-
-        .toggle-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .toggle-btn { position: fixed; bottom: 30px; left: 30px; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; z-index: 1000; }
         
-        footer { margin-top: 100px; padding: 40px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); font-weight: 600; color: var(--text-sub); }
+        footer { margin-top: 100px; padding: 60px; text-align: center; background: var(--card); }
     </style>
 </head>
 <body>
@@ -75,7 +59,6 @@
         <span class="marquee-item">📊 FINANCE SPECIALIST</span>
         <span class="marquee-item">🏆 NATIONAL CASE COMPETITION FINALIST</span>
         <span class="marquee-item">🚀 TOP 10% IIT GUWAHATI CONSULTING</span>
-        <span class="marquee-item">💼 FOUNDERS FELLOW @ 23VENTURES</span>
     </div>
 </div>
 
@@ -84,84 +67,82 @@
         <h1>Tanishq Singhal</h1>
         <div class="hero-tagline">Strategic Growth & Financial Operations</div>
         <p class="hero-desc">
-            Bridging the gap between raw data and executive decisions. 
-            I specialize in scaling startup ecosystems and high-impact financial modeling.
+            Generating high-impact results for startups and institutional ecosystems. 
+            Ranked in the <strong>Top 10%</strong> of consultants by IIT Guwahati Technical Board.
         </p>
-        <div style="margin-top: 30px;">
-            <a href="mailto:tanishqsinghal018@gmail.com" class="btn-primary">Hire Tanishq Direct</a>
-            <a href="Tanishq_Singhal_Resume.pdf" download style="margin-left: 20px; font-weight: 700; color: var(--text); text-decoration: none;">Download Resume PDF →</a>
+        
+        <div class="cta-group">
+            <a href="mailto:tanishqsinghal018@gmail.com?subject=Interview%20Request%3A%20Tanishq%20Singhal" class="btn-hire">Book a Strategic Interview</a>
+            <a href="Tanishq_Singhal_Resume.pdf" download class="btn-portfolio">Get Resume PDF</a>
         </div>
     </header>
 
-    <section>
-        <p class="section-title">Core Performance Metrics</p>
+    <section id="metrics">
+        <p class="section-title">Performance Snapshot</p>
         <div class="grid">
             <div class="card">
                 <span class="stat">Top 10%</span>
-                <h3>IIT Guwahati Distinction</h3>
-                <p>Ranked among the elite percentile in Winter Consulting 2025. Expert in Business Case Analysis.</p>
+                <h3>IITG Analytics</h3>
+                <p>Distinction in Consulting & Strategy. Validated expertise in business case modeling.</p>
             </div>
             <div class="card">
                 <span class="stat">150%</span>
-                <h3>Growth Execution</h3>
-                <p>Proven track record of scaling user engagement and partner acquisition via Yhills & 23V.</p>
+                <h3>Scale Metric</h3>
+                <p>Growth efficiency achieved in stakeholder engagement and registration funnels.</p>
             </div>
             <div class="card">
-                <span class="stat">End-to-End</span>
-                <h3>Project Ownership</h3>
-                <p>Led the NEXEL X 23V initiative from zero to execution, managing 50+ stakeholders.</p>
+                <span class="stat">300+</span>
+                <h3>Hours Executed</h3>
+                <p>Intensive project management across Finance, Strategy, and Operations.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <p class="section-title">Executive Skillset</p>
-        <div class="skill-grid">
-            <div class="skill-item">💰 Corporate Valuation & Financial Modeling</div>
-            <div class="skill-item">🏛️ Strategic Ecosystem Development</div>
-            <div class="skill-item">📊 Advanced Data Visualization (Excel/SQL)</div>
-            <div class="skill-item">🤝 High-Stakes Stakeholder Management</div>
+    <section id="cases">
+        <p class="section-title">Case Studies: Logic & Impact</p>
+        <div class="grid">
+            <div class="card case-card">
+                <span class="case-label">Project: Founders Fellow</span>
+                <p><strong>Problem:</strong> Lack of institutional bridge for startup ecosystem growth.</p>
+                <p><strong>Action:</strong> Engineered the NEXEL partnership framework and managed 50+ ambassadors.</p>
+                <div class="result-box">IMPACT: Successful Strategic Launch</div>
+            </div>
+            <div class="card case-card">
+                <span class="case-label">Project: Winter Consulting</span>
+                <p><strong>Problem:</strong> Complex revenue modeling for national-level strategy cases.</p>
+                <p><strong>Action:</strong> Developed a proprietary valuation model tested against top-tier competition.</p>
+                <div class="result-box">IMPACT: Top 10 Percentile Distinction</div>
+            </div>
         </div>
     </section>
 
-    <section>
-        <p class="section-title">Verified Corporate Credentials</p>
+    <section id="credentials">
+        <p class="section-title">Industry Verification</p>
         <div class="grid">
             <div class="card">
-                <span class="verified-badge">VERIFIED EXCELLENCE</span>
-                <h3 style="margin-top: 0;">Founders Fellow | 23Ventures</h3>
-                <p style="color: var(--text-sub);">Directly managed ecosystem strategy. Certified in Communication, Creativity, and Cross-functional Teamwork.</p>
+                <span class="verified-badge">✓ STATUS: FULLY VERIFIED</span>
+                <h3>23Ventures Fellowship</h3>
+                <p>Certified in Communication, Teamwork, and Creative Strategy. Handled growth ops for Manthan Gupta (Founder 23V).</p>
             </div>
             <div class="card">
-                <span class="verified-badge">VERIFIED ANALYST</span>
-                <h3 style="margin-top: 0;">Consulting & Business Strategy</h3>
-                <p style="color: var(--text-sub);">Issued by IIT Guwahati. Hands-on expertise in solving complex business cases and revenue models.</p>
+                <span class="verified-badge">✓ STATUS: EXCELLENCE AWARD</span>
+                <h3>Consulting Strategy</h3>
+                <p>IIT Guwahati (Technical Board). 4 weeks of intensive business strategy and hands-on case analysis.</p>
             </div>
             <div class="card">
-                <span class="verified-badge">VERIFIED LEADER</span>
-                <h3 style="margin-top: 0;">National Case Competition</h3>
-                <p style="color: var(--text-sub);">National-level participation in Schbang X Marksoc DU. Tested in high-pressure strategic pitching.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <p class="section-title">Project Evidence</p>
-        <div class="grid">
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="event%20(4).jpg" style="width:100%; height:250px; object-fit:cover;">
-                <div style="padding:20px;"><h3>Strategic Launch</h3><p>NEXEL ecosystem partnership execution.</p></div>
-            </div>
-            <div class="card" style="padding:0; overflow:hidden;">
-                <img src="event%20(3).jpg" style="width:100%; height:250px; object-fit:cover;">
-                <div style="padding:20px;"><h3>Growth Pitching</h3><p>Stakeholder presentation for regional expansion.</p></div>
+                <span class="verified-badge">✓ STATUS: NATIONAL RANK</span>
+                <h3>Case Competition</h3>
+                <p>National Participation - Schbang X Marksoc DU. Validated under high-pressure strategic pitching.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Tanishq Singhal &copy; 2026 | Strategy, Finance & Execution</p>
-        <p style="font-size: 11px; margin-top: 10px; opacity: 0.6;">Built for recruiters who value data-driven impact over traditional resumes.</p>
+        <p style="font-size: 18px; font-weight: 800; margin-bottom: 5px;">Tanishq Singhal</p>
+        <p>Strategic Finance & Growth Ops</p>
+        <div style="margin-top: 20px;">
+            <a href="mailto:tanishqsinghal018@gmail.com" style="color:var(--accent); text-decoration:none; font-weight:700;">Direct Contact: tanishqsinghal018@gmail.com</a>
+        </div>
     </footer>
 </div>
 
