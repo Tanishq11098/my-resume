@@ -1,204 +1,1299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanishq Singhal | Finance & Strategy Professional</title>
-    <meta name="description" content="Finance & Strategy Professional delivering measurable impact through financial modeling and ecosystem execution.">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root { 
-            /* 13: FINANCE IDENTITY PALETTE */
-            --primary: #0f172a; --accent: #2563eb; --slate: #475569;
-            --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --text-sub: #64748b;
-        }
-        * { transition: all 0.2s ease; box-sizing: border-box; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); 
-            color: var(--text); line-height: 1.6;
-        }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tanishq Singhal — Finance & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080a0e;
+    --bg2: #0d1017;
+    --bg3: #111520;
+    --border: #1e2535;
+    --gold: #c9a84c;
+    --gold2: #f0d080;
+    --cyan: #4dd9c0;
+    --text: #e8ecf4;
+    --muted: #6a7490;
+    --card: #0f1319;
+  }
 
-        /* 1: HEADER AREA (REPOSITIONED) */
-        .header-area { padding: 60px 0; display: flex; align-items: center; justify-content: space-between; gap: 40px; border-bottom: 1px solid #e2e8f0; }
-        .header-content { flex: 1; }
-        .profile-img { width: 180px; height: 180px; border-radius: 20px; object-fit: cover; border: 4px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        h1 { font-size: 56px; font-weight: 800; margin: 0; letter-spacing: -3px; color: var(--primary); }
-        .strategic-identity { font-size: 20px; font-weight: 600; color: var(--accent); margin-top: 5px; }
-        .value-prop { font-size: 18px; color: var(--text-sub); margin-top: 15px; font-weight: 500; border-left: 3px solid #cbd5e1; padding-left: 15px; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* 2: PROFESSIONAL SNAPSHOT (METRICS) */
-        .snapshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 40px 0; }
-        .snapshot-card { background: var(--primary); color: white; padding: 25px; border-radius: 16px; text-align: center; }
-        .snapshot-val { font-size: 32px; font-weight: 800; display: block; color: #fff; }
-        .snapshot-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; }
+  html { scroll-behavior: smooth; }
 
-        /* 5 & 11: DOMAIN & INDUSTRY FOCUS */
-        .focus-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
-        .focus-box { background: #fff; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; }
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .tag { background: #f1f5f9; color: var(--primary); padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-        /* 4: EXPERIENCE TIMELINE */
-        .section-h { font-size: 14px; font-weight: 900; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 30px; display: block; }
-        .timeline { border-left: 3px solid #e2e8f0; padding-left: 35px; margin-left: 10px; }
-        .time-item { position: relative; margin-bottom: 50px; }
-        .time-item::before { content: ""; position: absolute; left: -44px; top: 8px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
-        .time-header { display: flex; justify-content: space-between; align-items: flex-start; }
-        .time-role { font-size: 22px; font-weight: 800; color: var(--primary); margin: 0; }
-        .time-tagline { font-weight: 700; color: var(--slate); font-size: 14px; }
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+  }
 
-        /* 6 & 7: PROJECTS & LEADERSHIP */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .content-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; height: 100%; }
-        .bullet-list { padding-left: 20px; font-size: 14px; color: var(--text-sub); margin-top: 10px; }
-        .bullet-list li { margin-bottom: 8px; }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    backdrop-filter: blur(20px);
+    background: rgba(8,10,14,0.85);
+    border-bottom: 1px solid var(--border);
+  }
 
-        /* BIGGER MOVING HEADER (ENHANCED) */
-        .marquee { background: var(--primary); color: white; padding: 20px 0; overflow: hidden; white-space: nowrap; margin: 40px 0; }
-        .marquee-content { display: inline-block; animation: scroll 25s linear infinite; }
-        .marquee-item { margin: 0 40px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 20px; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
 
-        /* 9: CALL TO ACTION */
-        .cta-section { background: var(--primary); color: white; padding: 60px; border-radius: 30px; text-align: center; margin: 80px 0; }
-        .btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
-        .btn { padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 16px; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-secondary { background: transparent; border: 2px solid white; color: white; }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
 
-        /* 12: PROFESSIONAL FOOTER */
-        footer { border-top: 1px solid #e2e8f0; padding: 60px 0; text-align: center; color: var(--text-sub); font-size: 14px; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
 
-        @media (max-width: 768px) {
-            .header-area, .focus-section, .grid-2 { flex-direction: column; grid-template-columns: 1fr; }
-            h1 { font-size: 42px; }
-        }
-    </style>
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    top: 10%; right: -100px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77,217,192,0.07) 0%, transparent 70%);
+    bottom: 5%; left: -80px;
+    pointer-events: none;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+
+  #hero { justify-content: space-between; }
+  .hero-content { max-width: 720px; position: relative; z-index: 1; }
+
+  .hero-photo {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-photo img {
+    width: 240px;
+    height: 300px;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid var(--gold);
+    filter: grayscale(20%);
+    box-shadow: 0 0 60px rgba(201,168,76,0.15);
+    transition: filter 0.3s;
+  }
+
+  .hero-photo img:hover { filter: grayscale(0%); }
+
+  @media (max-width: 900px) { .hero-photo { display: none; } }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    border: 1px solid rgba(77,217,192,0.3);
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: 4px;
+    color: var(--text);
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-name span { color: var(--gold); }
+
+  .hero-title {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: #9aa3b8;
+    max-width: 560px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    animation: fadeUp 0.8s 0.75s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #0a0800;
+    padding: 14px 32px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 100px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 3px;
+    color: var(--text);
+    margin-bottom: 60px;
+    line-height: 1;
+  }
+
+  .section-title span { color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 60px;
+    width: calc(100% - 120px);
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #9aa3b8;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.3s;
+  }
+
+  .highlight-card:hover { border-color: var(--gold); }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .highlight-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .highlight-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+
+  .exp-timeline { position: relative; }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--cyan), transparent);
+  }
+
+  .exp-item {
+    padding-left: 48px;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .exp-item.visible { opacity: 1; transform: translateX(0); }
+
+  .exp-dot {
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  }
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .exp-role {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: #8a93a8;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 300;
+  }
+
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+    top: 2px;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-group:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: #c9a84c;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .skill-tag:hover { background: rgba(201,168,76,0.18); }
+
+  .skill-tag.cyan {
+    background: rgba(77,217,192,0.08);
+    border-color: rgba(77,217,192,0.2);
+    color: var(--cyan);
+  }
+
+  .skill-tag.cyan:hover { background: rgba(77,217,192,0.18); }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--cyan));
+  }
+
+  .edu-card:hover { border-color: var(--gold); }
+
+  .edu-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .edu-degree {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-inst {
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .edu-detail {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── PROJECTS / EVENTS ── */
+  #projects { background: var(--bg2); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .project-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .project-img-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, #0f1520, #1a2035);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(11,14,20,0.9));
+  }
+
+  .project-body { padding: 24px; }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .metric-lbl {
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg); }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+
+  .cert-issuer {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .cert-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cert-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--bg2);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 24px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  .contact-link .icon { font-size: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── EVENT GALLERY ── */
+  .event-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    filter: grayscale(20%) brightness(0.9);
+    transition: filter 0.3s, transform 0.3s;
+  }
+
+  .gallery-img:hover { filter: grayscale(0%) brightness(1); transform: scale(1.02); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 70px 24px; }
+    #hero { padding: 120px 24px 60px; }
+    .about-grid, .skills-grid, .edu-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .divider { margin: 0 24px; width: calc(100% - 48px); }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrapper {
+    overflow: hidden;
+    background: rgba(201,168,76,0.05);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 12px 0;
+    margin-bottom: 60px;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 60px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .marquee-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header class="header-area">
-        <div class="header-content">
-            <h1>Tanishq Singhal</h1>
-            <div class="strategic-identity">Finance & Strategy | Financial Modeling | Growth Execution</div>
-            <div class="value-prop">Delivering measurable financial and operational impact through structured analysis and ecosystem execution.</div>
-        </div>
-        <img src="profile.jpg.jpeg" alt="Tanishq Singhal" class="profile-img">
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">T.SINGHAL</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="snapshot-grid">
-        <div class="snapshot-card"><span class="snapshot-val">30%</span><span class="snapshot-label">Model Efficiency</span></div>
-        <div class="snapshot-card"><span class="snapshot-val">150%</span><span class="snapshot-label">Engagement Growth</span></div>
-        <div class="snapshot-card"><span class="snapshot-val">25+</span><span class="snapshot-label">College Partners</span></div>
-        <div class="snapshot-card"><span class="snapshot-val">6</span><span class="snapshot-label">Startup Credits</span></div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">📍 Sikandrabad, U.P. &nbsp;|&nbsp; BBA Finance & Banking · 2024–2027</div>
+    <h1 class="hero-name">TANISHQ<br/><span>SINGHAL</span></h1>
+    <p class="hero-title">Finance Analyst &amp; Startup Strategist</p>
+    <p class="hero-desc">BBA Finance student with SEBI NISM certification, hands-on experience in financial modelling, and a track record of building startup ecosystems from the ground up.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Registrations Driven</div>
+      </div>
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Startup Credits Secured</div>
+      </div>
+      <div>
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Faster Analysis</div>
+      </div>
+      <div>
+        <div class="stat-num">Top 10%</div>
+        <div class="stat-label">IIT Guwahati Consulting</div>
+      </div>
     </div>
-
-    <section style="margin-bottom: 60px;">
-        <span class="section-h">Executive Summary</span>
-        <p style="font-size: 20px; font-weight: 500; color: var(--slate); line-height: 1.5;">
-            Finance & Banking professional with demonstrated impact in financial modeling, growth strategy execution, and cross-institution ecosystem partnerships. Expert in bridging raw data with strategic decision-making.
-        </p>
-    </section>
-
-    <div class="focus-section">
-        <div class="focus-box">
-            <span class="section-h" style="margin-bottom:15px;">Domain Expertise</span>
-            <div class="tag-cloud">
-                <span class="tag">Corporate Finance</span>
-                <span class="tag">Financial Modeling</span>
-                <span class="tag">Consulting & Strategy</span>
-                <span class="tag">Startup Ecosystems</span>
-            </div>
-        </div>
-        <div class="focus-box">
-            <span class="section-h" style="margin-bottom:15px;">Industries of Interest</span>
-            <div class="tag-cloud">
-                <span class="tag">Investment Banking</span>
-                <span class="tag">FinTech</span>
-                <span class="tag">Corporate Strategy</span>
-                <span class="tag">Venture Capital</span>
-            </div>
-        </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="btn-outline">⬇ Resume</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
     </div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg.jpeg" alt="Tanishq Singhal" />
+    <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;text-align:center;">Tanishq Singhal<br/>BBA Finance · 2nd Year</div>
+  </div>
+</section>
 
-    <span class="section-h">Experience Progression</span>
-    <div class="timeline">
-        <div class="time-item">
-            <div class="time-header">
-                <div>
-                    <h3 class="time-role">Founder Fellow | 23 Ventures</h3>
-                    <div class="time-tagline">Strategic Ecosystem Building</div>
-                </div>
-                <span class="snapshot-label">2025 – 2026</span>
-            </div>
-            <ul class="bullet-list">
-                <li>Repositioned regional strategy to secure 6 startup credit deals (OpenAI, Cloudflare).</li>
-                <li>Orchestrated logistics for 14-team hackathon involving senior MNC mentorship.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="time-header">
-                <div>
-                    <h3 class="time-role">Finance Intern | Yhills</h3>
-                    <div class="time-tagline">Financial Analysis & Forecasting</div>
-                </div>
-                <span class="snapshot-label">2025</span>
-            </div>
-            <ul class="bullet-list">
-                <li>Optimized financial evaluation models, reducing analysis turnaround by 30%.</li>
-                <li>Developed investor-ready reports and comprehensive company profiles.</li>
-            </ul>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">ABOUT <span>ME</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a second-year BBA Finance & Banking student at IMS University Courses Campus, Ghaziabad, with a deep passion for financial markets, strategic problem-solving, and entrepreneurship. I hold a SEBI NISM Investor Certification and have worked across finance internships, campus leadership, and startup ventures.</p>
+      <p>As a Founder Fellow at 23 Ventures, I led outreach to 25+ colleges across Delhi NCR and Pune, organised hackathons, and secured partnership deals with global tech platforms like Cloudflare and OpenAI. I thrive at the intersection of finance and innovation.</p>
+      <p>I'm committed to continuous learning — from IIT Guwahati's consulting program to McKinsey's Forward Program — and bring strong analytical, communication, and leadership skills to every role I take on.</p>
     </div>
-
-    <div class="grid-2">
-        <div class="content-card">
-            <span class="section-h">Selected Projects</span>
-            <div style="margin-bottom: 20px;">
-                <h4 style="margin:0;">Financial Forecasting Model</h4>
-                <p style="font-size:14px; color:var(--text-sub);">Excel-based system improving evaluation speed by 30% for stakeholder decision-making.</p>
-            </div>
-            <div>
-                <h4 style="margin:0;">Internship Automation Bot</h4>
-                <p style="font-size:14px; color:var(--text-sub);">AI-powered scraper (Python/Claude API) scoring 200+ listings daily with 0 manual effort.</p>
-            </div>
-        </div>
-        <div class="content-card">
-            <span class="section-h">Leadership & Initiatives</span>
-            <ul class="bullet-list">
-                <li>Managed a <b>40+ member</b> student community as Campus Ambassador.</li>
-                <li>Contacted <b>20+ colleges</b> to scale regional hackathon outreach.</li>
-                <li>Signed strategic <b>MOU with MNC Mentors</b> to enhance student ecosystem.</li>
-            </ul>
-        </div>
+    <div class="about-highlights">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-title">Financial Modelling</div>
+        <div class="highlight-desc">Built models enabling 30% faster project evaluations</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🚀</div>
+        <div class="highlight-title">Startup Ecosystem</div>
+        <div class="highlight-desc">Secured 6 startup credits with Cloudflare, OpenAI & more</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🎓</div>
+        <div class="highlight-title">SEBI Certified</div>
+        <div class="highlight-desc">NISM Investor Certification, valid till March 2027</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🏆</div>
+        <div class="highlight-title">Top 10% — IIT G</div>
+        <div class="highlight-desc">Winter Consulting 2025, Consulting & Business Strategy</div>
+      </div>
     </div>
+  </div>
+</section>
 
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
+
+  <div class="marquee-wrapper">
     <div class="marquee">
-        <div class="marquee-content">
-            <span class="marquee-item">🏆 TOP 10% – IIT GUWAHATI CONSULTING</span>
-            <span class="marquee-item">🎓 MCKINSEY FORWARD PROGRAM</span>
-            <span class="marquee-item">📜 SEBI NISM CERTIFIED INVESTOR</span>
-            <span class="marquee-item">🏆 TOP 10% – IIT GUWAHATI CONSULTING</span>
-        </div>
+      <span class="marquee-item">23 Ventures</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">23 Ventures</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span>
+      <span class="marquee-item">✦</span>
+    </div>
+  </div>
+
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Dec 2025 — Feb 2026</div>
+      <div class="exp-role">Founder Fellow</div>
+      <div class="exp-company">23 Ventures</div>
+      <ul class="exp-bullets">
+        <li>Secured 6 startup credits from 15+ applications — partners include Cloudflare, OpenAI, and Mixpanel</li>
+        <li>Organised offline Hackathon at BVIMR with 14 teams, 30+ participants and 2 expert judges</li>
+        <li>Hosted online events with 50+ participants and 3 judges</li>
+        <li>Reached out to 25+ colleges across Delhi NCR and Pune for hackathons and webinars</li>
+        <li>Signed an MOU with a mentor holding 7+ years of MNC experience</li>
+      </ul>
     </div>
 
-    <section class="cta-section">
-        <h2 style="font-size:36px; margin:0;">Currently Seeking</h2>
-        <p style="font-size:18px; opacity:0.8; margin-top:10px;">Summer 2026 Finance Internships | Consulting Case Collaborations</p>
-        <div class="btn-group">
-            <a href="Tanishq_Singhal_Resume.pdf" class="btn btn-primary">Download Executive Resume</a>
-            <a href="mailto:tanishqsinghal018@gmail.com" class="btn btn-secondary">Direct Email</a>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Jun 2025 — Jul 2025</div>
+      <div class="exp-role">Finance Intern</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Built financial models enabling 30% faster project evaluations for stakeholders</li>
+        <li>Prepared 5+ financial reports including one-page company profiles and financial forecasts</li>
+        <li>Conducted revenue and cost trend analysis using Advanced Excel and Google Sheets</li>
+        <li>Completed Finance Internship, Course Completion and Project Completion certificates from YHills</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">May 2025 — Jun 2025</div>
+      <div class="exp-role">Campus Ambassador</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Generated 40+ registrations, exceeding 100% growth target through strategic outreach</li>
+        <li>Coordinated 5+ campus events and awareness sessions, driving 150% increase in brand engagement</li>
+        <li>Managed and guided a 40+ member student community</li>
+        <li>Received Certificate of Appreciation for excellent leadership from YHills CEO</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">SKILLS &amp; <span>TOOLS</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Technical Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Advanced Excel</span>
+        <span class="skill-tag">VLOOKUP / Index-Match</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Google Sheets</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Basic Python</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Finance & Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Financial Modelling</span>
+        <span class="skill-tag">Ratio Analysis</span>
+        <span class="skill-tag">EBITDA / PBT</span>
+        <span class="skill-tag">Sales Growth Analysis</span>
+        <span class="skill-tag">Gross Profit Analysis</span>
+        <span class="skill-tag">Financial Forecasting</span>
+        <span class="skill-tag">Financial Statements</span>
+        <span class="skill-tag">Valuation Basics</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Soft Skills & Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag cyan">Leadership</span>
+        <span class="skill-tag cyan">Event Management</span>
+        <span class="skill-tag cyan">Stakeholder Communication</span>
+        <span class="skill-tag cyan">Problem Solving</span>
+        <span class="skill-tag cyan">Team Management</span>
+        <span class="skill-tag cyan">Strategic Thinking</span>
+        <span class="skill-tag cyan">Self-Presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">EDUCATION</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-period">2024 — 2027 (Expected)</div>
+      <div class="edu-degree">Bachelor of Business Administration — Finance & Banking</div>
+      <div class="edu-inst">IMS University Courses Campus, Ghaziabad</div>
+      <div class="edu-detail">Active participant in finance competitions, webinars, and the innovation council. Coursework includes fundamentals of finance, accounting, banking operations, and business management.</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 12 · Senior Secondary</div>
+      <div class="edu-degree">Higher Secondary Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 10 · Secondary</div>
+      <div class="edu-degree">Secondary School Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Dec 2025 · 4-Week Program</div>
+      <div class="edu-degree">Winter Consulting 2025</div>
+      <div class="edu-inst">IIT Guwahati — Consulting & Analytics Club</div>
+      <div class="edu-detail">Placed in <strong style="color:var(--gold)">Top 10%</strong> — intensive coursework in Consulting & Business Strategy with hands-on projects.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">PROJECTS &amp; <span>EVENTS</span></h2>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">⚡</div>
+      <div class="project-body">
+        <div class="project-tag">// Startup Venture · 23 Ventures</div>
+        <div class="project-title">BVIMR Offline Hackathon</div>
+        <div class="project-desc">Organised and hosted a full offline hackathon at BVIMR with 2 expert judges and 14 competing teams. Managed end-to-end logistics, college outreach, team registrations, and event delivery.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">14</div><div class="metric-lbl">Teams</div></div>
+          <div class="metric"><div class="metric-val">30+</div><div class="metric-lbl">Members</div></div>
+          <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Judges</div></div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <footer>
-        <p>Delhi NCR | Open to Global Internship Opportunities</p>
-        <p>LinkedIn: tanishq-singhal91 | © 2026 Tanishq Singhal</p>
-    </footer>
-</div>
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">🌐</div>
+      <div class="project-body">
+        <div class="project-tag">// Startup Venture · 23 Ventures</div>
+        <div class="project-title">Online Events & Startup Credits</div>
+        <div class="project-desc">Hosted online events with 50+ participants and 3 judges. Applied to 15+ credit programs for startups and secured 6 deals with global platforms including Cloudflare, OpenAI, and Mixpanel.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">50+</div><div class="metric-lbl">Participants</div></div>
+          <div class="metric"><div class="metric-val">6</div><div class="metric-lbl">Credits Won</div></div>
+          <div class="metric"><div class="metric-val">25+</div><div class="metric-lbl">Colleges</div></div>
+        </div>
+      </div>
+    </div>
 
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">📈</div>
+      <div class="project-body">
+        <div class="project-tag">// Finance Project · YHills</div>
+        <div class="project-title">Financial Analysis & Modelling</div>
+        <div class="project-desc">Prepared 5+ financial reports including one-page company profiles and stakeholder forecasts. Built financial models from scratch, reducing project evaluation time by 30%. Applied ratio analysis, EBITDA, and revenue trend modelling.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">5+</div><div class="metric-lbl">Reports</div></div>
+          <div class="metric"><div class="metric-val">30%</div><div class="metric-lbl">Faster Analysis</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">🎤</div>
+      <div class="project-body">
+        <div class="project-tag">// Competition · Shyam Lal College, DU</div>
+        <div class="project-title">Poster Making — 1st Position</div>
+        <div class="project-desc">Won 1st place in the Poster Making Competition on "Recent Innovations in Science, Technology & Engineering" organised by the Institution's Innovation Council, Shyam Lal College, University of Delhi (Feb 2025).</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">🥇</div><div class="metric-lbl">1st Place</div></div>
+          <div class="metric"><div class="metric-val">Feb '25</div><div class="metric-lbl">Date</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Photo -->
+  <div style="margin-top: 48px;">
+    <div class="section-label" style="margin-bottom: 16px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
+    <div style="max-width: 480px;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
+      </div>
+      <div style="margin-top:12px;">
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg" alt="23 Ventures BVIMR Hackathon" style="width:100%; height: 280px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95);" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">CERTIFICATIONS &amp; <span>ACHIEVEMENTS</span></h2>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">SEBI / NISM</div>
+      <div class="cert-name">Investor Certification Examination</div>
+      <div class="cert-date">Mar 2025 · Valid till Mar 2027</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">IIT Guwahati · C&A Club</div>
+      <div class="cert-name">Winter Consulting 2025 — Certificate of Excellence</div>
+      <div class="cert-date">Dec 2025 · Top 10%</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">McKinsey.org</div>
+      <div class="cert-name">McKinsey Forward Program — Problem-Solving & Strategy</div>
+      <div class="cert-date">Dec 10, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Meta / Coursera</div>
+      <div class="cert-name">Introduction to Social Media Marketing</div>
+      <div class="cert-date">Feb 18, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">VOIS · Vodafone Idea Foundation</div>
+      <div class="cert-name">Data Visualization</div>
+      <div class="cert-date">Sep 28, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">VOIS · Vodafone Idea Foundation</div>
+      <div class="cert-name">Getting Started with Basics of Python</div>
+      <div class="cert-date">Sep 26, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Semrush Academy</div>
+      <div class="cert-name">Zero to $100M: Ultimate Guide to Business Growth</div>
+      <div class="cert-date">2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Shyam Lal College · Univ. of Delhi</div>
+      <div class="cert-name">1st Place — Poster Making Competition (IIC)</div>
+      <div class="cert-date">Feb 12, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">NISM / SEBI</div>
+      <div class="cert-name">National Financial Literacy Quiz 2025 & 2026</div>
+      <div class="cert-date">2025 · 2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Wadhwani Foundation</div>
+      <div class="cert-name">Interpersonal Skills · Speaking & Listening · Problem Solving · Self-Presentation</div>
+      <div class="cert-date">Jun 5, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">SkillUpAI</div>
+      <div class="cert-name">Advanced Excel Workshop</div>
+      <div class="cert-date">Apr 14, 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Udemy</div>
+      <div class="cert-name">Professional Certificate: Product Management & Development</div>
+      <div class="cert-date">May 30, 2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">NIPAM · Govt. of India</div>
+      <div class="cert-name">IP Awareness Training — National IP Awareness Mission</div>
+      <div class="cert-date">Dec 6, 2024</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Nestlé / Nesternship</div>
+      <div class="cert-name">Nestlé E-learning 2025 — Resilience</div>
+      <div class="cert-date">2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Internshala</div>
+      <div class="cert-name">Certificate of Appreciation — Student Partner Program</div>
+      <div class="cert-date">Dec 4, 2025</div>
+    </div>
+  </div>
+
+  <!-- Competition achievements -->
+  <div style="margin-top: 40px; background: var(--card); border: 1px solid var(--border); padding: 32px;">
+    <div class="section-label" style="margin-bottom: 20px;">// Competition Participations</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">SBSC · Univ. of Delhi</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">Schbang × Marksoc National Case Competition — Elixir'25</div>
+      </div>
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">Masters' Union</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">Young Leaders Case Competition</div>
+      </div>
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">SRCC · Univ. of Delhi</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">Shri Ram Derivatives Challenge — Bullzire'25</div>
+      </div>
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">BVPINC · Bharati Vidyapeeth, Pune</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">Merchant of Stocks 3.0</div>
+      </div>
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">Naukri Campus</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">AINCAT 2025 — India's Biggest Career Aptitude Test</div>
+      </div>
+      <div style="padding: 16px; border: 1px solid var(--border);">
+        <div style="font-size:0.72rem; color: var(--cyan); letter-spacing:2px; font-family:'DM Mono',monospace; margin-bottom:8px;">Finance Bootcamp 2025</div>
+        <div style="font-size:0.9rem; color: var(--text); font-weight:500;">Guided by CFA & CA Mentors (May 9–15, 2025)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center; display:flex;">// 07</div>
+    <h2 class="section-title" style="margin-bottom:16px;">GET IN <span>TOUCH</span></h2>
+    <p class="contact-desc">Open to internships, collaborations, and finance & strategy opportunities. Let's connect!</p>
+    <div class="contact-links">
+      <a href="mailto:tanishqsinghal018@gmail.com" class="contact-link">
+        <span class="icon">✉️</span> tanishqsinghal018@gmail.com
+      </a>
+      <a href="tel:9313921414" class="contact-link">
+        <span class="icon">📞</span> +91 9313921414
+      </a>
+      <a href="https://linkedin.com/in/tanishq-singhal91" target="_blank" class="contact-link">
+        <span class="icon">💼</span> LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">TANISHQ SINGHAL</div>
+  <div class="footer-copy">© 2026 · Finance & Strategy Portfolio · IMS UCC Ghaziabad</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .exp-item').forEach(el => observer.observe(el));
+
+  // Stagger reveals
+  document.querySelectorAll('.highlight-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+  document.querySelectorAll('.cert-card').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 0.08}s`;
+  });
+</script>
 </body>
 </html>
