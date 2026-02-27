@@ -1220,19 +1220,111 @@
   </div>
 
   <!-- Event Photo -->
-  <div style="margin-top: 48px;">
-    <div class="section-label" style="margin-bottom: 16px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
-    <div style="max-width: 480px;">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
-        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
-        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
-        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg" alt="23 Ventures Event" style="width:100%; height: 220px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95); transition: filter 0.3s;" onmouseover="this.style.filter='brightness(1.05)'" onmouseout="this.style.filter='brightness(0.95)'" />
+  <!-- EVENT GALLERY -->
+  <div style="margin-top: 60px;">
+
+    <!-- Header row -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+      <div>
+        <div class="section-label" style="margin-bottom:6px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--text);">MOMENTS FROM THE <span style="color:var(--gold);">GROUND</span></div>
       </div>
-      <div style="margin-top:12px;">
-        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg" alt="23 Ventures BVIMR Hackathon" style="width:100%; height: 280px; object-fit: cover; border: 1px solid var(--border); filter: brightness(0.95);" />
+      <div style="font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:2px; text-align:right; line-height:1.8;">
+        NEW DELHI, INDIA<br/>
+        <span style="color:var(--cyan);">14 TEAMS · 30+ MEMBERS · 2 JUDGES</span>
       </div>
     </div>
+
+    <!-- Full-width gallery frame -->
+    <div style="
+      border: 1px solid var(--border);
+      padding: 16px;
+      background: var(--card);
+      position: relative;
+    ">
+      <!-- Gold corner accents -->
+      <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+
+      <!-- Top row: big featured image + 2 stacked -->
+      <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px; margin-bottom:10px;">
+
+        <!-- Featured large image -->
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg"
+               alt="23 Ventures BVIMR Hackathon"
+               style="width:100%; height:380px; object-fit:cover; display:block; filter:brightness(0.9); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.02)'"
+               onmouseout="this.style.filter='brightness(0.9)';this.style.transform='scale(1)'" />
+          <!-- Gold overlay label -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);">
+            <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:3px;color:var(--gold);font-size:1rem;">Builder's Build · BVIMR Hackathon</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:1px;">23 Ventures · New Delhi</div>
+          </div>
+        </div>
+
+        <!-- Two stacked images on right -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg"
+                 alt="23 Ventures Event"
+                 style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+                 onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+                 onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+          </div>
+          <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg"
+                 alt="23 Ventures Event"
+                 style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+                 onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+                 onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row: 3 equal images -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg"
+               alt="23 Ventures Event"
+               style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg"
+               alt="23 Ventures Event"
+               style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <!-- Stats card replacing 3rd slot -->
+        <div style="
+          background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(77,217,192,0.05));
+          border: 1px solid rgba(201,168,76,0.25);
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          padding: 20px;
+        ">
+          <div style="text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;">14</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Teams</div>
+          </div>
+          <div style="width:40px;height:1px;background:var(--border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--cyan);line-height:1;">30+</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Members</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end gallery frame -->
   </div>
 </section>
 
