@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanishq Singhal | Portfolio</title>
+    <title>Tanishq Singhal | Strategy & Finance</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -14,129 +14,117 @@
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); 
             color: var(--text); line-height: 1.6;
+            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
         }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* TOP DETAILS SECTION */
-        .top-identity { background: var(--primary); color: white; padding: 40px 0; border-bottom: 4px solid var(--accent); }
-        .identity-flex { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-        .id-photo { width: 180px; height: 180px; border-radius: 20px; border: 4px solid var(--accent); object-fit: cover; }
-        .id-text h1 { font-size: 60px; margin: 0; letter-spacing: -3px; line-height: 1; }
-        .id-contact { margin-top: 15px; font-weight: 600; font-size: 16px; opacity: 0.9; }
+        /* HEADER DETAILS ON TOP */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .top-info h1 { font-size: 50px; margin: 0; letter-spacing: -3px; color: var(--primary); }
+        .top-info p { margin: 5px 0; font-weight: 600; color: var(--text-sub); }
+        .profile-pic { width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 4px solid var(--accent); }
 
         /* BIGGER MOVING HEADER */
-        .marquee-mega { background: var(--accent); color: white; padding: 25px 0; overflow: hidden; white-space: nowrap; }
-        .marquee-content { display: inline-block; animation: scroll 25s linear infinite; }
-        .marquee-item { margin: 0 50px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 24px; }
+        .marquee-container { background: var(--primary); color: white; padding: 25px 0; overflow: hidden; white-space: nowrap; margin: 20px 0; }
+        .marquee-content { display: inline-block; animation: scroll 20s linear infinite; }
+        .marquee-item { margin: 0 40px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 28px; color: #fff; }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* VERTICAL TIMELINE */
-        .section-title { font-size: 14px; font-weight: 900; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin: 60px 0 30px 0; display: block; }
-        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 40px 0; }
-        .timeline::after { content: ''; position: absolute; width: 4px; background: #e2e8f0; top: 0; bottom: 0; left: 20px; }
-        .timeline-item { position: relative; padding-left: 60px; margin-bottom: 50px; }
-        .timeline-dot { position: absolute; width: 24px; height: 24px; background: var(--accent); border: 4px solid white; border-radius: 50%; left: 10px; top: 5px; z-index: 2; box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); }
-        .timeline-card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #edf2f7; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .time-date { font-weight: 800; color: var(--accent); font-size: 13px; margin-bottom: 5px; display: block; }
-        .time-title { font-size: 22px; font-weight: 800; margin: 0 0 10px 0; color: var(--primary); }
-        .time-bullets { margin: 0; padding-left: 20px; font-size: 15px; color: var(--text-sub); }
-        .time-bullets li { margin-bottom: 8px; }
+        /* DETAILED VERTICAL TIMELINE */
+        .div-title { font-size: 14px; font-weight: 900; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin: 60px 0 30px 0; display: block; }
+        .timeline { border-left: 3px solid var(--accent); margin-left: 20px; padding-left: 40px; position: relative; }
+        .timeline-item { position: relative; margin-bottom: 60px; }
+        .timeline-item::before { content: ""; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; border: 4px solid var(--bg); }
+        
+        .timeline-card { background: var(--card); padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .time-date { font-weight: 800; color: var(--accent); font-size: 13px; display: block; margin-bottom: 10px; }
+        .time-title { font-size: 22px; font-weight: 800; margin: 0; color: var(--primary); }
+        .time-details { margin-top: 15px; padding-left: 20px; color: var(--text-sub); font-size: 15px; }
+        .time-details li { margin-bottom: 10px; }
 
-        /* IMAGE GRID */
-        .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .evidence-img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; }
+        .evidence-pics { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .evidence-pics img { width: 120px; height: 80px; object-fit: cover; border-radius: 10px; border: 1px solid #eee; }
 
-        footer { text-align: center; padding: 60px 0; background: #f1f5f9; margin-top: 80px; }
-        .btn-resume { background: var(--accent); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 20px; }
-
-        @media (max-width: 768px) {
-            .identity-flex { flex-direction: column; text-align: center; }
-            .id-photo { width: 150px; height: 150px; }
-            .id-text h1 { font-size: 40px; }
-        }
+        footer { text-align: center; padding: 80px 0; background: rgba(0,0,0,0.02); margin-top: 60px; }
+        .btn-main { background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: 800; display: inline-block; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<section class="top-identity">
-    <div class="container">
-        <div class="identity-flex">
-            <div class="id-text">
-                <h1>Tanishq Singhal</h1>
-                <div class="id-contact">
-                    📧 tanishqsinghal018@gmail.com | 📞 9313921414 <br>
-                    📍 Sikandrabad, UP | IMS UCC Ghaziabad (BBA Finance 2024-27)
-                </div>
-            </div>
-            <img src="profile.jpg.jpeg" alt="Tanishq" class="id-photo">
+<div class="container">
+    <div class="top-nav">
+        <div class="top-info">
+            <h1>Tanishq Singhal</h1>
+            <p>📧 tanishqsinghal018@gmail.com | 📞 9313921414</p>
+            <p>IMS UCC Ghaziabad | BBA Finance 2024-2027</p>
         </div>
+        <img src="profile.jpg.jpeg" alt="Tanishq" class="profile-pic">
     </div>
-</section>
+</div>
 
-<div class="marquee-mega">
+<div class="marquee-container">
     <div class="marquee-content">
-        <span class="marquee-item">🚀 TOP 10% IIT GUWAHATI CONSULTING</span>
+        <span class="marquee-item">🚀 30% FASTER FINANCIAL ANALYSIS</span>
         <span class="marquee-item">💼 FOUNDERS FELLOW @ 23VENTURES</span>
-        <span class="marquee-item">📊 30% FASTER FINANCIAL ANALYSIS</span>
-        <span class="marquee-item">🏆 NATIONAL CASE COMPETITION FINALIST</span>
-        <span class="marquee-item">🚀 TOP 10% IIT GUWAHATI CONSULTING</span>
+        <span class="marquee-item">📊 TOP 10% IIT GUWAHATI</span>
+        <span class="marquee-item">🏆 NATIONAL CASE FINALIST</span>
+        <span class="marquee-item">🚀 30% FASTER FINANCIAL ANALYSIS</span>
     </div>
 </div>
 
 <div class="container">
-    <span class="section-title">Professional Timeline & Achievements</span>
+    <span class="div-title">Professional Timeline</span>
     
     <div class="timeline">
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-card">
-                <span class="time-date">DECEMBER 2025 - FEBRUARY 2026</span>
+                <span class="time-date">DEC 2025 - FEB 2026</span>
                 <h3 class="time-title">Founders Fellow | 23 Ventures</h3>
-                <ul class="time-bullets">
-                    <li>Secured 6 SaaS deals with industry leaders like **Cloudflare, OpenAI, and Mixpanel**.</li>
-                    <li>Hosted major offline event at **BVIMR** for 14 teams and industry judges.</li>
-                    <li>Executed MOU with senior MNC mentor (7+ years experience).</li>
+                <ul class="time-details">
+                    <li>Secured 6 SaaS deals with <b>OpenAI, Cloudflare, and Mixpanel</b>.</li>
+                    <li>Hosted offline event at <b>BVIMR</b> with 14 teams and industry judges.</li>
+                    <li>Signed MOU with MNC mentor (7+ years experience).</li>
+                    <li>Managed 25+ college outreaches for hackathons and webinars.</li>
                 </ul>
-                <div class="evidence-grid">
-                    <img src="event (4).jpg" class="evidence-img" alt="BVIMR Event">
-                    <img src="event (3).jpg" class="evidence-img" alt="Pitching">
+                <div class="evidence-pics">
+                    <img src="event (4).jpg" alt="BVIMR">
+                    <img src="event (3).jpg" alt="Pitching">
+                    <img src="event (5).jpg" alt="Execution">
                 </div>
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-card">
                 <span class="time-date">JUNE 2025 - JULY 2025</span>
                 <h3 class="time-title">Finance Intern | Yhills</h3>
-                <ul class="time-bullets">
-                    <li>Built financial models resulting in **30% faster analysis** for project evaluations.</li>
-                    <li>Generated 5+ comprehensive financial reports and stakeholder forecasts.</li>
+                <ul class="time-details">
+                    <li>Built financial models enabling <b>30% faster analysis</b> for project evaluations.</li>
+                    <li>Prepared 5+ financial reports including forecasting and company profiles.</li>
                 </ul>
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-card">
                 <span class="time-date">MAY 2025 - JUNE 2025</span>
                 <h3 class="time-title">Campus Ambassador | Yhills</h3>
-                <ul class="time-bullets">
-                    <li>Generated **40+ registrations**, exceeding growth targets by 100%.</li>
-                    <li>Coordinated 5+ events, driving a **150% increase** in brand engagement.</li>
-                    <li>Led a 40+ member student community as primary coordinator.</li>
+                <ul class="time-details">
+                    <li>Generated <b>40+ registrations</b>, exceeding growth target by 100%.</li>
+                    <li>Coordinated 5+ campus events, driving <b>150% increase</b> in brand engagement.</li>
+                    <li>Managed 40+ member student community communications.</li>
                 </ul>
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-card">
-                <span class="time-date">JANUARY 2025</span>
+                <span class="time-date">JAN 2025</span>
                 <h3 class="time-title">IIT Guwahati Distinction</h3>
-                <ul class="time-bullets">
-                    <li>Ranked in the **Top 10% Percentile** nationwide for Winter Consulting.</li>
-                    <li>Verified expertise in Business Strategy and Case Analysis.</li>
+                <ul class="time-details">
+                    <li>Ranked in <b>Top 10% Percentile</b> in Winter Consulting (Business Strategy).</li>
+                    <li>National Finalist: Schbang X Marksoc SBSC (DU) Elixir'25.</li>
                 </ul>
             </div>
         </div>
@@ -144,8 +132,7 @@
 
     <footer>
         <p style="font-weight: 800; font-size: 20px;">Tanishq Singhal</p>
-        <p style="color: var(--text-sub);">Strategy • Finance • Execution</p>
-        <a href="Tanishq_Singhal_Resume.pdf" class="btn-resume">Download Official Resume PDF</a>
+        <a href="Tanishq_Singhal_Resume.pdf" class="btn-main">Download Full Resume</a>
     </footer>
 </div>
 
