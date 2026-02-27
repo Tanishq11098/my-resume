@@ -9,6 +9,7 @@
         :root { 
             --primary: #0f172a; --accent: #2563eb; --gold: #f59e0b;
             --bg: #fdfdfd; --card: #ffffff; --text: #1e293b; --text-sub: #64748b;
+            --code-bg: #f1f5f9;
         }
         * { transition: all 0.3s ease; box-sizing: border-box; }
         body { 
@@ -31,7 +32,7 @@
         .marquee-item { margin: 0 40px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 28px; color: #fff; }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* DETAILED VERTICAL TIMELINE */
+        /* TIMELINE & SECTIONS */
         .div-title { font-size: 14px; font-weight: 900; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin: 60px 0 30px 0; display: block; }
         .timeline { border-left: 3px solid var(--accent); margin-left: 20px; padding-left: 40px; position: relative; }
         .timeline-item { position: relative; margin-bottom: 60px; }
@@ -40,11 +41,14 @@
         .timeline-card { background: var(--card); padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
         .time-date { font-weight: 800; color: var(--accent); font-size: 13px; display: block; margin-bottom: 10px; }
         .time-title { font-size: 22px; font-weight: 800; margin: 0; color: var(--primary); }
+        
+        /* TECH SECTION SPECIFIC */
+        .tech-card { background: #f8fafc; border-left: 5px solid var(--primary); padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+        .tech-tag { background: var(--primary); color: white; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 800; margin-bottom: 10px; display: inline-block; }
+        .tech-stack { font-family: 'Courier New', Courier, monospace; font-size: 13px; color: var(--accent); font-weight: 700; background: #e2e8f0; padding: 5px 10px; border-radius: 5px; }
+
         .time-details { margin-top: 15px; padding-left: 20px; color: var(--text-sub); font-size: 15px; }
         .time-details li { margin-bottom: 10px; }
-
-        .evidence-pics { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .evidence-pics img { width: 120px; height: 80px; object-fit: cover; border-radius: 10px; border: 1px solid #eee; }
 
         footer { text-align: center; padding: 80px 0; background: rgba(0,0,0,0.02); margin-top: 60px; }
         .btn-main { background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: 800; display: inline-block; margin-top: 20px; }
@@ -67,13 +71,38 @@
     <div class="marquee-content">
         <span class="marquee-item">🚀 30% FASTER FINANCIAL ANALYSIS</span>
         <span class="marquee-item">💼 FOUNDERS FELLOW @ 23VENTURES</span>
+        <span class="marquee-item">🤖 AI-POWERED INTERNSHIP BOT BUILDER</span>
         <span class="marquee-item">📊 TOP 10% IIT GUWAHATI</span>
-        <span class="marquee-item">🏆 NATIONAL CASE FINALIST</span>
         <span class="marquee-item">🚀 30% FASTER FINANCIAL ANALYSIS</span>
     </div>
 </div>
 
 <div class="container">
+    
+    <span class="div-title">Tech & Automation Lab (Independent Projects)</span>
+    
+    <div class="tech-card">
+        <span class="tech-tag">🤖 PROJECT 1</span>
+        <h3 style="margin:5px 0;">Internship Bot v8.0</h3>
+        <p style="font-size:12px; font-weight:700; color:var(--text-sub);">GitHub: Tanishq11098/internship-bot</p>
+        <p class="tech-stack">Stack: Python · Claude API · Google Sheets API · GitHub Actions · BeautifulSoup</p>
+        <div style="font-size:14px; margin-top:15px;">
+            <b>What It Is:</b> Fully automated AI system running daily at 8 AM. Scrapes 15 platforms (LinkedIn, Naukri, etc.), scores listings against my resume using Claude AI, and emails a 7-sheet color-coded report.
+            <br><br><b>Exact Contribution:</b> Wrote 2,239 lines of code. Built 15 scrapers with anti-bot delays. Architected cross-run deduplication using Google Sheets as a database. Designed Sunday-only market strategy AI report.
+        </div>
+    </div>
+
+    <div class="tech-card">
+        <span class="tech-tag">🎓 PROJECT 2</span>
+        <h3 style="margin:5px 0;">Alumni Recruiter Finder</h3>
+        <p style="font-size:12px; font-weight:700; color:var(--text-sub);">GitHub: Tanishq11098/alumni-recruiter-finder</p>
+        <p class="tech-stack">Stack: Vanilla JavaScript · DOM Injection · X-Ray Query Engineering</p>
+        <div style="font-size:14px; margin-top:15px;">
+            <b>What It Is:</b> A free system to bypass LinkedIn Premium. Uses Google X-Ray queries + a JS bookmarklet to extract recruiter profiles, deduplicate them, and render a floating side panel for one-click outreach.
+            <br><br><b>Exact Contribution:</b> Engineered 6-layer X-Ray query. Wrote the setInterval scroll engine to force Google DOM loading. Built a zero-database visited tracker where buttons turn green on click.
+        </div>
+    </div>
+
     <span class="div-title">Professional Timeline</span>
     
     <div class="timeline">
@@ -83,15 +112,9 @@
                 <h3 class="time-title">Founders Fellow | 23 Ventures</h3>
                 <ul class="time-details">
                     <li>Secured 6 SaaS deals with <b>OpenAI, Cloudflare, and Mixpanel</b>.</li>
-                    <li>Hosted offline event at <b>BVIMR</b> with 14 teams and industry judges.</li>
+                    <li>Hosted offline event at <b>BVIMR</b> with 14 teams and 30 members.</li>
                     <li>Signed MOU with MNC mentor (7+ years experience).</li>
-                    <li>Managed 25+ college outreaches for hackathons and webinars.</li>
                 </ul>
-                <div class="evidence-pics">
-                    <img src="event (4).jpg" alt="BVIMR">
-                    <img src="event (3).jpg" alt="Pitching">
-                    <img src="event (5).jpg" alt="Execution">
-                </div>
             </div>
         </div>
 
@@ -100,31 +123,8 @@
                 <span class="time-date">JUNE 2025 - JULY 2025</span>
                 <h3 class="time-title">Finance Intern | Yhills</h3>
                 <ul class="time-details">
-                    <li>Built financial models enabling <b>30% faster analysis</b> for project evaluations.</li>
-                    <li>Prepared 5+ financial reports including forecasting and company profiles.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-card">
-                <span class="time-date">MAY 2025 - JUNE 2025</span>
-                <h3 class="time-title">Campus Ambassador | Yhills</h3>
-                <ul class="time-details">
-                    <li>Generated <b>40+ registrations</b>, exceeding growth target by 100%.</li>
-                    <li>Coordinated 5+ campus events, driving <b>150% increase</b> in brand engagement.</li>
-                    <li>Managed 40+ member student community communications.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-card">
-                <span class="time-date">JAN 2025</span>
-                <h3 class="time-title">IIT Guwahati Distinction</h3>
-                <ul class="time-details">
-                    <li>Ranked in <b>Top 10% Percentile</b> in Winter Consulting (Business Strategy).</li>
-                    <li>National Finalist: Schbang X Marksoc SBSC (DU) Elixir'25.</li>
+                    <li>Built financial models enabling <b>30% faster analysis</b>.</li>
+                    <li>Prepared 5+ financial reports and company profiles for stakeholders.</li>
                 </ul>
             </div>
         </div>
