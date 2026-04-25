@@ -1,207 +1,1480 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Tanishq Singhal — Finance Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-
+<meta name="description" content="Tanishq Singhal — BBA Finance & Banking student at IMS Ghaziabad. NISM-SEBI Certified. Finance Analyst, event organiser at American Center New Delhi (U.S. Embassy × Microsoft), Founder Fellow at 23 Ventures."/>
+<meta property="og:title" content="Tanishq Singhal — Finance & Strategy Portfolio"/>
+<meta property="og:description" content="NISM-SEBI Certified Finance Analyst. Organised events with U.S. Embassy & Microsoft. IIT Guwahati Top 10%. McKinsey Forward. Open to Finance Analyst & Intern roles."/>
+<meta property="og:type" content="website"/>
+<title>Tanishq Singhal — Finance & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --bg:#080a0e;
-  --card:#0f1319;
-  --text:#e8ecf4;
-  --muted:#6a7490;
-  --accent:#4dd9c0;
-}
+  :root {
+    --bg: #080a0e;
+    --bg2: #0d1017;
+    --bg3: #111520;
+    --border: #1e2535;
+    --gold: #c9a84c;
+    --gold2: #f0d080;
+    --cyan: #4dd9c0;
+    --text: #e8ecf4;
+    --muted: #6a7490;
+    --card: #0f1319;
+  }
 
-/* LIGHT MODE */
-body.light {
-  --bg:#f5f6f8;
-  --card:#ffffff;
-  --text:#1f2937;
-  --muted:#6b7280;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-*{margin:0;padding:0;box-sizing:border-box}
+  html { scroll-behavior: smooth; }
 
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.4s;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-/* Loader */
-#loader{
-  position:fixed;
-  inset:0;
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-#loader span{
-  color:white;
-  font-size:18px;
-  letter-spacing:2px;
-}
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+  }
 
-/* Navbar */
-nav{
-  position:sticky;
-  top:0;
-  display:flex;
-  justify-content:space-between;
-  padding:18px 40px;
-  backdrop-filter:blur(10px);
-  background:rgba(0,0,0,0.6);
-}
-.toggle{cursor:pointer}
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    backdrop-filter: blur(20px);
+    background: rgba(8,10,14,0.85);
+    border-bottom: 1px solid var(--border);
+  }
 
-/* Hero */
-.hero{
-  padding:80px 40px;
-  text-align:center;
-}
-.hero h1{font-size:42px}
-.hero p{color:var(--muted)}
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
 
-/* Cards */
-.card{
-  background:var(--card);
-  padding:25px;
-  border-radius:10px;
-  margin:20px auto;
-  max-width:900px;
-  transition:0.4s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.3);
-}
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
 
-/* Stats */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
-}
-.stat{text-align:center}
-.stat h2{color:var(--accent);font-size:30px}
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
 
-/* Reveal */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
+  .nav-links a:hover { color: var(--gold); }
 
-/* Cursor Glow */
-.cursor{
-  position:fixed;
-  width:200px;
-  height:200px;
-  background:radial-gradient(circle,rgba(77,217,192,0.25),transparent 60%);
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:999;
-}
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    top: 10%; right: -100px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77,217,192,0.07) 0%, transparent 70%);
+    bottom: 5%; left: -80px;
+    pointer-events: none;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+
+  #hero {
+    justify-content: center;
+    gap: 80px;
+  }
+  .hero-content { max-width: 600px; position: relative; z-index: 1; flex: 1; }
+
+  .hero-photo {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    width: 300px;
+    height: 380px;
+  }
+
+  /* Decorative corner borders */
+  .hero-photo-frame::before,
+  .hero-photo-frame::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+  }
+  .hero-photo-frame::before {
+    top: -8px; left: -8px;
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+  }
+  .hero-photo-frame::after {
+    bottom: -8px; right: -8px;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+  }
+
+  .hero-photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-photo-inner::before,
+  .hero-photo-inner::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+  }
+  .hero-photo-inner::before {
+    top: -8px; right: -8px;
+    border-top: 2px solid var(--cyan);
+    border-right: 2px solid var(--cyan);
+  }
+  .hero-photo-inner::after {
+    bottom: -8px; left: -8px;
+    border-bottom: 2px solid var(--cyan);
+    border-left: 2px solid var(--cyan);
+  }
+
+  .hero-photo img {
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border: 1px solid rgba(201,168,76,0.4);
+    filter: grayscale(10%) brightness(0.95);
+    box-shadow:
+      0 0 0 6px rgba(201,168,76,0.06),
+      0 0 60px rgba(201,168,76,0.18),
+      0 30px 60px rgba(0,0,0,0.5);
+    transition: filter 0.4s, box-shadow 0.4s;
+  }
+
+  .hero-photo img:hover {
+    filter: grayscale(0%) brightness(1.05);
+    box-shadow:
+      0 0 0 6px rgba(201,168,76,0.12),
+      0 0 80px rgba(201,168,76,0.3),
+      0 30px 60px rgba(0,0,0,0.5);
+  }
+
+  /* Gold glow line under photo */
+  .hero-photo-glow {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 1100px) {
+    #hero { gap: 40px; }
+    .hero-photo-frame, .hero-photo img { width: 240px; height: 300px; }
+  }
+  @media (max-width: 900px) { .hero-photo { display: none; } }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    border: 1px solid rgba(77,217,192,0.3);
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: 4px;
+    color: var(--text);
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-name span { color: var(--gold); }
+
+  .hero-title {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: #9aa3b8;
+    max-width: 560px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    animation: fadeUp 0.8s 0.75s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #0a0800;
+    padding: 14px 32px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 100px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 3px;
+    color: var(--text);
+    margin-bottom: 60px;
+    line-height: 1;
+  }
+
+  .section-title span { color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 60px;
+    width: calc(100% - 120px);
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #9aa3b8;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.3s;
+  }
+
+  .highlight-card:hover { border-color: var(--gold); }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .highlight-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .highlight-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+
+  .exp-timeline { position: relative; }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--cyan), transparent);
+  }
+
+  .exp-item {
+    padding-left: 48px;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .exp-item.visible { opacity: 1; transform: translateX(0); }
+
+  .exp-dot {
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  }
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .exp-role {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: #8a93a8;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 300;
+  }
+
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+    top: 2px;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-group:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: #c9a84c;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .skill-tag:hover { background: rgba(201,168,76,0.18); }
+
+  .skill-tag.cyan {
+    background: rgba(77,217,192,0.08);
+    border-color: rgba(77,217,192,0.2);
+    color: var(--cyan);
+  }
+
+  .skill-tag.cyan:hover { background: rgba(77,217,192,0.18); }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--cyan));
+  }
+
+  .edu-card:hover { border-color: var(--gold); }
+
+  .edu-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .edu-degree {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-inst {
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .edu-detail {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── PROJECTS / EVENTS ── */
+  #projects { background: var(--bg2); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .project-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .project-img-placeholder {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(11,14,20,0.95));
+    pointer-events: none;
+  }
+
+  /* Shared SVG/canvas banner base */
+  .project-banner {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .project-body { padding: 24px; }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .metric-lbl {
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg); }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+
+  .cert-issuer {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .cert-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cert-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--bg2);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 24px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  .contact-link .icon { font-size: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── EVENT GALLERY ── */
+  .event-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    filter: grayscale(20%) brightness(0.9);
+    transition: filter 0.3s, transform 0.3s;
+  }
+
+  .gallery-img:hover { filter: grayscale(0%) brightness(1); transform: scale(1.02); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 70px 24px; }
+    #hero { padding: 120px 24px 60px; }
+    .about-grid, .skills-grid, .edu-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .divider { margin: 0 24px; width: calc(100% - 48px); }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrapper {
+    overflow: hidden;
+    background: rgba(201,168,76,0.05);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 12px 0;
+    margin-bottom: 60px;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 60px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .marquee-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 </style>
 </head>
-
 <body>
 
-<div id="loader"><span>Loading...</span></div>
-<div class="cursor"></div>
-
+<!-- NAV -->
 <nav>
-  <strong>Tanishq Singhal</strong>
-  <div class="toggle" onclick="toggleMode()">🌙</div>
+  <div class="nav-logo">T.SINGHAL</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<section class="hero reveal">
-  <h1>Finance Analyst</h1>
-  <p>Built DCF models improving evaluation speed by 30% · NISM-SEBI Certified</p>
-</section>
-
-<section class="stats reveal">
-  <div class="stat">
-    <h2 class="counter" data-target="30">0</h2>
-    <p>% Faster Evaluation</p>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">📍 Noida, U.P. &nbsp;|&nbsp; BBA Finance & Banking · 2024–2027 &nbsp;|&nbsp; 2,034 LinkedIn Followers</div>
+    <h1 class="hero-name">TANISHQ<br/><span>SINGHAL</span></h1>
+    <p class="hero-title">Data-Driven Finance Analyst &nbsp;·&nbsp; NISM-SEBI Certified &nbsp;·&nbsp; Excel &amp; Power BI Expert</p>
+    <p class="hero-desc">BBA Finance & Banking student at IMS Ghaziabad, NISM-SEBI certified, with hands-on experience in financial modelling, DCF valuation, Power BI dashboards, and building startup ecosystems. Open to Finance Manager, Financial Analyst & related roles.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">🇺🇸</div>
+        <div class="stat-label">U.S. Embassy Event</div>
+      </div>
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Startup Credits</div>
+      </div>
+      <div>
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Faster Analysis</div>
+      </div>
+      <div>
+        <div class="stat-num">Top 10%</div>
+        <div class="stat-label">IIT Guwahati</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="btn-outline">⬇ Resume</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
   </div>
-  <div class="stat">
-    <h2 class="counter" data-target="2000">0</h2>
-    <p>Network</p>
+  <div class="hero-photo">
+    <div class="hero-photo-frame">
+      <div class="hero-photo-inner">
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg.jpeg" alt="Tanishq Singhal" />
+      </div>
+    </div>
+    <div class="hero-photo-glow"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;text-align:center;line-height:1.8;">
+      Tanishq Singhal<br/>
+      <span style="color:var(--gold);">BBA Finance · 2nd Year</span>
+    </div>
   </div>
 </section>
 
-<section class="card reveal">
-  <h3>Finance Experience</h3>
-  <p>DCF modelling, financial analysis, forecasting, reports.</p>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">ABOUT <span>ME</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a second-year BBA Finance & Banking student at IMS University Courses Campus, Ghaziabad, with a deep passion for financial markets, strategic problem-solving, and entrepreneurship. I hold a SEBI NISM Investor Certification and have worked across finance internships, campus leadership, and startup ventures.</p>
+      <p>As a Founder Fellow at 23 Ventures, I led outreach to 25+ colleges across Delhi NCR and Pune, organised hackathons, and secured partnership deals with global tech platforms like Cloudflare and OpenAI. I thrive at the intersection of finance and innovation.</p>
+      <p>I'm committed to continuous learning — from IIT Guwahati's consulting program to McKinsey's Forward Program — and bring strong analytical, communication, and leadership skills to every role I take on.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-title">Financial Modelling</div>
+        <div class="highlight-desc">Built models enabling 30% faster project evaluations</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🚀</div>
+        <div class="highlight-title">Startup Ecosystem</div>
+        <div class="highlight-desc">Secured 6 startup credits with Cloudflare, OpenAI & more</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🎓</div>
+        <div class="highlight-title">SEBI Certified</div>
+        <div class="highlight-desc">NISM Investor Certification, valid till March 2027</div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">🏆</div>
+        <div class="highlight-title">Top 10% — IIT G</div>
+        <div class="highlight-desc">Winter Consulting 2025, Consulting & Business Strategy</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card reveal">
-  <h3>Projects</h3>
-  <p>DCF Valuation · Power BI Dashboard · Equity Research</p>
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
+
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      <span class="marquee-item">23 Ventures</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">American Center New Delhi</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">U.S. Embassy</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Microsoft Azure</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">23 Ventures</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">American Center New Delhi</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">U.S. Embassy</span>
+      <span class="marquee-item">✦</span>
+      <span class="marquee-item">Microsoft Azure</span>
+      <span class="marquee-item">✦</span>
+    </div>
+  </div>
+
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot" style="background: var(--cyan); box-shadow: 0 0 12px rgba(77,217,192,0.6);"></div>
+      <div class="exp-period" style="color: var(--cyan);">Apr 2026 · Certificate of Appreciation</div>
+      <div class="exp-role">Event Organiser — <span style="color:var(--cyan); font-size:1.1rem;">American Center New Delhi</span></div>
+      <div class="exp-company" style="color: var(--cyan);">U.S. Embassy New Delhi &nbsp;·&nbsp; Microsoft Azure &nbsp;·&nbsp; 23 Ventures</div>
+      <ul class="exp-bullets">
+        <li>Co-organised <strong style="color:var(--cyan)">"Building a Secure Data Future: Exploring Cloud with Microsoft Azure"</strong> — a flagship event held in partnership with the American Center New Delhi (U.S. Embassy)</li>
+        <li>Received Certificate of Appreciation signed by <strong style="color:var(--gold)">Adelle Gillen</strong>, Public Diplomacy Officer, U.S. Embassy New Delhi — recognising valuable contribution to event organisation</li>
+        <li>Event co-branded with <strong style="color:var(--gold)">Microsoft</strong>; brought together students, tech professionals, and U.S. diplomatic staff in a high-profile international setting</li>
+        <li>Managed participant coordination, logistics, and on-ground execution at the iconic American Center, New Delhi</li>
+      </ul>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <span style="background:rgba(77,217,192,0.1);border:1px solid rgba(77,217,192,0.3);color:var(--cyan);padding:4px 12px;font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">🇺🇸 U.S. Embassy</span>
+        <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 12px;font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">🪟 Microsoft</span>
+        <span style="background:rgba(77,217,192,0.1);border:1px solid rgba(77,217,192,0.3);color:var(--cyan);padding:4px 12px;font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">☁️ Azure Cloud</span>
+        <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 12px;font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">Apr 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Dec 2025 — Feb 2026</div>
+      <div class="exp-role">Founder Fellow</div>
+      <div class="exp-company">23 Ventures</div>
+      <ul class="exp-bullets">
+        <li>Secured 6 startup credits from 15+ applications — partners include Cloudflare, OpenAI, and Mixpanel</li>
+        <li>Organised offline Hackathon at BVIMR with 14 teams, 30+ participants and 2 expert judges</li>
+        <li>Hosted online events with 50+ participants and 3 judges</li>
+        <li>Reached out to 25+ colleges across Delhi NCR and Pune for hackathons and webinars</li>
+        <li>Signed an MOU with a mentor holding 7+ years of MNC experience</li>
+        <li>Organised <strong style="color:var(--gold)">Builder's Build</strong> — an offline startup event in New Delhi with expert judges & mentors including Mr. Akshay Mathur</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Jun 2025 — Jul 2025</div>
+      <div class="exp-role">Finance Intern</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Built financial models (including DCF analysis) enabling 30% faster project evaluations for stakeholders</li>
+        <li>Prepared 5+ financial reports including one-page company profiles and financial forecasts</li>
+        <li>Conducted revenue and cost trend analysis using Advanced Excel and Google Sheets</li>
+        <li>Completed Finance Internship, Course Completion and Project Completion certificates from YHills</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">May 2025 — Jun 2025</div>
+      <div class="exp-role">Campus Ambassador</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Generated 40+ registrations, exceeding 100% growth target through strategic outreach</li>
+        <li>Coordinated 5+ campus events and awareness sessions, driving 150% increase in brand engagement</li>
+        <li>Managed and guided a 40+ member student community</li>
+        <li>Received Certificate of Appreciation for excellent leadership from YHills CEO</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">SKILLS &amp; <span>TOOLS</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Technical Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Advanced Excel</span>
+        <span class="skill-tag">VLOOKUP / Index-Match</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DCF Analysis</span>
+        <span class="skill-tag">Google Sheets</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Basic Python</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Finance & Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Financial Modelling</span>
+        <span class="skill-tag">Ratio Analysis</span>
+        <span class="skill-tag">EBITDA / PBT</span>
+        <span class="skill-tag">Sales Growth Analysis</span>
+        <span class="skill-tag">Gross Profit Analysis</span>
+        <span class="skill-tag">Financial Forecasting</span>
+        <span class="skill-tag">Financial Statements</span>
+        <span class="skill-tag">Valuation Basics</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Soft Skills & Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag cyan">Leadership</span>
+        <span class="skill-tag cyan">Event Management</span>
+        <span class="skill-tag cyan">Stakeholder Communication</span>
+        <span class="skill-tag cyan">Problem Solving</span>
+        <span class="skill-tag cyan">Team Management</span>
+        <span class="skill-tag cyan">Strategic Thinking</span>
+        <span class="skill-tag cyan">Self-Presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">EDUCATION</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-period">2024 — 2027 (Expected)</div>
+      <div class="edu-degree">Bachelor of Business Administration — Finance & Banking</div>
+      <div class="edu-inst">IMS University Courses Campus, Ghaziabad</div>
+      <div class="edu-detail">Active participant in finance competitions, webinars, and the innovation council. Coursework includes fundamentals of finance, accounting, banking operations, and business management.</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 12 · Senior Secondary</div>
+      <div class="edu-degree">Higher Secondary Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 10 · Secondary</div>
+      <div class="edu-degree">Secondary School Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Dec 2025 · 4-Week Program</div>
+      <div class="edu-degree">Winter Consulting 2025</div>
+      <div class="edu-inst">IIT Guwahati — Consulting & Analytics Club</div>
+      <div class="edu-detail">Placed in <strong style="color:var(--gold)">Top 10%</strong> — intensive coursework in Consulting & Business Strategy with hands-on projects.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">PROJECTS &amp; <span>EVENTS</span></h2>
+  <div class="projects-grid">
+
+    <!-- AMERICAN CENTER CARD - single, full-width, big photos -->
+    <div class="project-card reveal" style="grid-column: span 2; border-color: rgba(77,217,192,0.35);">
+      <!-- Big photo grid -->
+      <div style="display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:200px 140px; gap:4px; overflow:hidden;">
+        <div style="grid-row:span 2; overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg"
+               alt="American Center Group Photo"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(3).jpeg"
+               alt="Certificate"
+               style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(7).jpeg"
+               alt="Flags"
+               style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(6).jpeg"
+               alt="American Center Building"
+               style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(4).jpeg"
+               alt="American Center Event"
+               style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">// U.S. Embassy New Delhi &nbsp;·&nbsp; Microsoft &nbsp;·&nbsp; 23 Ventures &nbsp;·&nbsp; Apr 18, 2026</div>
+        <div class="project-title" style="font-size:1.15rem;">Building a Secure Data Future: Exploring Cloud with Microsoft Azure</div>
+        <div class="project-desc">Co-organised a landmark tech event at the <strong style="color:var(--cyan)">American Center New Delhi</strong> in partnership with the <strong style="color:var(--gold)">U.S. Embassy</strong> and <strong style="color:var(--gold)">Microsoft</strong>. Received a Certificate of Appreciation signed by <strong style="color:var(--gold)">Adelle Gillen</strong>, Public Diplomacy Officer, U.S. Embassy New Delhi, for valuable contribution to event organisation and execution.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val" style="color:var(--cyan);font-size:1rem;">American Center</div><div class="metric-lbl">Venue</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--gold);font-size:1rem;">U.S. Embassy</div><div class="metric-lbl">Partner</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--gold);font-size:1rem;">Microsoft</div><div class="metric-lbl">Co-Brand</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--cyan);font-size:1rem;">Apr '26</div><div class="metric-lbl">Date</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">
+      <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#0a0e18"/>
+        <line x1="0" y1="180" x2="180" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="60" y1="180" x2="240" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="120" y1="180" x2="300" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="180" y1="180" x2="360" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="240" y1="180" x2="420" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="300" y1="180" x2="480" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="360" y1="180" x2="540" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="420" y1="180" x2="600" y2="0" stroke="#1e2535" stroke-width="1"/>
+        <line x1="480" y1="180" x2="600" y2="60" stroke="#1e2535" stroke-width="1"/>
+        <circle cx="300" cy="90" r="55" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="1.5"/>
+        <circle cx="300" cy="90" r="35" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+        <circle cx="300" cy="90" r="6" fill="#c9a84c" opacity="0.7"/>
+        <line x1="300" y1="90" x2="300" y2="20" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="355" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="245" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="370" y2="90" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <line x1="300" y1="90" x2="230" y2="90" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <text x="300" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(201,168,76,0.5)" letter-spacing="3">23 VENTURES · STARTUP EVENTS</text>
+      </svg>
+    </div>
+      <div class="project-body">
+        <div class="project-tag">// Startup Events · 23 Ventures · New Delhi</div>
+        <div class="project-title">BVIMR Hackathon & Builder's Build</div>
+        <div class="project-desc">Organised and hosted two flagship startup events under 23 Ventures. The <strong style="color:var(--gold)">BVIMR Offline Hackathon</strong> brought together 14 teams and 30+ participants with 2 expert judges. <strong style="color:var(--gold)">Builder's Build</strong> — an offline startup event in New Delhi — featured expert judges and mentors including Mr. Akshay Mathur, focused on startup pitching and ecosystem building across Delhi NCR.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">14</div><div class="metric-lbl">Teams</div></div>
+          <div class="metric"><div class="metric-val">30+</div><div class="metric-lbl">Members</div></div>
+          <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Events</div></div>
+          <div class="metric"><div class="metric-val">Delhi</div><div class="metric-lbl">Location</div></div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Event Photo -->
+  <!-- EVENT GALLERY -->
+  <div style="margin-top: 60px;">
+
+    <!-- Header row -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+      <div>
+        <div class="section-label" style="margin-bottom:6px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--text);">MOMENTS FROM THE <span style="color:var(--gold);">GROUND</span></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:2px; text-align:right; line-height:1.8;">
+        NEW DELHI, INDIA<br/>
+        <span style="color:var(--cyan);">14 TEAMS · 30+ MEMBERS · 2 JUDGES</span>
+      </div>
+    </div>
+
+    <!-- Full-width gallery frame -->
+    <div style="
+      border: 1px solid var(--border);
+      padding: 16px;
+      background: var(--card);
+      position: relative;
+    ">
+      <!-- Gold corner accents -->
+      <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+
+      <!-- Top row: big featured image + 2 stacked -->
+      <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px; margin-bottom:10px;">
+
+        <!-- Featured large image -->
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg"
+               alt="23 Ventures BVIMR Hackathon"
+               style="width:100%; height:380px; object-fit:cover; display:block; filter:brightness(0.9); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.02)'"
+               onmouseout="this.style.filter='brightness(0.9)';this.style.transform='scale(1)'" />
+          <!-- Gold overlay label -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);">
+            <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:3px;color:var(--gold);font-size:1rem;">Builder's Build · BVIMR Hackathon</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:1px;">23 Ventures · New Delhi</div>
+          </div>
+        </div>
+
+        <!-- Two stacked images on right -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg"
+                 alt="23 Ventures Event"
+                 style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+                 onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+                 onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+          </div>
+          <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg"
+                 alt="23 Ventures Event"
+                 style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+                 onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+                 onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row: 3 equal images -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg"
+               alt="23 Ventures Event"
+               style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg"
+               alt="23 Ventures Event"
+               style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+        </div>
+        <!-- Stats card replacing 3rd slot -->
+        <div style="
+          background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(77,217,192,0.05));
+          border: 1px solid rgba(201,168,76,0.25);
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          padding: 20px;
+        ">
+          <div style="text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;">14</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Teams</div>
+          </div>
+          <div style="width:40px;height:1px;background:var(--border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--cyan);line-height:1;">30+</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Members</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end gallery frame -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">CERTIFICATIONS &amp; <span>ACHIEVEMENTS</span></h2>
+
+  <!-- Featured American Center Cert -->
+  <div class="reveal" style="margin-bottom: 32px; background: linear-gradient(135deg, rgba(77,217,192,0.07), rgba(201,168,76,0.04)); border: 1px solid rgba(77,217,192,0.35); padding: 28px 32px; display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">🇺🇸 U.S. Embassy New Delhi · Microsoft · Apr 18, 2026</div>
+      <div style="font-weight:700;font-size:1.15rem;color:var(--text);margin-bottom:6px;">Certificate of Appreciation</div>
+      <div style="font-size:0.9rem;color:#9aa3b8;margin-bottom:10px;">"Building a Secure Data Future: Exploring Cloud with Microsoft Azure" — held in partnership with American Center New Delhi</div>
+      <div style="font-size:0.8rem;color:var(--muted);">Signed by <strong style="color:var(--gold)">Adelle Gillen</strong> · Public Diplomacy Officer, U.S. Embassy New Delhi</div>
+    </div>
+    <div style="flex-shrink:0; display:flex; gap:8px;">
+      <span style="background:rgba(77,217,192,0.12);border:1px solid rgba(77,217,192,0.4);color:var(--cyan);padding:6px 14px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">U.S. Embassy</span>
+      <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:6px 14px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">Microsoft Azure</span>
+    </div>
+  </div>
+
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">SEBI / NISM</div>
+      <div class="cert-name">Investor Certification Examination</div>
+      <div class="cert-date">Mar 2025 · Valid till Mar 2027</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">IIT Guwahati · C&A Club</div>
+      <div class="cert-name">Winter Consulting 2025 — Certificate of Excellence</div>
+      <div class="cert-date">Dec 2025 · Top 10%</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">McKinsey.org</div>
+      <div class="cert-name">McKinsey Forward Program — Problem-Solving & Strategy</div>
+      <div class="cert-date">Dec 10, 2025</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center; display:flex;">// 07</div>
+    <h2 class="section-title" style="margin-bottom:16px;">GET IN <span>TOUCH</span></h2>
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(77,217,192,0.08);border:1px solid rgba(77,217,192,0.25);padding:10px 20px;border-radius:2px;margin-bottom:24px;">
+        <span style="color:var(--cyan);font-size:0.75rem;font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;">🟢 Open to Work</span>
+        <span style="color:var(--muted);font-size:0.75rem;">Finance Analyst · Financial Intern · Finance Roles</span>
+      </div>
+      <p class="contact-desc">Open to internships, collaborations, and finance & strategy opportunities. Let's connect!</p>
+    <div class="contact-links">
+      <a href="mailto:tanishqsinghal018@gmail.com" class="contact-link">
+        <span class="icon">✉️</span> tanishqsinghal018@gmail.com
+      </a>
+      <a href="tel:9313921414" class="contact-link">
+        <span class="icon">📞</span> +91 9313921414
+      </a>
+      <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank" class="contact-link">
+        <span class="icon">💼</span> LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">TANISHQ SINGHAL</div>
+  <div class="footer-copy">© 2026 · Finance & Strategy Portfolio · IMS UCC Ghaziabad</div>
+</footer>
 
 <script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
 
-/* Loader FIX */
-window.addEventListener("load",()=>{
-  document.getElementById("loader").style.display="none";
-});
+  document.querySelectorAll('.reveal, .exp-item').forEach(el => observer.observe(el));
 
-/* Dark Mode */
-function toggleMode(){
-  document.body.classList.toggle("light");
-}
-
-/* Cursor Glow */
-document.addEventListener("mousemove",(e)=>{
-  const c=document.querySelector(".cursor");
-  c.style.left=e.clientX+"px";
-  c.style.top=e.clientY+"px";
-});
-
-/* Reveal */
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
-    }
+  // Stagger reveals
+  document.querySelectorAll('.highlight-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
   });
-});
-
-/* Counter FIX (handles 2K etc) */
-document.querySelectorAll(".counter").forEach(counter=>{
-  let target=+counter.dataset.target;
-  let count=0;
-
-  let update=()=>{
-    let inc=target/80;
-    if(count<target){
-      count+=inc;
-      counter.innerText=Math.floor(count);
-      requestAnimationFrame(update);
-    } else {
-      counter.innerText=target;
-    }
-  };
-  update();
-});
-
+  document.querySelectorAll('.cert-card').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 0.08}s`;
+  });
 </script>
-
 </body>
 </html>
