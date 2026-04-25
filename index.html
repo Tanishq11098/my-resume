@@ -36,7 +36,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
@@ -47,7 +46,6 @@
     opacity: 0.35;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -86,7 +84,6 @@
 
   .nav-links a:hover { color: var(--gold); }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -94,6 +91,8 @@
     padding: 140px 60px 80px;
     position: relative;
     overflow: hidden;
+    justify-content: center;
+    gap: 80px;
   }
 
   .hero-glow {
@@ -121,10 +120,6 @@
     50% { transform: translateY(-30px); }
   }
 
-  #hero {
-    justify-content: center;
-    gap: 80px;
-  }
   .hero-content { max-width: 600px; position: relative; z-index: 1; flex: 1; }
 
   .hero-photo {
@@ -143,7 +138,6 @@
     height: 380px;
   }
 
-  /* Decorative corner borders */
   .hero-photo-frame::before,
   .hero-photo-frame::after {
     content: '';
@@ -211,7 +205,6 @@
       0 30px 60px rgba(0,0,0,0.5);
   }
 
-  /* Gold glow line under photo */
   .hero-photo-glow {
     width: 200px;
     height: 1px;
@@ -337,7 +330,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── SECTIONS ── */
   section {
     padding: 100px 60px;
     position: relative;
@@ -364,7 +356,6 @@
 
   .section-title span { color: var(--gold); }
 
-  /* ── DIVIDER ── */
   .divider {
     width: 100%;
     height: 1px;
@@ -373,7 +364,6 @@
     width: calc(100% - 120px);
   }
 
-  /* ── ABOUT ── */
   #about { background: var(--bg2); }
 
   .about-grid {
@@ -405,24 +395,10 @@
 
   .highlight-card:hover { border-color: var(--gold); }
 
-  .highlight-icon {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-  }
+  .highlight-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .highlight-title { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 6px; }
+  .highlight-desc { font-size: 0.8rem; color: var(--muted); }
 
-  .highlight-title {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .highlight-desc {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  /* ── EXPERIENCE ── */
   #experience { background: var(--bg); }
 
   .exp-timeline { position: relative; }
@@ -458,36 +434,11 @@
     box-shadow: 0 0 12px rgba(201,168,76,0.5);
   }
 
-  .exp-period {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--cyan);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
+  .exp-period { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .exp-role { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: var(--text); margin-bottom: 4px; }
+  .exp-company { font-size: 0.9rem; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
 
-  .exp-role {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .exp-company {
-    font-size: 0.9rem;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
   .exp-bullets li {
     font-size: 0.9rem;
@@ -506,14 +457,9 @@
     top: 2px;
   }
 
-  /* ── SKILLS ── */
   #skills { background: var(--bg2); }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
   .skill-group {
     background: var(--card);
@@ -524,20 +470,9 @@
 
   .skill-group:hover { border-color: var(--gold); transform: translateY(-4px); }
 
-  .skill-group-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    color: var(--cyan);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
+  .skill-group-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 3px; color: var(--cyan); text-transform: uppercase; margin-bottom: 20px; }
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
   .skill-tag {
     background: rgba(201,168,76,0.08);
@@ -561,14 +496,9 @@
 
   .skill-tag.cyan:hover { background: rgba(77,217,192,0.18); }
 
-  /* ── EDUCATION ── */
   #education { background: var(--bg); }
 
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
   .edu-card {
     background: var(--card);
@@ -589,40 +519,14 @@
 
   .edu-card:hover { border-color: var(--gold); }
 
-  .edu-period {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
+  .edu-period { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 2px; margin-bottom: 10px; }
+  .edu-degree { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 4px; }
+  .edu-inst { font-size: 0.85rem; color: var(--gold); margin-bottom: 12px; }
+  .edu-detail { font-size: 0.8rem; color: var(--muted); }
 
-  .edu-degree {
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .edu-inst {
-    font-size: 0.85rem;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .edu-detail {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  /* ── PROJECTS / EVENTS ── */
   #projects { background: var(--bg2); }
 
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
   .project-card {
     background: var(--card);
@@ -633,11 +537,7 @@
 
   .project-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 
-  .project-img-placeholder {
-    height: 180px;
-    position: relative;
-    overflow: hidden;
-  }
+  .project-img-placeholder { height: 180px; position: relative; overflow: hidden; }
 
   .project-img-placeholder::after {
     content: '';
@@ -647,72 +547,22 @@
     pointer-events: none;
   }
 
-  /* Shared SVG/canvas banner base */
-  .project-banner {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
+  .project-banner { width: 100%; height: 100%; display: block; }
 
   .project-body { padding: 24px; }
+  .project-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .project-title { font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 10px; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
 
-  .project-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--cyan);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+  .project-metrics { display: flex; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
-  .project-title {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
+  .metric { text-align: center; }
+  .metric-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--gold); line-height: 1; }
+  .metric-lbl { font-size: 0.68rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
 
-  .project-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  .project-metrics {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .metric {
-    text-align: center;
-  }
-
-  .metric-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .metric-lbl {
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  /* ── CERTIFICATIONS ── */
   #certifications { background: var(--bg); }
 
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+  .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
   .cert-card {
     background: var(--card);
@@ -726,50 +576,16 @@
 
   .cert-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
 
-  .cert-issuer {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--cyan);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+  .cert-issuer { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; }
+  .cert-name { font-weight: 600; font-size: 0.88rem; color: var(--text); line-height: 1.4; }
+  .cert-date { font-size: 0.75rem; color: var(--muted); }
 
-  .cert-name {
-    font-weight: 600;
-    font-size: 0.88rem;
-    color: var(--text);
-    line-height: 1.4;
-  }
+  #contact { background: var(--bg2); text-align: center; }
 
-  .cert-date {
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-desc { color: var(--muted); font-size: 1rem; font-weight: 300; margin-bottom: 40px; }
 
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--bg2);
-    text-align: center;
-  }
-
-  .contact-inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-desc {
-    color: var(--muted);
-    font-size: 1rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
+  .contact-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
 
   .contact-link {
     display: flex;
@@ -787,10 +603,8 @@
   }
 
   .contact-link:hover { border-color: var(--gold); color: var(--gold); }
-
   .contact-link .icon { font-size: 1.2rem; }
 
-  /* ── FOOTER ── */
   footer {
     background: var(--bg);
     border-top: 1px solid var(--border);
@@ -802,25 +616,8 @@
     z-index: 1;
   }
 
-  .footer-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    color: var(--gold);
-  }
-
-  .footer-copy {
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-
-  /* ── EVENT GALLERY ── */
-  .event-gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 32px;
-  }
+  .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
 
   .gallery-img {
     width: 100%;
@@ -833,7 +630,92 @@
 
   .gallery-img:hover { filter: grayscale(0%) brightness(1); transform: scale(1.02); }
 
-  /* ── RESPONSIVE ── */
+  /* ── AMERICAN CENTER 7-PHOTO MOSAIC ── */
+  .ac-mosaic {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 160px;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .ac-mosaic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.88);
+    transition: filter 0.4s, transform 0.5s;
+  }
+
+  .ac-mosaic-img:hover {
+    filter: brightness(1.08);
+    transform: scale(1.04);
+  }
+
+  .ac-mosaic-cell {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Row 1: big left spans 2 rows, then 2 cells in col 2 & 3 */
+  .ac-cell-big   { grid-column: 1; grid-row: 1 / span 2; }
+  .ac-cell-tr1   { grid-column: 2; grid-row: 1; }
+  .ac-cell-tr2   { grid-column: 3; grid-row: 1; }
+  /* Row 2: 3 cells across col 2 & 3 — but we only have 2 cols left, so split col 2 & 3 into sub-grid */
+  .ac-cell-br1   { grid-column: 2; grid-row: 2; }
+  .ac-cell-br2   { grid-column: 3; grid-row: 2; }
+
+  /* Bottom strip: 7th photo full width */
+  .ac-strip {
+    overflow: hidden;
+    height: 110px;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  .ac-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: brightness(0.82);
+    transition: filter 0.4s, transform 0.5s;
+  }
+
+  .ac-strip img:hover { filter: brightness(1.05); transform: scale(1.02); }
+
+  .ac-strip-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.5) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    pointer-events: none;
+  }
+
+  .ac-strip-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 5px;
+    color: rgba(201,168,76,0.85);
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .ac-photo-count {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    pointer-events: none;
+  }
+
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 20px; }
@@ -843,21 +725,18 @@
     .hero-stats { gap: 28px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
     .divider { margin: 0 24px; width: calc(100% - 48px); }
+    .ac-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .ac-cell-big { grid-column: 1 / span 2; grid-row: 1; height: 220px; }
   }
 
-  /* ── SCROLL ANIMATIONS ── */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── MARQUEE ── */
   .marquee-wrapper {
     overflow: hidden;
     background: rgba(201,168,76,0.05);
@@ -1184,46 +1063,94 @@
   <h2 class="section-title">PROJECTS &amp; <span>EVENTS</span></h2>
   <div class="projects-grid">
 
-    <!-- AMERICAN CENTER CARD - single, full-width, big photos -->
+    <!-- AMERICAN CENTER CARD — full width, ALL 7 PHOTOS -->
     <div class="project-card reveal" style="grid-column: span 2; border-color: rgba(77,217,192,0.35);">
-      <!-- Big photo grid -->
-      <div style="display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:200px 140px; gap:4px; overflow:hidden;">
-        <div style="grid-row:span 2; overflow:hidden;">
+
+      <!-- ── 7-PHOTO MOSAIC ── -->
+      <!-- Row A: big left (photos 1) + 2 stacked right (photos 3, 7) -->
+      <!-- Row B: 4 equal cells (photos 2, 4, 5, 6)                    -->
+      <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 230px 150px; gap:4px; overflow:hidden;">
+
+        <!-- BIG LEFT — spans both rows -->
+        <div style="grid-column:1; grid-row:1/span 2; overflow:hidden; position:relative;">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg"
                alt="American Center Group Photo"
                style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
-               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
-               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+               onmouseover="this.style.filter='brightness(1.06)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+          <!-- Subtle label overlay -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);pointer-events:none;">
+            <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:3px;color:var(--gold);font-size:0.95rem;">American Center · New Delhi</div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.55);letter-spacing:1px;">U.S. Embassy × Microsoft Azure · Apr 18, 2026</div>
+          </div>
         </div>
-        <div style="overflow:hidden;">
+
+        <!-- TOP RIGHT col 2: photo 3 -->
+        <div style="grid-column:2; grid-row:1; overflow:hidden;">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(3).jpeg"
-               alt="Certificate"
+               alt="Certificate of Appreciation"
                style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
-               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
-               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+               onmouseover="this.style.filter='brightness(1.06)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
-        <div style="overflow:hidden;">
+
+        <!-- TOP RIGHT col 3: photo 7 -->
+        <div style="grid-column:3; grid-row:1; overflow:hidden;">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(7).jpeg"
-               alt="Flags"
+               alt="American Center Flags"
                style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
-               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
-               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+               onmouseover="this.style.filter='brightness(1.06)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
-        <div style="overflow:hidden;">
+
+        <!-- BOTTOM RIGHT col 2: photo 6 -->
+        <div style="grid-column:2; grid-row:2; overflow:hidden;">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(6).jpeg"
                alt="American Center Building"
                style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
-               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
-               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+               onmouseover="this.style.filter='brightness(1.06)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
-        <div style="overflow:hidden;">
+
+        <!-- BOTTOM RIGHT col 3: photo 4 -->
+        <div style="grid-column:3; grid-row:2; overflow:hidden;">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(4).jpeg"
                alt="American Center Event"
                style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;"
-               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
-               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
+               onmouseover="this.style.filter='brightness(1.06)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
       </div>
+
+      <!-- ── BOTTOM STRIP: photos 2 & 5 side by side ── -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-top:4px; height:130px; overflow:hidden;">
+
+        <!-- Photo 2 — NEW -->
+        <div style="overflow:hidden; position:relative;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(2).jpeg"
+               alt="American Center Event 2"
+               style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.85);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.85)';this.style.transform='scale(1)'"/>
+          <div style="position:absolute;top:8px;left:10px;font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(77,217,192,0.8);letter-spacing:2px;background:rgba(0,0,0,0.45);padding:2px 8px;border-radius:2px;pointer-events:none;">NEW</div>
+        </div>
+
+        <!-- Photo 5 — NEW -->
+        <div style="overflow:hidden; position:relative;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(5).jpeg"
+               alt="American Center Event 5"
+               style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.85);transition:filter 0.4s,transform 0.5s;"
+               onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.filter='brightness(0.85)';this.style.transform='scale(1)'"/>
+          <div style="position:absolute;top:8px;left:10px;font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(77,217,192,0.8);letter-spacing:2px;background:rgba(0,0,0,0.45);padding:2px 8px;border-radius:2px;pointer-events:none;">NEW</div>
+        </div>
+      </div>
+
+      <!-- Photo count badge -->
+      <div style="display:flex;justify-content:flex-end;padding:6px 10px 0;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--muted);letter-spacing:2px;">
+        7 PHOTOS &nbsp;·&nbsp; APR 18, 2026
+      </div>
+
       <div class="project-body">
         <div class="project-tag">// U.S. Embassy New Delhi &nbsp;·&nbsp; Microsoft &nbsp;·&nbsp; 23 Ventures &nbsp;·&nbsp; Apr 18, 2026</div>
         <div class="project-title" style="font-size:1.15rem;">Building a Secure Data Future: Exploring Cloud with Microsoft Azure</div>
@@ -1236,6 +1163,7 @@
         </div>
       </div>
     </div>
+    <!-- END AMERICAN CENTER CARD -->
 
     <div class="project-card reveal">
       <div class="project-img-placeholder">
@@ -1274,11 +1202,8 @@
       </div>
     </div>
 
-  <!-- Event Photo -->
-  <!-- EVENT GALLERY -->
+  <!-- BVIMR EVENT GALLERY -->
   <div style="margin-top: 60px;">
-
-    <!-- Header row -->
     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
       <div>
         <div class="section-label" style="margin-bottom:6px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
@@ -1290,37 +1215,24 @@
       </div>
     </div>
 
-    <!-- Full-width gallery frame -->
-    <div style="
-      border: 1px solid var(--border);
-      padding: 16px;
-      background: var(--card);
-      position: relative;
-    ">
-      <!-- Gold corner accents -->
+    <div style="border:1px solid var(--border);padding:16px;background:var(--card);position:relative;">
       <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
       <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
       <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
       <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
 
-      <!-- Top row: big featured image + 2 stacked -->
       <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px; margin-bottom:10px;">
-
-        <!-- Featured large image -->
         <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg"
                alt="23 Ventures BVIMR Hackathon"
                style="width:100%; height:380px; object-fit:cover; display:block; filter:brightness(0.9); transition:filter 0.4s, transform 0.4s;"
                onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.02)'"
                onmouseout="this.style.filter='brightness(0.9)';this.style.transform='scale(1)'" />
-          <!-- Gold overlay label -->
           <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);">
             <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:3px;color:var(--gold);font-size:1rem;">Builder's Build · BVIMR Hackathon</div>
             <div style="font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:1px;">23 Ventures · New Delhi</div>
           </div>
         </div>
-
-        <!-- Two stacked images on right -->
         <div style="display:flex; flex-direction:column; gap:10px;">
           <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
             <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg"
@@ -1339,7 +1251,6 @@
         </div>
       </div>
 
-      <!-- Bottom row: 3 equal images -->
       <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
         <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
           <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg"
@@ -1355,18 +1266,7 @@
                onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'"
                onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'" />
         </div>
-        <!-- Stats card replacing 3rd slot -->
-        <div style="
-          background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(77,217,192,0.05));
-          border: 1px solid rgba(201,168,76,0.25);
-          height: 200px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 18px;
-          padding: 20px;
-        ">
+        <div style="background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(77,217,192,0.05));border:1px solid rgba(201,168,76,0.25);height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;">
           <div style="text-align:center;">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;">14</div>
             <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Teams</div>
@@ -1378,8 +1278,7 @@
           </div>
         </div>
       </div>
-
-    </div><!-- end gallery frame -->
+    </div>
   </div>
 </section>
 
@@ -1390,7 +1289,6 @@
   <div class="section-label">// 06</div>
   <h2 class="section-title">CERTIFICATIONS &amp; <span>ACHIEVEMENTS</span></h2>
 
-  <!-- Featured American Center Cert -->
   <div class="reveal" style="margin-bottom: 32px; background: linear-gradient(135deg, rgba(77,217,192,0.07), rgba(201,168,76,0.04)); border: 1px solid rgba(77,217,192,0.35); padding: 28px 32px; display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
     <div style="flex:1; min-width:200px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">🇺🇸 U.S. Embassy New Delhi · Microsoft · Apr 18, 2026</div>
@@ -1431,10 +1329,10 @@
     <div class="section-label" style="justify-content:center; display:flex;">// 07</div>
     <h2 class="section-title" style="margin-bottom:16px;">GET IN <span>TOUCH</span></h2>
     <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(77,217,192,0.08);border:1px solid rgba(77,217,192,0.25);padding:10px 20px;border-radius:2px;margin-bottom:24px;">
-        <span style="color:var(--cyan);font-size:0.75rem;font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;">🟢 Open to Work</span>
-        <span style="color:var(--muted);font-size:0.75rem;">Finance Analyst · Financial Intern · Finance Roles</span>
-      </div>
-      <p class="contact-desc">Open to internships, collaborations, and finance & strategy opportunities. Let's connect!</p>
+      <span style="color:var(--cyan);font-size:0.75rem;font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;">🟢 Open to Work</span>
+      <span style="color:var(--muted);font-size:0.75rem;">Finance Analyst · Financial Intern · Finance Roles</span>
+    </div>
+    <p class="contact-desc">Open to internships, collaborations, and finance & strategy opportunities. Let's connect!</p>
     <div class="contact-links">
       <a href="mailto:tanishqsinghal018@gmail.com" class="contact-link">
         <span class="icon">✉️</span> tanishqsinghal018@gmail.com
@@ -1456,18 +1354,14 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal, .exp-item').forEach(el => observer.observe(el));
 
-  // Stagger reveals
   document.querySelectorAll('.highlight-card').forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.1}s`;
   });
