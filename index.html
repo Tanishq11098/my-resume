@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Tanishq Singhal — Finance Analyst</title>
+<title>Tanishq Singhal — Finance Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 
 <style>
 :root {
+  --bg:#080a0e;
+  --card:#0f1319;
+  --text:#e8ecf4;
+  --muted:#6a7490;
+  --accent:#4dd9c0;
+}
+
+/* LIGHT MODE */
+body.light {
   --bg:#f5f6f8;
   --card:#ffffff;
   --text:#1f2937;
-  --sub:#6b7280;
-  --accent:#2c4a8f;
-}
-
-body.dark {
-  --bg:#0f172a;
-  --card:#111827;
-  --text:#e5e7eb;
-  --sub:#9ca3af;
-  --accent:#3b82f6;
+  --muted:#6b7280;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Inter',sans-serif;
+  font-family:'DM Sans',sans-serif;
   background:var(--bg);
   color:var(--text);
   transition:0.4s;
@@ -37,71 +37,51 @@ body{
 /* Loader */
 #loader{
   position:fixed;
-  width:100%;
-  height:100%;
-  background:#111;
+  inset:0;
+  background:#000;
   display:flex;
   align-items:center;
   justify-content:center;
   z-index:9999;
 }
-.loader-text{
-  color:#fff;
-  font-size:22px;
+#loader span{
+  color:white;
+  font-size:18px;
   letter-spacing:2px;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%,100%{opacity:0.4}
-  50%{opacity:1}
 }
 
 /* Navbar */
 nav{
   position:sticky;
   top:0;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,0.7);
-  padding:15px 40px;
   display:flex;
   justify-content:space-between;
-  z-index:100;
+  padding:18px 40px;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.6);
 }
-body.dark nav{background:rgba(15,23,42,0.7)}
-
-.toggle{
-  cursor:pointer;
-  font-size:18px;
-}
+.toggle{cursor:pointer}
 
 /* Hero */
 .hero{
   padding:80px 40px;
   text-align:center;
 }
-
-.hero h1{
-  font-family:'Playfair Display';
-  font-size:42px;
-}
-
-.hero p{
-  margin-top:10px;
-  color:var(--sub);
-}
+.hero h1{font-size:42px}
+.hero p{color:var(--muted)}
 
 /* Cards */
 .card{
   background:var(--card);
   padding:25px;
-  border-radius:12px;
-  margin:20px;
+  border-radius:10px;
+  margin:20px auto;
+  max-width:900px;
   transition:0.4s;
 }
-
 .card:hover{
   transform:translateY(-6px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
 }
 
 /* Stats */
@@ -111,24 +91,8 @@ body.dark nav{background:rgba(15,23,42,0.7)}
   gap:30px;
   flex-wrap:wrap;
 }
-
-.stat{
-  text-align:center;
-}
-.stat h2{
-  font-size:28px;
-  color:var(--accent);
-}
-
-/* Cursor Glow */
-.cursor{
-  position:fixed;
-  width:200px;
-  height:200px;
-  background:radial-gradient(circle,rgba(59,130,246,0.25),transparent 60%);
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-}
+.stat{text-align:center}
+.stat h2{color:var(--accent);font-size:30px}
 
 /* Reveal */
 .reveal{
@@ -140,17 +104,28 @@ body.dark nav{background:rgba(15,23,42,0.7)}
   opacity:1;
   transform:none;
 }
+
+/* Cursor Glow */
+.cursor{
+  position:fixed;
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle,rgba(77,217,192,0.25),transparent 60%);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:999;
+}
 </style>
 </head>
 
 <body>
 
-<div id="loader"><div class="loader-text">Loading Portfolio...</div></div>
+<div id="loader"><span>Loading...</span></div>
 <div class="cursor"></div>
 
 <nav>
-  <div><strong>Tanishq Singhal</strong></div>
-  <div class="toggle" onclick="toggleDark()">🌙</div>
+  <strong>Tanishq Singhal</strong>
+  <div class="toggle" onclick="toggleMode()">🌙</div>
 </nav>
 
 <section class="hero reveal">
@@ -165,13 +140,13 @@ body.dark nav{background:rgba(15,23,42,0.7)}
   </div>
   <div class="stat">
     <h2 class="counter" data-target="2000">0</h2>
-    <p>LinkedIn Network</p>
+    <p>Network</p>
   </div>
 </section>
 
 <section class="card reveal">
   <h3>Finance Experience</h3>
-  <p>Built DCF models, financial reports, forecasting tools enabling faster decisions.</p>
+  <p>DCF modelling, financial analysis, forecasting, reports.</p>
 </section>
 
 <section class="card reveal">
@@ -180,20 +155,22 @@ body.dark nav{background:rgba(15,23,42,0.7)}
 </section>
 
 <script>
-/* Loader */
-window.onload=()=>{
+
+/* Loader FIX */
+window.addEventListener("load",()=>{
   document.getElementById("loader").style.display="none";
-}
+});
 
 /* Dark Mode */
-function toggleDark(){
-  document.body.classList.toggle("dark");
+function toggleMode(){
+  document.body.classList.toggle("light");
 }
 
 /* Cursor Glow */
 document.addEventListener("mousemove",(e)=>{
-  document.querySelector(".cursor").style.left=e.clientX+"px";
-  document.querySelector(".cursor").style.top=e.clientY+"px";
+  const c=document.querySelector(".cursor");
+  c.style.left=e.clientX+"px";
+  c.style.top=e.clientY+"px";
 });
 
 /* Reveal */
@@ -206,23 +183,24 @@ window.addEventListener("scroll",()=>{
   });
 });
 
-/* Counter */
-const counters=document.querySelectorAll(".counter");
-counters.forEach(counter=>{
-  let update=()=>{
-    let target=+counter.getAttribute("data-target");
-    let c=+counter.innerText;
-    let inc=target/100;
+/* Counter FIX (handles 2K etc) */
+document.querySelectorAll(".counter").forEach(counter=>{
+  let target=+counter.dataset.target;
+  let count=0;
 
-    if(c<target){
-      counter.innerText=Math.ceil(c+inc);
-      setTimeout(update,20);
+  let update=()=>{
+    let inc=target/80;
+    if(count<target){
+      count+=inc;
+      counter.innerText=Math.floor(count);
+      requestAnimationFrame(update);
     } else {
       counter.innerText=target;
     }
   };
   update();
 });
+
 </script>
 
 </body>
