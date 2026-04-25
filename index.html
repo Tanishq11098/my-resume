@@ -1,6 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Add this inside <head> -->
+<style>
+/* Smooth fade + slide animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Premium hover effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Gradient accent upgrade */
+.btn-resume {
+  background: linear-gradient(135deg, #1a2744, #2c4a8f);
+}
+
+.btn-resume:hover {
+  background: linear-gradient(135deg, #2c4a8f, #3b82f6);
+}
+
+/* Subtle image zoom */
+.gallery-grid img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar blur effect */
+nav {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.85);
+}
+
+/* Animated underline for links */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #2c4a8f;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Floating hero effect */
+.hero-photo {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Gradient section divider */
+.card-title {
+  border-bottom: none;
+  background: linear-gradient(90deg, #c9862a, transparent);
+  padding-bottom: 6px;
+}
+
+</style>
+
+<!-- Add this before </body> -->
+<script>
+// Scroll reveal animation
+const reveals = document.querySelectorAll('.card, .stat-box, .hero-inner');
+
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 80) {
+      el.classList.add('active');
+      el.classList.add('reveal');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+// Smooth parallax effect for hero
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const hero = document.querySelector('.hero');
+  if(hero) {
+    hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+  }
+});
+</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Tanishq Singhal — Finance Professional</title>
