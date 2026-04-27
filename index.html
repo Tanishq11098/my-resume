@@ -1,471 +1,2021 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Tanishq Singhal — Finance Professional. NISM-SEBI Certified. Event organiser at American Center (U.S. Embassy × Microsoft)."/>
-    <title>Tanishq Singhal — Finance & Strategy</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-    
-    <style>
-        :root {
-            /* Light Mode (Default) */
-            --bg: #ffffff;
-            --bg-alt: #f5f5f7;
-            --text: #1d1d1f;
-            --text-muted: #86868b;
-            --accent: #0071e3;
-            --gold: #b39138;
-            --border: rgba(0,0,0,0.1);
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --glass: rgba(255, 255, 255, 0.7);
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Tanishq Singhal — BBA Finance & Banking student at IMS Ghaziabad. NISM-SEBI Certified."/>
+<title>Tanishq Singhal — Finance & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   CSS VARIABLES — DARK & LIGHT THEME
+═══════════════════════════════════════════ */
+:root {
+  --bg: #080a0e;
+  --bg2: #0d1017;
+  --bg3: #111520;
+  --border: #1e2535;
+  --gold: #c9a84c;
+  --gold2: #f0d080;
+  --cyan: #4dd9c0;
+  --text: #e8ecf4;
+  --muted: #6a7490;
+  --card: #0f1319;
+  --shadow: rgba(0,0,0,0.6);
+  --glow-gold: rgba(201,168,76,0.18);
+  --glow-cyan: rgba(77,217,192,0.12);
+  --loader-bg: #080a0e;
+  --cursor-color: rgba(201,168,76,0.6);
+  --transition-theme: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
 
-        [data-theme="dark"] {
-            --bg: #000000;
-            --bg-alt: #121212;
-            --text: #f5f5f7;
-            --text-muted: #a1a1a6;
-            --accent: #2997ff;
-            --gold: #d4af37;
-            --border: rgba(255,255,255,0.1);
-            --card-bg: rgba(28, 28, 30, 0.8);
-            --glass: rgba(0, 0, 0, 0.7);
-        }
+[data-theme="light"] {
+  --bg: #f5f4ef;
+  --bg2: #eeecea;
+  --bg3: #e5e3de;
+  --border: #d0cdc5;
+  --gold: #a07828;
+  --gold2: #c99a30;
+  --cyan: #1a9e88;
+  --text: #1a1a1a;
+  --muted: #7a7060;
+  --card: #faf9f6;
+  --shadow: rgba(0,0,0,0.15);
+  --glow-gold: rgba(160,120,40,0.12);
+  --glow-cyan: rgba(26,158,136,0.1);
+  --loader-bg: #f5f4ef;
+  --cursor-color: rgba(160,120,40,0.5);
+}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
-        
-        /* Custom Cursor for Apple-feel */
-        #custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--text);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            mix-blend-mode: difference;
-            transition: transform 0.2s ease;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-        html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+  transition: var(--transition-theme);
+}
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            transition: background-color 0.5s ease;
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
+body.loading { overflow: hidden; }
 
-        /* ── PAGE LOADER ── */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 1s ease;
-        }
-        .loader-bar {
-            width: 150px;
-            height: 1px;
-            background: var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        .loader-bar::after {
-            content: '';
-            position: absolute;
-            width: 40%;
-            height: 100%;
-            background: var(--accent);
-            animation: loading 1.5s infinite ease-in-out;
-        }
-        @keyframes loading {
-            0% { left: -40%; }
-            100% { left: 100%; }
-        }
+/* ═══════════════════════════════════════════
+   PAGE LOADER
+═══════════════════════════════════════════ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--loader-bg);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
-        /* ── CURSOR GLOW ── */
-        #cursor-glow {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 999;
-            transform: translate(-50%, -50%);
-        }
+#page-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
 
-        /* ── NAVIGATION ── */
-        nav {
-            position: fixed;
-            top: 20px; left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1200px;
-            padding: 12px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            background: var(--glass);
-            border-radius: 100px;
-            border: 1px solid var(--border);
-        }
+.loader-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 8px;
+  color: var(--gold);
+  animation: loaderPulse 1.5s ease-in-out infinite;
+  margin-bottom: 32px;
+}
 
-        .nav-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 25px; align-items: center; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; color: var(--text-muted); 
-            font-size: 0.85rem; font-weight: 500; transition: var(--transition);
-        }
-        .nav-links a:hover { color: var(--text); }
+.loader-bar-track {
+  width: 240px;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
 
-        .theme-toggle {
-            cursor: pointer !important;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
+.loader-bar-fill {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  animation: loaderFill 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
 
-        /* ── HERO ── */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 10% 80px;
-            gap: 60px;
-        }
+.loader-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 16px;
+  animation: loaderBlink 1s step-end infinite;
+}
 
-        .hero-content { flex: 1; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s 0.5s forwards; }
-        
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes loaderPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 40px rgba(201,168,76,0.5); }
+  50% { opacity: 0.7; text-shadow: 0 0 80px rgba(201,168,76,0.8); }
+}
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 113, 227, 0.08);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(0, 113, 227, 0.1);
-        }
+@keyframes loaderFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
 
-        h1 { font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; line-height: 1; margin-bottom: 25px; letter-spacing: -3px; }
-        h1 span { color: var(--gold); }
+@keyframes loaderBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
-        .hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 580px; margin-bottom: 45px; font-weight: 400; }
+/* ═══════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════ */
+#cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: normal;
+}
 
-        .stats-grid { display: flex; gap: 50px; margin-bottom: 50px; }
-        .stat-item h3 { font-size: 2.8rem; font-weight: 700; color: var(--text); letter-spacing: -1px; }
-        .stat-item p { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid var(--cursor-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s cubic-bezier(0.23,1,0.32,1),
+              width 0.3s ease, height 0.3s ease,
+              border-color 0.3s ease, opacity 0.3s ease;
+}
 
-        .btn-group { display: flex; gap: 15px; }
-        .btn {
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        .btn-primary { background: var(--text); color: var(--bg); border: 1px solid var(--text); }
-        .btn-primary:hover { transform: scale(1.03); background: transparent; color: var(--text); }
-        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-        .btn-secondary:hover { border-color: var(--text); }
+#cursor-glow {
+  position: fixed;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow-gold) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9996;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), opacity 0.3s ease;
+  opacity: 0.7;
+}
 
-        .hero-image {
-            position: relative;
-            flex-shrink: 0;
-            opacity: 0; transform: scale(0.9); animation: imageFadeIn 1.2s 0.3s forwards;
-        }
+body:not(:hover) #cursor-dot,
+body:not(:hover) #cursor-ring,
+body:not(:hover) #cursor-glow { opacity: 0; }
 
-        @keyframes imageFadeIn {
-            to { opacity: 1; transform: scale(1); }
-        }
+/* ═══════════════════════════════════════════
+   DARK MODE TOGGLE
+═══════════════════════════════════════════ */
+#theme-toggle {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 500;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 24px var(--shadow);
+}
 
-        .hero-image img {
-            width: 380px;
-            height: 480px;
-            object-fit: cover;
-            border-radius: 32px;
-            filter: grayscale(20%);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.15);
-            transition: var(--transition);
-        }
-        .hero-image:hover img { filter: grayscale(0%); transform: translateY(-10px); }
+#theme-toggle:hover {
+  border-color: var(--gold);
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 24px var(--glow-gold);
+}
 
-        /* ── BENTO GRID ── */
-        section { padding: 100px 10%; }
-        .section-header { margin-bottom: 60px; }
-        .section-header h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; }
+/* ═══════════════════════════════════════════
+   NOISE OVERLAY
+═══════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(8,10,14,0.8);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition-theme), padding 0.3s ease;
+}
 
-        .bento-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 32px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .bento-card:hover { border-color: var(--accent); background: var(--bg); }
-        
-        .bento-card h4 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; }
-        .bento-card p { color: var(--text-muted); font-size: 0.95rem; }
+[data-theme="light"] nav {
+  background: rgba(245,244,239,0.88);
+}
 
-        .col-2 { grid-column: span 2; }
+nav.scrolled {
+  padding: 14px 60px;
+  box-shadow: 0 8px 40px var(--shadow);
+}
 
-        /* ── EXPERIENCE TIMELINE ── */
-        .timeline { max-width: 800px; }
-        .timeline-item {
-            position: relative;
-            padding-left: 40px;
-            padding-bottom: 60px;
-            border-left: 1px solid var(--border);
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.8s ease;
-        }
-        .timeline-item.visible { opacity: 1; transform: translateX(0); }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -5.5px; top: 0;
-            width: 10px; height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent);
-        }
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  transition: letter-spacing 0.3s ease;
+}
 
-        .timeline-date { font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; display: block; }
-        .timeline-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; }
-        .timeline-company { color: var(--gold); font-weight: 600; margin-bottom: 15px; }
+.nav-logo:hover { letter-spacing: 5px; }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1100px) {
-            #hero { flex-direction: column; text-align: center; padding-top: 180px; }
-            .hero-desc, .stats-grid { margin: 0 auto 40px; justify-content: center; }
-            .btn-group { justify-content: center; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .col-2 { grid-column: span 1; }
-            .hero-image img { width: 300px; height: 380px; }
-        }
-    </style>
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  z-index: 200;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 60px 80px;
+  position: relative;
+  overflow: hidden;
+  gap: 80px;
+}
+
+/* Animated mesh gradient */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+  animation: blobFloat 12s ease-in-out infinite;
+}
+
+.mesh-blob:nth-child(1) {
+  width: 500px; height: 500px;
+  background: var(--gold);
+  top: -100px; right: -100px;
+  animation-delay: 0s;
+}
+
+.mesh-blob:nth-child(2) {
+  width: 350px; height: 350px;
+  background: var(--cyan);
+  bottom: -80px; left: -80px;
+  animation-delay: -4s;
+  opacity: 0.1;
+}
+
+.mesh-blob:nth-child(3) {
+  width: 250px; height: 250px;
+  background: var(--gold2);
+  top: 50%; left: 30%;
+  animation-delay: -8s;
+  opacity: 0.07;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* Grid lines bg */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.25;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hero-grid { opacity: 0.15; }
+
+.hero-content {
+  max-width: 620px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  border: 1px solid rgba(77,217,192,0.3);
+  padding: 7px 16px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  animation: fadeUp 0.9s 0.2s ease both;
+  background: rgba(77,217,192,0.04);
+}
+
+.tag-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: tagPulse 2s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(77,217,192,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4.5rem, 9.5vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: 4px;
+  color: var(--text);
+  margin-bottom: 10px;
+  animation: fadeUp 0.9s 0.35s ease both;
+  position: relative;
+}
+
+.hero-name span { color: var(--gold); }
+
+/* Glitch effect on name */
+.hero-name::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px; top: 0;
+  color: var(--cyan);
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: none;
+}
+
+.hero-name:hover::after {
+  animation: glitch 0.4s steps(4) forwards;
+  opacity: 0.3;
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, 0); }
+  25% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 0); }
+  50% { clip-path: inset(50% 0 30% 0); transform: translate(-1px, 0); }
+  75% { clip-path: inset(70% 0 10% 0); transform: translate(1px, 0); }
+  100% { clip-path: inset(100% 0 0 0); transform: translate(0, 0); }
+}
+
+.hero-title {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeUp 0.9s 0.5s ease both;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 44px;
+  font-weight: 300;
+  animation: fadeUp 0.9s 0.65s ease both;
+  line-height: 1.8;
+}
+
+/* ── Animated Stats ── */
+.hero-stats {
+  display: flex;
+  gap: 44px;
+  margin-bottom: 44px;
+  animation: fadeUp 0.9s 0.8s ease both;
+}
+
+.stat-item {
+  position: relative;
+}
+
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--gold);
+  line-height: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.stat-num .suffix {
+  font-size: 1.8rem;
+  color: var(--cyan);
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  align-self: center;
+}
+
+/* ── CTA Buttons ── */
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.95s ease both;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #080600;
+  padding: 14px 32px;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px var(--glow-gold); }
+.btn-primary:hover::before { left: 100%; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  padding: 14px 28px;
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s, transform 0.2s, background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+  background: var(--glow-gold);
+}
+
+/* ── Hero Photo ── */
+.hero-photo {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+.hero-photo-frame {
+  position: relative;
+  width: 300px; height: 380px;
+}
+
+.hero-photo-frame::before,
+.hero-photo-frame::after {
+  content: '';
+  position: absolute;
+  width: 40px; height: 40px;
+  z-index: 2;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.hero-photo-frame::before {
+  top: -8px; left: -8px;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+}
+
+.hero-photo-frame::after {
+  bottom: -8px; right: -8px;
+  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+}
+
+.hero-photo-inner {
+  position: relative;
+  width: 100%; height: 100%;
+}
+
+.hero-photo-inner::before,
+.hero-photo-inner::after {
+  content: '';
+  position: absolute;
+  width: 40px; height: 40px;
+  z-index: 2;
+}
+
+.hero-photo-inner::before {
+  top: -8px; right: -8px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+}
+
+.hero-photo-inner::after {
+  bottom: -8px; left: -8px;
+  border-bottom: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+}
+
+.hero-photo img {
+  width: 300px; height: 380px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border: 1px solid rgba(201,168,76,0.4);
+  filter: grayscale(10%) brightness(0.95);
+  box-shadow: 0 0 0 6px rgba(201,168,76,0.06), 0 0 60px rgba(201,168,76,0.18), 0 30px 60px var(--shadow);
+  transition: filter 0.4s, box-shadow 0.4s;
+}
+
+.hero-photo img:hover {
+  filter: grayscale(0%) brightness(1.05);
+  box-shadow: 0 0 0 6px rgba(201,168,76,0.12), 0 0 80px rgba(201,168,76,0.35), 0 30px 60px var(--shadow);
+}
+
+.hero-photo-glow {
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-top: 4px;
+}
+
+/* Floating badge */
+.floating-badge {
+  position: absolute;
+  right: -20px;
+  bottom: 60px;
+  background: var(--card);
+  border: 1px solid var(--gold);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: badgeFloat 4s ease-in-out infinite;
+  box-shadow: 0 8px 32px var(--shadow), 0 0 20px var(--glow-gold);
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.badge-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.badge-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════ */
+section {
+  padding: 110px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  letter-spacing: 3px;
+  color: var(--text);
+  margin-bottom: 64px;
+  line-height: 1;
+}
+
+.section-title span { color: var(--gold); }
+
+.divider {
+  width: calc(100% - 120px);
+  height: 1px;
+  margin: 0 60px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════ */
+#about { background: var(--bg2); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 22px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.highlight-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 26px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--glow-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.highlight-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px var(--shadow), 0 0 0 1px rgba(201,168,76,0.15);
+}
+
+.highlight-card:hover::before { opacity: 1; }
+
+.highlight-icon {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.highlight-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text);
+  margin-bottom: 7px;
+  letter-spacing: 0.5px;
+}
+
+.highlight-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   EXPERIENCE
+═══════════════════════════════════════════ */
+#experience { background: var(--bg); }
+
+.exp-timeline { position: relative; }
+
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--cyan), transparent);
+}
+
+.exp-item {
+  padding-left: 52px;
+  margin-bottom: 64px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.exp-item.visible { opacity: 1; transform: translateX(0); }
+
+.exp-dot {
+  position: absolute;
+  left: -7px; top: 6px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 16px rgba(201,168,76,0.6);
+  transition: transform 0.3s ease;
+}
+
+.exp-item:hover .exp-dot { transform: scale(1.4); }
+
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.exp-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.exp-company {
+  font-size: 0.88rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.exp-bullets li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 22px;
+  position: relative;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.exp-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════════ */
+#skills { background: var(--bg2); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 30px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-group::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transition: width 0.4s ease;
+}
+
+.skill-group:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 20px 60px var(--shadow); }
+.skill-group:hover::after { width: 100%; }
+
+.skill-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.18);
+  color: var(--gold);
+  padding: 6px 13px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: none;
+}
+
+.skill-tag:hover {
+  background: rgba(201,168,76,0.18);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--glow-gold);
+}
+
+.skill-tag.cyan {
+  background: rgba(77,217,192,0.07);
+  border-color: rgba(77,217,192,0.18);
+  color: var(--cyan);
+}
+
+.skill-tag.cyan:hover {
+  background: rgba(77,217,192,0.18);
+  box-shadow: 0 4px 12px var(--glow-cyan);
+}
+
+/* ═══════════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════════ */
+#education { background: var(--bg); }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.edu-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 34px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--gold), var(--cyan));
+}
+
+.edu-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px var(--shadow);
+}
+
+.edu-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.edu-degree {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.edu-inst {
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.edu-detail {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════════ */
+#projects { background: var(--bg2); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+}
+
+.project-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 24px 60px var(--shadow); }
+
+.project-img-placeholder {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(11,14,20,0.95));
+  pointer-events: none;
+}
+
+.project-banner { width: 100%; height: 100%; display: block; }
+
+.project-body { padding: 26px; }
+
+.project-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.project-metrics {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.metric { text-align: center; }
+
+.metric-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.metric-lbl {
+  font-size: 0.66rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   CERTIFICATIONS
+═══════════════════════════════════════════ */
+#certifications { background: var(--bg); }
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 22px;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 24px 24px 0;
+  border-color: transparent var(--cyan) transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cert-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+.cert-card:hover::after { opacity: 0.5; }
+
+.cert-issuer {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.63rem;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cert-name {
+  font-weight: 600;
+  font-size: 0.87rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.cert-date {
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+#contact { background: var(--bg2); text-align: center; }
+
+.contact-inner { max-width: 600px; margin: 0 auto; }
+
+.contact-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 14px 24px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: border-color 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+  cursor: none;
+}
+
+.contact-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.contact-link .icon { font-size: 1.2rem; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 32px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.footer-copy { font-size: 0.73rem; color: var(--muted); }
+
+/* ═══════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════ */
+.marquee-wrapper {
+  overflow: hidden;
+  background: rgba(201,168,76,0.04);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 13px 0;
+  margin-bottom: 64px;
+}
+
+.marquee {
+  display: flex;
+  gap: 60px;
+  animation: marquee 22s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.08s; }
+.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.16s; }
+.reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.24s; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .hero-photo-frame, .hero-photo img { width: 240px; height: 300px; }
+}
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { gap: 18px; }
+  section { padding: 70px 24px; }
+  #hero { padding: 120px 24px 60px; flex-direction: column; gap: 40px; }
+  .hero-photo { display: none; }
+  .about-grid, .skills-grid, .edu-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  .divider { margin: 0 24px; width: calc(100% - 48px); }
+  #theme-toggle { bottom: 20px; right: 20px; }
+  #cursor-dot, #cursor-ring, #cursor-glow { display: none; }
+  body { cursor: auto; }
+  .btn-primary, .btn-outline, .contact-link, .skill-tag { cursor: pointer; }
+}
+
+/* ═══════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+═══════════════════════════════════════════ */
+[data-theme="light"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+}
+
+[data-theme="light"] .exp-dot {
+  border-color: var(--bg);
+}
+</style>
 </head>
-<body>
+<body class="loading">
 
-    <div id="custom-cursor"></div>
-    <div id="loader"><div class="loader-bar"></div></div>
-    <div id="cursor-glow"></div>
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="cursor-glow"></div>
 
-    <nav>
-        <div class="nav-logo">TANISHQ.S</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Work</a></li>
-            <li><a href="#projects">Portfolio</a></li>
-            <li>
-                <div class="theme-toggle" id="theme-btn">
-                    <span id="theme-icon">🌙</span>
-                </div>
-            </li>
-        </ul>
-    </nav>
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
 
-    <section id="hero">
-        <div class="hero-content">
-            <div class="badge">NISM-SEBI Certified Professional</div>
-            <h1>FINANCE &<br><span>STRATEGY</span></h1>
-            <p class="hero-desc">Full-time Finance Analyst & Strategy expert based in Delhi NCR. Specializing in financial modeling, startup valuations, and institutional ecosystems.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 class="counter" data-target="2000">0</h3>
-                    <p>Followers</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="counter" data-target="30">0</h3>
-                    <p>% Faster Analysis</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="counter" data-target="6">0</h3>
-                    <p>Startup Credits</p>
-                </div>
-            </div>
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">T.SINGHAL</div>
+  <div class="loader-bar-track">
+    <div class="loader-bar-fill"></div>
+  </div>
+  <div class="loader-text">Loading Portfolio...</div>
+</div>
 
-            <div class="btn-group">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume ↓</a>
-            </div>
+<!-- DARK MODE TOGGLE -->
+<button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">T.SINGHAL</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-mesh">
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+    <div class="mesh-blob"></div>
+  </div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="tag-dot"></span>
+      📍 Noida, U.P. &nbsp;|&nbsp; BBA Finance &amp; Banking · 2024–2027 &nbsp;|&nbsp; Open to Work
+    </div>
+    <h1 class="hero-name" data-text="TANISHQ SINGHAL">TANISHQ<br/><span>SINGHAL</span></h1>
+    <p class="hero-title">Data-Driven Finance Analyst &nbsp;·&nbsp; NISM-SEBI Certified &nbsp;·&nbsp; Excel &amp; Power BI Expert</p>
+    <p class="hero-desc">BBA Finance & Banking student at IMS Ghaziabad, NISM-SEBI certified, with hands-on experience in financial modelling, DCF valuation, Power BI dashboards, and building startup ecosystems.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="counter" data-target="2034" data-suffix="">0</span>
+          <span class="suffix">+</span>
         </div>
-
-        <div class="hero-image">
-            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg.jpeg" alt="Tanishq Singhal Profile">
+        <div class="stat-label">LinkedIn Followers</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="counter" data-target="6" data-suffix="">0</span>
         </div>
-    </section>
-
-    <section id="about">
-        <div class="section-header">
-            <h2>The Bento Strategy</h2>
+        <div class="stat-label">Startup Credits</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="counter" data-target="30" data-suffix="">0</span>
+          <span class="suffix">%</span>
         </div>
-        <div class="bento-grid">
-            <div class="bento-card col-2">
-                <div>
-                    <h4>U.S. Embassy & Microsoft</h4>
-                    <p>Co-organised high-level international data summits. Recognized by the U.S. Public Diplomacy Office for leadership in cross-border tech initiatives.</p>
-                </div>
-                <span style="color: var(--accent); font-weight: 700; margin-top: 20px;">Institutional Partnership →</span>
-            </div>
-            <div class="bento-card">
-                <h4>Financial Modeling</h4>
-                <p>Advanced Excel & DCF expert. Reduced project evaluation cycles by 30% through automated forecasting tools.</p>
-            </div>
-            <div class="bento-card">
-                <h4>Top 10% Tier</h4>
-                <p>Consulting & Business Strategy excellence at IIT Guwahati Winter Consulting 2025.</p>
-            </div>
-            <div class="bento-card col-2" style="background: var(--bg-alt);">
-                <h4>Venture Ecosystems</h4>
-                <p>Founder Fellow at 23 Ventures. Spearheaded outreach for 25+ colleges and secured exclusive credits from OpenAI, Cloudflare, and Mixpanel.</p>
-            </div>
+        <div class="stat-label">Faster Analysis</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">
+          <span style="font-size:2rem;">🇺🇸</span>
         </div>
-    </section>
+        <div class="stat-label">U.S. Embassy Event</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience →</a>
+      <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="btn-outline">⬇ Resume</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
 
-    <section id="experience">
-        <div class="section-header">
-            <h2>Career Milestones</h2>
+  <div class="hero-photo">
+    <div class="hero-photo-frame">
+      <div class="hero-photo-inner">
+        <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg.jpeg" alt="Tanishq Singhal"/>
+      </div>
+    </div>
+    <div class="floating-badge">
+      <div class="badge-val">Top 10%</div>
+      <div class="badge-lbl">IIT Guwahati</div>
+    </div>
+    <div class="hero-photo-glow"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:0.63rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;text-align:center;line-height:1.9;">
+      Tanishq Singhal<br/>
+      <span style="color:var(--gold);">BBA Finance · 2nd Year</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">ABOUT <span>ME</span></h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a second-year BBA Finance & Banking student at IMS University Courses Campus, Ghaziabad, with a deep passion for financial markets, strategic problem-solving, and entrepreneurship. I hold a SEBI NISM Investor Certification and have worked across finance internships, campus leadership, and startup ventures.</p>
+      <p>As a Founder Fellow at 23 Ventures, I led outreach to 25+ colleges across Delhi NCR and Pune, organised hackathons, and secured partnership deals with global tech platforms like Cloudflare and OpenAI. I thrive at the intersection of finance and innovation.</p>
+      <p>I'm committed to continuous learning — from IIT Guwahati's consulting program to McKinsey's Forward Program — and bring strong analytical, communication, and leadership skills to every role I take on.</p>
+    </div>
+    <div class="about-highlights reveal-stagger">
+      <div class="highlight-card">
+        <span class="highlight-icon">📊</span>
+        <div class="highlight-title">Financial Modelling</div>
+        <div class="highlight-desc">Built models enabling 30% faster project evaluations</div>
+      </div>
+      <div class="highlight-card">
+        <span class="highlight-icon">🚀</span>
+        <div class="highlight-title">Startup Ecosystem</div>
+        <div class="highlight-desc">Secured 6 startup credits with Cloudflare, OpenAI & more</div>
+      </div>
+      <div class="highlight-card">
+        <span class="highlight-icon">🎓</span>
+        <div class="highlight-title">SEBI Certified</div>
+        <div class="highlight-desc">NISM Investor Certification, valid till March 2027</div>
+      </div>
+      <div class="highlight-card">
+        <span class="highlight-icon">🏆</span>
+        <div class="highlight-title">Top 10% — IIT G</div>
+        <div class="highlight-desc">Winter Consulting 2025, Consulting & Business Strategy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
+
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      <span class="marquee-item">23 Ventures</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">American Center New Delhi</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">U.S. Embassy</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Microsoft Azure</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">23 Ventures</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">YHills Edutech</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Finance Internship</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Campus Ambassador</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Founder Fellow</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">American Center New Delhi</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">U.S. Embassy</span><span class="marquee-item">✦</span>
+      <span class="marquee-item">Microsoft Azure</span><span class="marquee-item">✦</span>
+    </div>
+  </div>
+
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot" style="background: var(--cyan); box-shadow: 0 0 16px rgba(77,217,192,0.6);"></div>
+      <div class="exp-period" style="color: var(--cyan);">Apr 2026 · Certificate of Appreciation</div>
+      <div class="exp-role">Event Organiser — <span style="color:var(--cyan);font-size:1.1rem;">American Center New Delhi</span></div>
+      <div class="exp-company" style="color: var(--cyan);">U.S. Embassy New Delhi &nbsp;·&nbsp; Microsoft Azure &nbsp;·&nbsp; 23 Ventures</div>
+      <ul class="exp-bullets">
+        <li>Co-organised <strong style="color:var(--cyan)">"Building a Secure Data Future: Exploring Cloud with Microsoft Azure"</strong> — a flagship event held in partnership with the American Center New Delhi (U.S. Embassy)</li>
+        <li>Received Certificate of Appreciation signed by <strong style="color:var(--gold)">Adelle Gillen</strong>, Public Diplomacy Officer, U.S. Embassy New Delhi — recognising valuable contribution to event organisation</li>
+        <li>Event co-branded with <strong style="color:var(--gold)">Microsoft</strong>; brought together students, tech professionals, and U.S. diplomatic staff in a high-profile international setting</li>
+        <li>Managed participant coordination, logistics, and on-ground execution at the iconic American Center, New Delhi</li>
+      </ul>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <span style="background:rgba(77,217,192,0.1);border:1px solid rgba(77,217,192,0.3);color:var(--cyan);padding:4px 12px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">🇺🇸 U.S. Embassy</span>
+        <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 12px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">🪟 Microsoft</span>
+        <span style="background:rgba(77,217,192,0.1);border:1px solid rgba(77,217,192,0.3);color:var(--cyan);padding:4px 12px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">☁️ Azure Cloud</span>
+        <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 12px;font-size:0.7rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">Apr 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Dec 2025 — Feb 2026</div>
+      <div class="exp-role">Founder Fellow</div>
+      <div class="exp-company">23 Ventures</div>
+      <ul class="exp-bullets">
+        <li>Secured 6 startup credits from 15+ applications — partners include Cloudflare, OpenAI, and Mixpanel</li>
+        <li>Organised offline Hackathon at BVIMR with 14 teams, 30+ participants and 2 expert judges</li>
+        <li>Hosted online events with 50+ participants and 3 judges</li>
+        <li>Reached out to 25+ colleges across Delhi NCR and Pune for hackathons and webinars</li>
+        <li>Signed an MOU with a mentor holding 7+ years of MNC experience</li>
+        <li>Organised <strong style="color:var(--gold)">Builder's Build</strong> — an offline startup event in New Delhi with expert judges & mentors including Mr. Akshay Mathur</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Jun 2025 — Jul 2025</div>
+      <div class="exp-role">Finance Intern</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Built financial models (including DCF analysis) enabling 30% faster project evaluations for stakeholders</li>
+        <li>Prepared 5+ financial reports including one-page company profiles and financial forecasts</li>
+        <li>Conducted revenue and cost trend analysis using Advanced Excel and Google Sheets</li>
+        <li>Completed Finance Internship, Course Completion and Project Completion certificates from YHills</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">May 2025 — Jun 2025</div>
+      <div class="exp-role">Campus Ambassador</div>
+      <div class="exp-company">YHills, Noida</div>
+      <ul class="exp-bullets">
+        <li>Generated 40+ registrations, exceeding 100% growth target through strategic outreach</li>
+        <li>Coordinated 5+ campus events and awareness sessions, driving 150% increase in brand engagement</li>
+        <li>Managed and guided a 40+ member student community</li>
+        <li>Received Certificate of Appreciation for excellent leadership from YHills CEO</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">SKILLS &amp; <span>TOOLS</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Technical Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Advanced Excel</span>
+        <span class="skill-tag">VLOOKUP / Index-Match</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DCF Analysis</span>
+        <span class="skill-tag">Google Sheets</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Basic Python</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Finance & Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Financial Modelling</span>
+        <span class="skill-tag">Ratio Analysis</span>
+        <span class="skill-tag">EBITDA / PBT</span>
+        <span class="skill-tag">Sales Growth Analysis</span>
+        <span class="skill-tag">Gross Profit Analysis</span>
+        <span class="skill-tag">Financial Forecasting</span>
+        <span class="skill-tag">Financial Statements</span>
+        <span class="skill-tag">Valuation Basics</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">// Soft Skills & Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag cyan">Leadership</span>
+        <span class="skill-tag cyan">Event Management</span>
+        <span class="skill-tag cyan">Stakeholder Communication</span>
+        <span class="skill-tag cyan">Problem Solving</span>
+        <span class="skill-tag cyan">Team Management</span>
+        <span class="skill-tag cyan">Strategic Thinking</span>
+        <span class="skill-tag cyan">Self-Presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">EDUCATION</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-period">2024 — 2027 (Expected)</div>
+      <div class="edu-degree">Bachelor of Business Administration — Finance & Banking</div>
+      <div class="edu-inst">IMS University Courses Campus, Ghaziabad</div>
+      <div class="edu-detail">Active participant in finance competitions, webinars, and the innovation council. Coursework includes fundamentals of finance, accounting, banking operations, and business management.</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 12 · Senior Secondary</div>
+      <div class="edu-degree">Higher Secondary Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Class 10 · Secondary</div>
+      <div class="edu-degree">Secondary School Certificate</div>
+      <div class="edu-inst">Divine Educational Institute</div>
+      <div class="edu-detail">Score: 72%</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-period">Dec 2025 · 4-Week Program</div>
+      <div class="edu-degree">Winter Consulting 2025</div>
+      <div class="edu-inst">IIT Guwahati — Consulting & Analytics Club</div>
+      <div class="edu-detail">Placed in <strong style="color:var(--gold)">Top 10%</strong> — intensive coursework in Consulting & Business Strategy with hands-on projects.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">PROJECTS &amp; <span>EVENTS</span></h2>
+  <div class="projects-grid">
+
+    <!-- AMERICAN CENTER CARD -->
+    <div class="project-card reveal" style="grid-column: span 2; border-color: rgba(77,217,192,0.35);">
+      <div style="display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:200px 140px; gap:4px; overflow:hidden;">
+        <div style="grid-row:span 2; overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg" alt="American Center Group Photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-date">APRIL 2026</span>
-                <h3 class="timeline-title">Event Organiser</h3>
-                <p class="timeline-company">American Center New Delhi | U.S. Embassy</p>
-                <p>Managed logistics for "Building a Secure Data Future" in partnership with Microsoft Azure. Certified for diplomatic event excellence.</p>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">2025 — 2026</span>
-                <h3 class="timeline-title">Founder Fellow</h3>
-                <p class="timeline-company">23 Ventures</p>
-                <p>Led strategic partnerships and organized multi-city hackathons reaching 500+ student entrepreneurs.</p>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">JUNE 2025</span>
-                <h3 class="timeline-title">Finance Intern</h3>
-                <p class="timeline-company">YHills Edutech</p>
-                <p>Developed full-scale financial models and DCF analysis for stakeholders, improving data accuracy in reporting.</p>
-            </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(3).jpeg" alt="Certificate" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
         </div>
-    </section>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(7).jpeg" alt="Flags" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(6).jpeg" alt="American Center Building" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+        </div>
+        <div style="overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(4).jpeg" alt="American Center Event" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.88);transition:filter 0.4s,transform 0.5s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.03)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">// U.S. Embassy New Delhi &nbsp;·&nbsp; Microsoft &nbsp;·&nbsp; 23 Ventures &nbsp;·&nbsp; Apr 18, 2026</div>
+        <div class="project-title" style="font-size:1.15rem;">Building a Secure Data Future: Exploring Cloud with Microsoft Azure</div>
+        <div class="project-desc">Co-organised a landmark tech event at the <strong style="color:var(--cyan)">American Center New Delhi</strong> in partnership with the <strong style="color:var(--gold)">U.S. Embassy</strong> and <strong style="color:var(--gold)">Microsoft</strong>. Received a Certificate of Appreciation signed by <strong style="color:var(--gold)">Adelle Gillen</strong>, Public Diplomacy Officer, U.S. Embassy New Delhi, for valuable contribution to event organisation and execution.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val" style="color:var(--cyan);font-size:1rem;">American Center</div><div class="metric-lbl">Venue</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--gold);font-size:1rem;">U.S. Embassy</div><div class="metric-lbl">Partner</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--gold);font-size:1rem;">Microsoft</div><div class="metric-lbl">Co-Brand</div></div>
+          <div class="metric"><div class="metric-val" style="color:var(--cyan);font-size:1rem;">Apr '26</div><div class="metric-lbl">Date</div></div>
+        </div>
+      </div>
+    </div>
 
-    <footer style="padding: 60px 10%; border-top: 1px solid var(--border); text-align: center;">
-        <p style="color: var(--text-muted); font-size: 0.8rem; font-weight: 500;">&copy; 2026 TANISHQ SINGHAL. DESIGNED WITH PRECISION.</p>
-    </footer>
+    <div class="project-card reveal">
+      <div class="project-img-placeholder">
+        <svg class="project-banner" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="180" fill="#0a0e18"/>
+          <line x1="0" y1="180" x2="180" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="60" y1="180" x2="240" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="120" y1="180" x2="300" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="180" y1="180" x2="360" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="240" y1="180" x2="420" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="300" y1="180" x2="480" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="360" y1="180" x2="540" y2="0" stroke="#1e2535" stroke-width="1"/><line x1="420" y1="180" x2="600" y2="0" stroke="#1e2535" stroke-width="1"/>
+          <circle cx="300" cy="90" r="55" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="1.5"/>
+          <circle cx="300" cy="90" r="35" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+          <circle cx="300" cy="90" r="6" fill="#c9a84c" opacity="0.7"/>
+          <line x1="300" y1="90" x2="300" y2="20" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><line x1="300" y1="90" x2="355" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><line x1="300" y1="90" x2="245" y2="45" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+          <text x="300" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(201,168,76,0.5)" letter-spacing="3">23 VENTURES · STARTUP EVENTS</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">// Startup Events · 23 Ventures · New Delhi</div>
+        <div class="project-title">BVIMR Hackathon & Builder's Build</div>
+        <div class="project-desc">Organised and hosted two flagship startup events under 23 Ventures. The <strong style="color:var(--gold)">BVIMR Offline Hackathon</strong> brought together 14 teams and 30+ participants with 2 expert judges. <strong style="color:var(--gold)">Builder's Build</strong> — an offline startup event in New Delhi — featured expert judges and mentors including Mr. Akshay Mathur.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">14</div><div class="metric-lbl">Teams</div></div>
+          <div class="metric"><div class="metric-val">30+</div><div class="metric-lbl">Members</div></div>
+          <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Events</div></div>
+          <div class="metric"><div class="metric-val">Delhi</div><div class="metric-lbl">Location</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        // Page Loader
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 1000);
-        });
+  <!-- EVENT GALLERY -->
+  <div style="margin-top: 60px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+      <div>
+        <div class="section-label" style="margin-bottom:6px;">// Event Gallery · BVIMR Hackathon (23 Ventures)</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--text);">MOMENTS FROM THE <span style="color:var(--gold);">GROUND</span></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace; font-size:0.66rem; color:var(--muted); letter-spacing:2px; text-align:right; line-height:1.8;">
+        NEW DELHI, INDIA<br/>
+        <span style="color:var(--cyan);">14 TEAMS · 30+ MEMBERS · 2 JUDGES</span>
+      </div>
+    </div>
 
-        // Custom Cursor Logic
-        const cursor = document.getElementById('custom-cursor');
-        const glow = document.getElementById('cursor-glow');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-        });
+    <div style="border: 1px solid var(--border); padding: 16px; background: var(--card); position: relative;">
+      <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+      <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
 
-        // Theme Toggle Logic
-        const themeBtn = document.getElementById('theme-btn');
-        const themeIcon = document.getElementById('theme-icon');
-        
-        themeBtn.addEventListener('click', () => {
-            const isDark = document.body.hasAttribute('data-theme');
-            if (isDark) {
-                document.body.removeAttribute('data-theme');
-                themeIcon.innerText = '🌙';
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                themeIcon.innerText = '☀️';
-            }
-        });
+      <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg" alt="23 Ventures BVIMR Hackathon" style="width:100%; height:380px; object-fit:cover; display:block; filter:brightness(0.9); transition:filter 0.4s, transform 0.4s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.02)'" onmouseout="this.style.filter='brightness(0.9)';this.style.transform='scale(1)'"/>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);">
+            <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:3px;color:var(--gold);font-size:1rem;">Builder's Build · BVIMR Hackathon</div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);letter-spacing:1px;">23 Ventures · New Delhi</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg" alt="23 Ventures Event" style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+          </div>
+          <div style="overflow:hidden; border:1px solid rgba(201,168,76,0.2); flex:1;">
+            <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg" alt="23 Ventures Event" style="width:100%; height:185px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+          </div>
+        </div>
+      </div>
 
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+        <div style="overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg" alt="23 Ventures Event" style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+        </div>
+        <div style="overflow:hidden; border:1px solid rgba(201,168,76,0.2);">
+          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg" alt="23 Ventures Event" style="width:100%; height:200px; object-fit:cover; display:block; filter:brightness(0.88); transition:filter 0.4s, transform 0.4s;" onmouseover="this.style.filter='brightness(1.05)';this.style.transform='scale(1.04)'" onmouseout="this.style.filter='brightness(0.88)';this.style.transform='scale(1)'"/>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(77,217,192,0.05)); border: 1px solid rgba(201,168,76,0.25); height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 20px;">
+          <div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;">14</div><div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Teams</div></div>
+          <div style="width:40px;height:1px;background:var(--border);"></div>
+          <div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--cyan);line-height:1;">30+</div><div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Members</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const startCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / speed;
+<div class="divider"></div>
 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(startCounters, 1);
-                } else {
-                    counter.innerText = target + (target > 100 ? '+' : '');
-                }
-            });
-        };
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">CERTIFICATIONS &amp; <span>ACHIEVEMENTS</span></h2>
 
-        // Scroll Observer for Timeline & Counters
-        const observerOptions = { threshold: 0.2 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('timeline-item')) {
-                        entry.target.classList.add('visible');
-                    }
-                    if (entry.target.id === 'hero') {
-                        startCounters();
-                    }
-                }
-            });
-        }, observerOptions);
+  <div class="reveal" style="margin-bottom: 32px; background: linear-gradient(135deg, rgba(77,217,192,0.07), rgba(201,168,76,0.04)); border: 1px solid rgba(77,217,192,0.35); padding: 28px 32px; display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.63rem;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">🇺🇸 U.S. Embassy New Delhi · Microsoft · Apr 18, 2026</div>
+      <div style="font-weight:700;font-size:1.15rem;color:var(--text);margin-bottom:6px;">Certificate of Appreciation</div>
+      <div style="font-size:0.9rem;color:var(--muted);margin-bottom:10px;">"Building a Secure Data Future: Exploring Cloud with Microsoft Azure" — held in partnership with American Center New Delhi</div>
+      <div style="font-size:0.8rem;color:var(--muted);">Signed by <strong style="color:var(--gold)">Adelle Gillen</strong> · Public Diplomacy Officer, U.S. Embassy New Delhi</div>
+    </div>
+    <div style="flex-shrink:0; display:flex; gap:8px; flex-wrap:wrap;">
+      <span style="background:rgba(77,217,192,0.12);border:1px solid rgba(77,217,192,0.4);color:var(--cyan);padding:6px 14px;font-size:0.68rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">U.S. Embassy</span>
+      <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:6px 14px;font-size:0.68rem;font-family:'DM Mono',monospace;letter-spacing:2px;border-radius:2px;">Microsoft Azure</span>
+    </div>
+  </div>
 
-        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
-        observer.observe(document.getElementById('hero'));
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">SEBI / NISM</div>
+      <div class="cert-name">Investor Certification Examination</div>
+      <div class="cert-date">Mar 2025 · Valid till Mar 2027</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">IIT Guwahati · C&A Club</div>
+      <div class="cert-name">Winter Consulting 2025 — Certificate of Excellence</div>
+      <div class="cert-date">Dec 2025 · Top 10%</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">McKinsey.org</div>
+      <div class="cert-name">McKinsey Forward Program — Problem-Solving & Strategy</div>
+      <div class="cert-date">Dec 10, 2025</div>
+    </div>
+  </div>
+</section>
 
-        // Smooth button hover scaling
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
-            btn.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-        });
-    </script>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center; display:flex;">// 07</div>
+    <h2 class="section-title" style="margin-bottom:16px;">GET IN <span>TOUCH</span></h2>
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(77,217,192,0.08);border:1px solid rgba(77,217,192,0.25);padding:10px 20px;border-radius:2px;margin-bottom:24px;">
+      <span style="color:var(--cyan);font-size:0.73rem;font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;">🟢 Open to Work</span>
+      <span style="color:var(--muted);font-size:0.73rem;">Finance Analyst · Financial Intern · Finance Roles</span>
+    </div>
+    <p class="contact-desc">Open to internships, collaborations, and finance & strategy opportunities. Let's connect!</p>
+    <div class="contact-links">
+      <a href="mailto:tanishqsinghal018@gmail.com" class="contact-link"><span class="icon">✉️</span> tanishqsinghal018@gmail.com</a>
+      <a href="tel:9313921414" class="contact-link"><span class="icon">📞</span> +91 9313921414</a>
+      <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank" class="contact-link"><span class="icon">💼</span> LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">TANISHQ SINGHAL</div>
+  <div class="footer-copy">© 2026 · Finance & Strategy Portfolio · IMS UCC Ghaziabad</div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════
+   PAGE LOADER
+═══════════════════════════════════════ */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('page-loader');
+    loader.classList.add('hidden');
+    document.body.classList.remove('loading');
+  }, 2000);
+});
+
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════ */
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+const glow = document.getElementById('cursor-glow');
+
+let mx = 0, my = 0;
+let rx = 0, ry = 0;
+let gx = 0, gy = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px';
+  dot.style.top = my + 'px';
+});
+
+function animateCursor() {
+  rx += (mx - rx) * 0.15;
+  ry += (my - ry) * 0.15;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+
+  gx += (mx - gx) * 0.06;
+  gy += (my - gy) * 0.06;
+  glow.style.left = gx + 'px';
+  glow.style.top = gy + 'px';
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover effects
+document.querySelectorAll('a, button, .skill-tag, .highlight-card, .project-card, .cert-card, .edu-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    dot.style.width = '12px';
+    dot.style.height = '12px';
+    dot.style.background = 'var(--cyan)';
+    ring.style.width = '56px';
+    ring.style.height = '56px';
+    ring.style.borderColor = 'rgba(77,217,192,0.5)';
+  });
+  el.addEventListener('mouseleave', () => {
+    dot.style.width = '8px';
+    dot.style.height = '8px';
+    dot.style.background = 'var(--gold)';
+    ring.style.width = '36px';
+    ring.style.height = '36px';
+    ring.style.borderColor = 'var(--cursor-color)';
+  });
+});
+
+/* ═══════════════════════════════════════
+   DARK / LIGHT TOGGLE
+═══════════════════════════════════════ */
+const toggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+const savedTheme = localStorage.getItem('ts-theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+toggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+toggle.addEventListener('click', () => {
+  const curr = html.getAttribute('data-theme');
+  const next = curr === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  toggle.textContent = next === 'dark' ? '🌙' : '☀️';
+  localStorage.setItem('ts-theme', next);
+});
+
+/* ═══════════════════════════════════════
+   SCROLL PROGRESS
+═══════════════════════════════════════ */
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = (scrollTop / docHeight) * 100;
+  progressBar.style.width = pct + '%';
+
+  // Nav shrink
+  const nav = document.getElementById('main-nav');
+  nav.classList.toggle('scrolled', scrollTop > 60);
+});
+
+/* ═══════════════════════════════════════
+   ANIMATED STAT COUNTERS
+═══════════════════════════════════════ */
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = target > 100 ? 2200 : 1200;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutQuart(progress);
+    const current = Math.floor(eased * target);
+    el.textContent = current.toLocaleString();
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString();
+  }
+
+  requestAnimationFrame(update);
+}
+
+/* ═══════════════════════════════════════
+   INTERSECTION OBSERVER
+═══════════════════════════════════════ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-stagger, .exp-item').forEach(el => revealObserver.observe(el));
+
+// Counter observer — fires counters when hero is in view
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.counter').forEach(c => animateCounter(c));
+      counterObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+const heroEl = document.getElementById('hero');
+if (heroEl) counterObserver.observe(heroEl);
+
+/* ═══════════════════════════════════════
+   STAGGER DELAYS
+═══════════════════════════════════════ */
+document.querySelectorAll('.highlight-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.1) + 's';
+});
+document.querySelectorAll('.cert-card').forEach((el, i) => {
+  el.style.transitionDelay = ((i % 3) * 0.08) + 's';
+});
+document.querySelectorAll('.exp-item').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.1) + 's';
+});
+
+/* ═══════════════════════════════════════
+   SMOOTH NAV CLICKS
+═══════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
 </body>
 </html>
