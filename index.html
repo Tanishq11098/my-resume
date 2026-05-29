@@ -1,1013 +1,1224 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Tanishq Singhal — Finance & Strategy Analyst. SEBI-Certified. BBA Finance, IMS Ghaziabad."/>
-<title>Tanishq Singhal — Finance · Strategy · Execution</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanishq Singhal — Finance & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0a0c12;
-  --bg2: #0f1118;
-  --card: #13161f;
-  --card2: #181c27;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --gold: #e8b84b;
-  --gold2: #f5d47a;
-  --cyan: #3fd9c0;
-  --text: #edf0f8;
-  --text2: #9ea8c0;
-  --muted: #5a6480;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
-  --r: 12px;
-  --r2: 18px;
-}
-[data-theme="light"] {
-  --bg: #f5f4ef;
-  --bg2: #edecea;
-  --card: #ffffff;
-  --card2: #f0efe9;
-  --border: rgba(0,0,0,0.08);
-  --border2: rgba(0,0,0,0.14);
-  --gold: #9a6e10;
-  --gold2: #c4920a;
-  --cyan: #0d7a6a;
-  --text: #14161e;
-  --text2: #4a5068;
-  --muted: #8a91a8;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-img{display:block;max-width:100%;}
-a{text-decoration:none;color:inherit;}
+  :root {
+    --bg: #06060f;
+    --bg2: #0d0d1a;
+    --bg3: #12121f;
+    --border: rgba(99,102,241,0.18);
+    --border2: rgba(99,102,241,0.35);
+    --blue: #6366f1;
+    --blue2: #818cf8;
+    --cyan: #22d3ee;
+    --purple: #a78bfa;
+    --gold: #f59e0b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --dim: #475569;
+    --card: rgba(13,13,26,0.8);
+    --glow: 0 0 40px rgba(99,102,241,0.15);
+  }
 
-/* Stars bg */
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 100%),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,0.1) 0%,transparent 100%),radial-gradient(1px 1px at 80% 60%,rgba(255,255,255,0.12) 0%,transparent 100%),radial-gradient(1px 1px at 10% 80%,rgba(255,255,255,0.08) 0%,transparent 100%),radial-gradient(1px 1px at 45% 70%,rgba(255,255,255,0.1) 0%,transparent 100%),radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,0.08) 0%,transparent 100%),radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,0.06) 0%,transparent 100%),radial-gradient(1px 1px at 70% 85%,rgba(255,255,255,0.09) 0%,transparent 100%);
-  pointer-events:none;z-index:0;
-}
-[data-theme="light"] body::before{display:none;}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
 
-/* ── SCROLL PROGRESS ── */
-#sp{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:9999;transition:width .08s;}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 48px;
-  background:rgba(10,12,18,0.8);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s,padding .3s;
-}
-[data-theme="light"] nav{background:rgba(245,244,239,0.88);}
-nav.scrolled{border-bottom-color:var(--border);padding:12px 48px;}
-.nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:800;letter-spacing:2px;color:var(--gold);}
-.nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);font-weight:500;transition:color .2s;}
-.nav-links a:hover{color:var(--text);}
-.nav-right{display:flex;align-items:center;gap:12px;}
-.nav-resume{
-  font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
-  padding:8px 18px;background:var(--gold);color:#08060a;
-  border-radius:6px;transition:background .2s,transform .2s;
-}
-.nav-resume:hover{background:var(--gold2);transform:translateY(-1px);}
-.theme-btn{
-  width:36px;height:36px;border-radius:50%;border:1px solid var(--border2);
-  background:var(--card);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s;
-}
-.theme-btn:hover{border-color:var(--gold);}
+  /* Background stars/particles */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20% 30%, rgba(99,102,241,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(34,211,238,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 60%, rgba(167,139,250,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(99,102,241,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 70%, rgba(34,211,238,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 15%, rgba(167,139,250,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 85%, rgba(99,102,241,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 45%, rgba(34,211,238,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 55%, rgba(167,139,250,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 35%, rgba(99,102,241,0.3) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* Hamburger */
-.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
-.ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:transform .3s,opacity .3s;}
-.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
-.mob-nav{
-  display:none;position:fixed;top:0;right:0;width:260px;height:100vh;
-  background:var(--bg2);border-left:1px solid var(--border);
-  z-index:99;padding:80px 32px 40px;flex-direction:column;gap:24px;
-  transform:translateX(100%);transition:transform .35s;
-}
-.mob-nav.open{transform:translateX(0);}
-.mob-nav a{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text2);transition:color .2s;}
-.mob-nav a:hover{color:var(--gold);}
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(6,6,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
 
-/* ── HERO ── */
-#hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:120px 48px 80px;gap:60px;position:relative;z-index:1;
-  max-width:1200px;margin:0 auto;
-}
-.hero-left{flex:1;}
-.avail-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid var(--border2);padding:6px 14px;border-radius:20px;
-  font-size:0.72rem;letter-spacing:1px;color:var(--text2);margin-bottom:28px;
-  background:rgba(255,255,255,0.03);
-}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.5);}50%{box-shadow:0 0 0 5px transparent;}}
-.hero-name{
-  font-family:var(--font-display);font-size:clamp(3rem,6vw,5.5rem);
-  font-weight:800;line-height:1;letter-spacing:-1px;color:var(--text);
-  margin-bottom:12px;
-}
-.hero-name span{color:var(--gold);}
-.hero-role{
-  font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.5rem);
-  font-weight:600;color:var(--cyan);margin-bottom:28px;letter-spacing:1px;
-}
-.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
-.chip{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--card);border:1px solid var(--border);
-  padding:7px 14px;border-radius:8px;font-size:0.78rem;color:var(--text2);
-  transition:border-color .2s,color .2s;
-}
-.chip:hover{border-color:var(--gold);color:var(--text);}
-.chip-icon{font-size:1rem;}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-gold{
-  padding:12px 26px;background:var(--gold);color:#08060a;
-  border-radius:8px;font-weight:600;font-size:0.82rem;
-  transition:background .2s,transform .2s;
-}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);}
-.btn-ghost{
-  padding:11px 24px;border:1px solid var(--border2);color:var(--text2);
-  border-radius:8px;font-size:0.82rem;transition:border-color .2s,color .2s;
-}
-.btn-ghost:hover{border-color:var(--gold);color:var(--text);}
-.hero-socials{display:flex;gap:10px;margin-top:24px;}
-.social-btn{
-  width:38px;height:38px;border-radius:8px;border:1px solid var(--border);
-  background:var(--card);display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s;
-}
-.social-btn:hover{border-color:var(--gold);}
-.social-btn svg{width:18px;height:18px;fill:var(--text2);}
+  .nav-logo {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 15px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(99,102,241,0.4);
+  }
 
-/* Hero right: photo + ID card */
-.hero-right{
-  flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:16px;
-  animation:fadeIn .8s .2s both;
-}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-.hero-photo{
-  width:260px;height:320px;border-radius:var(--r2);
-  object-fit:cover;object-position:top center;
-  border:1px solid var(--border2);
-}
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--blue2); }
 
-/* ID Card */
-.id-card{
-  width:260px;background:var(--card2);border:1px solid var(--border2);
-  border-radius:var(--r2);overflow:hidden;font-size:0.72rem;
-}
-.idc-header{
-  background:rgba(232,184,75,0.08);border-bottom:1px solid var(--border);
-  padding:8px 14px;display:flex;justify-content:space-between;
-  font-family:var(--font-mono);color:var(--muted);letter-spacing:1px;font-size:0.6rem;text-transform:uppercase;
-}
-.idc-body{padding:14px;}
-.idc-name{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:2px;}
-.idc-sub{color:var(--text2);font-size:0.7rem;margin-bottom:10px;}
-.idc-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(63,217,192,0.1);border:1px solid rgba(63,217,192,0.25);
-  color:var(--cyan);padding:3px 10px;border-radius:4px;font-size:0.6rem;letter-spacing:1px;
-  text-transform:uppercase;font-family:var(--font-mono);margin-bottom:12px;
-}
-.idc-row{display:flex;gap:0;border-top:1px solid var(--border);}
-.idc-tab{
-  flex:1;padding:7px 10px;text-align:center;font-family:var(--font-mono);font-size:0.6rem;
-  letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);cursor:pointer;
-}
-.idc-tab:last-child{border-right:none;}
-.idc-tab.active{color:var(--gold);background:rgba(232,184,75,0.06);}
-.idc-stats{padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
-.idc-stat{display:flex;align-items:center;gap:10px;font-size:0.7rem;color:var(--text2);}
-.idc-stat-num{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--gold);min-width:28px;}
+  /* Hero */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 3rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
 
-/* ── SECTIONS ── */
-.section{padding:90px 48px;position:relative;z-index:1;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.sec-label{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
-.sec-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--text);margin-bottom:48px;letter-spacing:-0.5px;}
-.sec-title em{color:var(--gold);font-style:normal;}
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: center;
+  }
 
-/* ── ABOUT ── */
-#about{background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-.about-text p{color:var(--text2);font-size:0.95rem;line-height:1.85;margin-bottom:16px;}
-.about-text strong{color:var(--text);font-weight:500;}
-.about-quote{margin-top:28px;padding-left:18px;border-left:2px solid var(--gold);}
-.about-quote p{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--text2);line-height:1.4;}
-.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.acard{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:22px 18px;
-  transition:border-color .3s,transform .3s;
-}
-.acard:hover{border-color:var(--gold);transform:translateY(-3px);}
-.acard-icon{font-size:1.4rem;margin-bottom:10px;}
-.acard-title{font-weight:600;font-size:0.85rem;color:var(--text);margin-bottom:5px;}
-.acard-desc{font-size:0.75rem;color:var(--text2);line-height:1.6;}
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    font-size: 13px;
+    color: var(--blue2);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
 
-/* ── STATS ── */
-#stats{background:var(--bg);}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.stat-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
-  padding:28px 20px;text-align:center;transition:border-color .3s,transform .3s;
-}
-.stat-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.stat-icon{font-size:1.6rem;margin-bottom:12px;}
-.stat-num{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1;}
-.stat-num span{font-size:1.3rem;color:var(--cyan);}
-.stat-lbl{font-size:0.72rem;color:var(--text2);margin-top:6px;font-family:var(--font-mono);letter-spacing:1px;}
+  .hero-badge .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulse 2s infinite;
+  }
 
-/* ── EXPERIENCE ── */
-#experience{background:var(--bg2);}
-.exp-list{display:flex;flex-direction:column;gap:12px;}
-.exp-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
-  overflow:hidden;transition:border-color .3s;
-}
-.exp-card:hover{border-color:var(--border2);}
-.exp-card-featured{border-color:rgba(63,217,192,0.25);}
-.exp-card-inner{display:grid;grid-template-columns:220px 1fr;gap:0;}
-.exp-left{padding:26px 22px;border-right:1px solid var(--border);}
-.exp-period{font-family:var(--font-mono);font-size:0.6rem;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;line-height:1.6;}
-.exp-org{font-size:0.8rem;color:var(--gold);font-weight:500;margin-bottom:12px;line-height:1.4;}
-.exp-tags-row{display:flex;flex-wrap:wrap;gap:5px;}
-.etag{
-  font-family:var(--font-mono);font-size:0.55rem;letter-spacing:1px;text-transform:uppercase;
-  padding:3px 8px;border-radius:4px;
-}
-.etag-g{background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.2);color:var(--gold);}
-.etag-c{background:rgba(63,217,192,0.06);border:1px solid rgba(63,217,192,0.18);color:var(--cyan);}
-.exp-right{padding:26px 28px;}
-.exp-role{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:14px;letter-spacing:-0.3px;}
-.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.exp-bullets li{font-size:0.83rem;color:var(--text2);padding-left:16px;position:relative;line-height:1.7;}
-.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:0.65rem;top:5px;}
-.exp-bullets li strong{color:var(--text);font-weight:500;}
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #22c55e; }
+    50% { opacity: 0.6; box-shadow: 0 0 16px #22c55e; }
+  }
 
-/* ── PROJECTS ── */
-#projects{background:var(--bg);}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.proj-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
-  overflow:hidden;transition:border-color .3s,transform .3s;
-}
-.proj-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.proj-card-wide{grid-column:span 2;}
-.proj-img{height:160px;overflow:hidden;background:var(--card2);}
-.proj-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:filter .4s,transform .5s;}
-.proj-card:hover .proj-img img{filter:brightness(1);transform:scale(1.03);}
-.proj-img-placeholder{
-  height:160px;background:linear-gradient(135deg,rgba(232,184,75,0.08),rgba(63,217,192,0.06));
-  display:flex;align-items:center;justify-content:center;font-size:2.5rem;
-}
-.proj-body{padding:22px 20px;}
-.proj-eye{font-family:var(--font-mono);font-size:0.6rem;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.proj-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px;}
-.proj-desc{font-size:0.78rem;color:var(--text2);line-height:1.7;margin-bottom:14px;}
-.proj-desc strong{color:var(--text);font-weight:500;}
-.proj-metrics-row{display:flex;gap:18px;border-top:1px solid var(--border);padding-top:14px;}
-.pm{text-align:left;}
-.pm-val{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1;}
-.pm-lbl{font-family:var(--font-mono);font-size:0.56rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
+  .hero-name {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
 
-/* ── SKILLS ── */
-#skills{background:var(--bg2);}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.sg{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
-  padding:24px 20px;transition:border-color .3s,transform .3s;
-}
-.sg:hover{border-color:var(--border2);transform:translateY(-3px);}
-.sg-title{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
-.sg-sub{font-size:0.73rem;color:var(--muted);margin-bottom:16px;}
-.stags{display:flex;flex-wrap:wrap;gap:7px;}
-.stag{
-  padding:5px 11px;border-radius:6px;font-size:0.72rem;font-weight:500;
-  transition:background .2s,transform .2s;cursor:default;
-}
-.stag-g{background:rgba(232,184,75,0.07);border:1px solid rgba(232,184,75,0.18);color:var(--gold);}
-.stag-g:hover{background:rgba(232,184,75,0.16);transform:translateY(-1px);}
-.stag-c{background:rgba(63,217,192,0.06);border:1px solid rgba(63,217,192,0.16);color:var(--cyan);}
-.stag-c:hover{background:rgba(63,217,192,0.14);transform:translateY(-1px);}
+  .hero-name .line2 {
+    background: linear-gradient(135deg, var(--blue2), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* ── CERTIFICATIONS ── */
-#certifications{background:var(--bg);}
-.cert-featured{
-  background:linear-gradient(135deg,rgba(63,217,192,0.06),rgba(232,184,75,0.03));
-  border:1px solid rgba(63,217,192,0.28);border-radius:var(--r2);
-  padding:26px 28px;margin-bottom:20px;
-  display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;
-  transition:border-color .3s;
-}
-.cert-featured:hover{border-color:var(--cyan);}
-.cert-feat-eye{font-family:var(--font-mono);font-size:0.6rem;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.cert-feat-name{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:6px;line-height:1.4;}
-.cert-feat-desc{font-size:0.8rem;color:var(--text2);line-height:1.6;margin-bottom:6px;}
-.cert-feat-sign{font-size:0.75rem;color:var(--muted);}
-.cert-feat-sign strong{color:var(--gold);}
-.cert-chips{display:flex;flex-direction:column;gap:7px;flex-shrink:0;}
-.c-chip{
-  padding:5px 14px;border-radius:6px;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;
-}
-.c-chip-c{background:rgba(63,217,192,0.1);border:1px solid rgba(63,217,192,0.3);color:var(--cyan);}
-.c-chip-g{background:rgba(232,184,75,0.1);border:1px solid rgba(232,184,75,0.3);color:var(--gold);}
-.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.cert-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
-  padding:20px;transition:border-color .3s,transform .3s;
-}
-.cert-card:hover{border-color:var(--cyan);transform:translateY(-2px);}
-.cert-issuer{font-family:var(--font-mono);font-size:0.58rem;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
-.cert-name{font-weight:600;font-size:0.82rem;color:var(--text);line-height:1.45;margin-bottom:5px;}
-.cert-date{font-size:0.7rem;color:var(--muted);font-family:var(--font-mono);}
+  .hero-subtitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--cyan);
+    margin-bottom: 1.5rem;
+    min-height: 2rem;
+  }
 
-/* ── CONTACT ── */
-#contact{background:var(--bg2);}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.contact-headline{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--text);letter-spacing:-0.5px;margin-bottom:16px;}
-.contact-headline em{color:var(--gold);font-style:normal;}
-.contact-desc{font-size:0.9rem;color:var(--text2);line-height:1.8;margin-bottom:24px;}
-.open-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  background:rgba(63,217,192,0.07);border:1px solid rgba(63,217,192,0.22);
-  padding:9px 18px;border-radius:8px;margin-bottom:28px;
-}
-.open-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
-.open-txt{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);}
-.contact-links{display:flex;flex-direction:column;gap:8px;}
-.clink{
-  display:flex;align-items:center;gap:12px;
-  background:var(--card);border:1px solid var(--border);border-radius:10px;
-  padding:14px 18px;color:var(--text2);font-size:0.83rem;font-weight:500;
-  transition:border-color .25s,color .25s,transform .25s;
-}
-.clink:hover{border-color:var(--gold);color:var(--gold);transform:translateX(4px);}
-.clink-icon{font-size:1.1rem;flex-shrink:0;}
-.clink-arrow{margin-left:auto;opacity:0;transition:opacity .25s;color:var(--gold);}
-.clink:hover .clink-arrow{opacity:1;}
-.funnel{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;}
-.funnel-header{background:rgba(232,184,75,0.05);border-bottom:1px solid var(--border);padding:14px 20px;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
-.funnel-item{
-  display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);
-  transition:background .2s;
-}
-.funnel-item:last-child{border-bottom:none;}
-.funnel-item:hover{background:rgba(232,184,75,0.03);}
-.fi-icon{font-size:1.2rem;flex-shrink:0;}
-.fi-title{font-weight:600;font-size:0.85rem;color:var(--text);margin-bottom:2px;}
-.fi-sub{font-size:0.72rem;color:var(--muted);}
-.fi-arrow{margin-left:auto;color:var(--muted);font-size:0.8rem;transition:color .2s,transform .2s;}
-.funnel-item:hover .fi-arrow{color:var(--gold);transform:translateX(3px);}
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* ── FOOTER ── */
-footer{
-  background:var(--bg);border-top:1px solid var(--border);
-  padding:28px 48px;display:flex;align-items:center;justify-content:space-between;
-  position:relative;z-index:1;
-}
-.footer-logo{font-family:var(--font-display);font-size:1rem;font-weight:800;letter-spacing:2px;color:var(--gold);}
-.footer-copy{font-size:0.72rem;color:var(--muted);}
-.footer-links{display:flex;gap:20px;}
-.footer-links a{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .2s;}
-.footer-links a:hover{color:var(--gold);}
+  .hero-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
 
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
-.reveal.visible{opacity:1;transform:none;}
-.reveal-stagger>*{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;}
-.reveal-stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:0s;}
-.reveal-stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.08s;}
-.reveal-stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.16s;}
-.reveal-stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.24s;}
-.reveal-stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.32s;}
-.reveal-stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.40s;}
-.reveal-stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.48s;}
-.reveal-stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.56s;}
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
 
-/* ── BACK TO TOP ── */
-#btt{
-  position:fixed;bottom:24px;right:24px;z-index:800;
-  width:44px;height:44px;border-radius:50%;background:var(--card);
-  border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;color:var(--text2);cursor:pointer;
-  opacity:0;pointer-events:none;transform:translateY(8px);
-  transition:opacity .3s,transform .3s,border-color .2s;
-}
-#btt.visible{opacity:1;pointer-events:all;transform:none;}
-#btt:hover{border-color:var(--gold);color:var(--gold);}
+  .tag {
+    padding: 5px 14px;
+    border-radius: 6px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--blue2);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tag .tag-icon { font-size: 14px; }
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  nav{padding:14px 20px;}
-  nav.scrolled{padding:10px 20px;}
-  .nav-links,.nav-resume{display:none;}
-  .ham{display:flex;}
-  #hero{flex-direction:column;padding:100px 20px 60px;gap:36px;}
-  .hero-right{flex-direction:row;flex-wrap:wrap;justify-content:center;}
-  .hero-photo{width:200px;height:240px;}
-  .id-card{width:220px;}
-  .section{padding:60px 20px;}
-  .about-grid,.contact-grid{grid-template-columns:1fr;gap:36px;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .exp-card-inner{grid-template-columns:1fr;}
-  .exp-left{border-right:none;border-bottom:1px solid var(--border);}
-  .proj-grid{grid-template-columns:1fr;}
-  .proj-card-wide{grid-column:1;}
-  .skills-grid,.certs-grid{grid-template-columns:1fr;}
-  .about-cards{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:12px;text-align:center;padding:22px 20px;}
-  .footer-links{justify-content:center;}
-  #btt{bottom:16px;right:16px;}
-}
-@media(max-width:600px){
-  .hero-chips{gap:7px;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
-  .hero-cta{flex-direction:column;}
-}
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 15px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 0 30px rgba(99,102,241,0.35);
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(99,102,241,0.5); }
+
+  .btn-outline {
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 15px;
+    border: 1px solid var(--border2);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: rgba(99,102,241,0.08); border-color: var(--blue); }
+
+  /* Developer Pass Card */
+  .dev-pass {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glow);
+  }
+
+  .dev-pass::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pass-dept {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .pass-year {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--blue2);
+    letter-spacing: 0.05em;
+  }
+
+  .pass-identity {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .pass-avatar {
+    width: 58px; height: 58px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 20px; font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(99,102,241,0.4);
+  }
+
+  .pass-name-block { flex: 1; }
+  .pass-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .pass-role { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .pass-open {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.3);
+    font-size: 11px;
+    color: #4ade80;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pass-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+
+  .pass-tab {
+    flex: 1;
+    padding: 6px;
+    border-radius: 8px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid var(--border);
+    font-size: 11px; font-weight: 600;
+    color: var(--blue2);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pass-tab:hover, .pass-tab.active {
+    background: rgba(99,102,241,0.2);
+    border-color: var(--blue2);
+  }
+
+  .pass-stats { display: flex; flex-direction: column; gap: 10px; }
+
+  .pass-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pass-stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cyan);
+    width: 28px;
+    flex-shrink: 0;
+  }
+
+  .pass-stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* Photo section */
+  .hero-photo-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-photo-ring {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--purple), var(--cyan));
+    padding: 3px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 50px rgba(99,102,241,0.35);
+    animation: ring-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes ring-glow {
+    from { box-shadow: 0 0 30px rgba(99,102,241,0.3); }
+    to { box-shadow: 0 0 60px rgba(99,102,241,0.55), 0 0 80px rgba(34,211,238,0.2); }
+  }
+
+  .hero-photo-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e1b4b, #0f0f1e);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--blue2);
+    overflow: hidden;
+  }
+
+  .hero-photo-inner img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  }
+
+  /* Sections */
+  section {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--blue2);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 3.5rem;
+    line-height: 1.1;
+  }
+
+  .section-title span {
+    background: linear-gradient(135deg, var(--blue2), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Divider line */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 3rem;
+  }
+
+  /* Experience timeline */
+  .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .exp-card:hover {
+    border-color: var(--border2);
+    box-shadow: 0 0 30px rgba(99,102,241,0.12);
+  }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--blue), var(--purple));
+    border-radius: 3px 0 0 3px;
+  }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap; gap: 0.5rem;
+  }
+
+  .exp-role {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .exp-date {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--dim);
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(99,102,241,0.06);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .exp-company {
+    color: var(--blue2);
+    font-weight: 600; font-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 12px;
+    top: 3px;
+  }
+
+  /* Certs */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.2s;
+  }
+  .cert-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99,102,241,0.1);
+  }
+
+  .cert-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .cert-icon.blue { background: rgba(99,102,241,0.15); }
+  .cert-icon.cyan { background: rgba(34,211,238,0.12); }
+  .cert-icon.gold { background: rgba(245,158,11,0.12); }
+
+  .cert-title { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+  .cert-sub { font-size: 13px; color: var(--muted); }
+
+  /* Projects / Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .skill-card:hover {
+    border-color: var(--border2);
+    box-shadow: 0 0 20px rgba(99,102,241,0.1);
+  }
+
+  .skill-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+  .skill-name { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+  .skill-level { font-size: 12px; color: var(--blue2); }
+
+  /* Project cards */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .project-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(99,102,241,0.15);
+  }
+
+  .project-banner {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(6,6,15,0.2);
+  }
+
+  .project-banner.b1 { background: linear-gradient(135deg, #1e1b4b, #312e81, #1e3a5f); }
+  .project-banner.b2 { background: linear-gradient(135deg, #134e4a, #0f766e, #0891b2); }
+  .project-banner.b3 { background: linear-gradient(135deg, #3b0764, #6b21a8, #4f46e5); }
+
+  .project-body { padding: 1.5rem; }
+  .project-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .project-badge {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 100px;
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.25);
+    color: #fbbf24;
+    font-weight: 600;
+  }
+  .project-desc { font-size: 13px; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid var(--border);
+    color: var(--blue2);
+    font-weight: 500;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .contact-info { }
+  .contact-headline {
+    font-family: 'Sora', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .contact-headline span {
+    background: linear-gradient(135deg, var(--blue2), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .contact-p { color: var(--muted); margin-bottom: 2rem; font-size: 15px; }
+
+  .contact-links { display: flex; flex-direction: column; gap: 12px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--muted); text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .contact-link:hover { color: var(--text); border-color: var(--border2); }
+  .contact-link-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(99,102,241,0.12);
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 8px; display: block; }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: rgba(99,102,241,0.05);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--blue); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--dim);
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+  }
+  footer span { color: var(--blue2); }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--blue2), transparent);
+  }
+
+  /* Gradient orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+    filter: blur(80px);
+  }
+  .orb1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.5), transparent 70%);
+    top: -100px; left: -100px;
+  }
+  .orb2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(34,211,238,0.4), transparent 70%);
+    bottom: 200px; right: -100px;
+  }
+
+  /* Section full width wrapper */
+  .section-wrapper { position: relative; z-index: 1; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .dev-pass { display: none; }
+    nav { padding: 1rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero-inner { padding: 0; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+  }
 </style>
 </head>
 <body>
 
-<div id="sp"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
 
-<nav id="nav">
-  <a href="#hero" class="nav-logo">T.SINGHAL</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TS</div>
   <ul class="nav-links">
+    <li><a href="#hero" class="active">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certifications">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-right">
-    <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="nav-resume">↓ Resume</a>
-    <button class="theme-btn" id="theme-btn">🌙</button>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </div>
 </nav>
 
-<nav class="mob-nav" id="mob-nav">
-  <a href="#about"          onclick="closeMob()">About</a>
-  <a href="#experience"     onclick="closeMob()">Experience</a>
-  <a href="#projects"       onclick="closeMob()">Projects</a>
-  <a href="#skills"         onclick="closeMob()">Skills</a>
-  <a href="#certifications" onclick="closeMob()">Certifications</a>
-  <a href="#contact"        onclick="closeMob()">Contact</a>
-  <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank">↓ Resume</a>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="avail-badge">
-      <span class="avail-dot"></span>
-      Available for Opportunities
-    </div>
-
-    <h1 class="hero-name">Tanishq<br/><span>Singhal</span></h1>
-    <p class="hero-role">Finance & Strategy Analyst</p>
-
-    <div class="hero-chips">
-      <span class="chip"><span class="chip-icon">🎓</span> BBA Finance · IMS Ghaziabad</span>
-      <span class="chip"><span class="chip-icon">☁️</span> SEBI NISM Certified</span>
-      <span class="chip"><span class="chip-icon">🚀</span> Founder Fellow · 23 Ventures</span>
-      <span class="chip"><span class="chip-icon">🇺🇸</span> U.S. Embassy Recognition</span>
-      <span class="chip"><span class="chip-icon">🏆</span> Top 10% · IIT Guwahati</span>
-    </div>
-
-    <div class="hero-cta">
-      <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="btn-gold">↓ Download Resume</a>
-      <a href="#contact" class="btn-ghost">Get In Touch →</a>
-    </div>
-
-    <div class="hero-socials">
-      <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank" class="social-btn" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      </a>
-      <a href="mailto:tanishqsinghal018@gmail.com" class="social-btn" aria-label="Email">
-        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <img
-      src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg.jpeg"
-      alt="Tanishq Singhal"
-      class="hero-photo"
-    />
-    <div class="id-card">
-      <div class="idc-header">
-        <span>BBA Finance</span>
-        <span>2024 — 2027</span>
+<!-- HERO -->
+<div id="hero" style="position:relative; z-index:1;">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Available for Internships & Opportunities
       </div>
-      <div class="idc-body">
-        <div class="idc-name">Tanishq Singhal</div>
-        <div class="idc-sub">Finance & Strategy Analyst</div>
-        <div class="idc-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block;"></span>&nbsp; Open to Opportunities</div>
-        <div class="idc-row">
-          <div class="idc-tab active">Stats</div>
-          <div class="idc-tab">Certs</div>
-          <div class="idc-tab">Awards</div>
-        </div>
-        <div class="idc-stats">
-          <div class="idc-stat"><span class="idc-stat-num">3</span> Internships (YHills, U.S. Embassy, 23 Ventures)</div>
-          <div class="idc-stat"><span class="idc-stat-num">6</span> Startup Credits Secured</div>
-          <div class="idc-stat"><span class="idc-stat-num">Top 10%</span> IIT Guwahati</div>
-        </div>
+
+      <h1 class="hero-name">
+        Tanishq<br>
+        <span class="line2">Singhal</span>
+      </h1>
+
+      <p class="hero-subtitle" id="typed-subtitle">
+        <span id="typed-text"></span><span class="cursor-blink">|</span>
+      </p>
+
+      <p class="hero-desc">
+        BBA Finance student building expertise in investment banking, venture capital, and strategic analysis. I model businesses, size markets, and help founders think clearly about money and growth.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag"><span class="tag-icon">📊</span> Financial Modeling</span>
+        <span class="tag"><span class="tag-icon">🚀</span> Startup Valuation</span>
+        <span class="tag"><span class="tag-icon">📈</span> Equity Research</span>
+        <span class="tag"><span class="tag-icon">🏦</span> Investment Banking</span>
+        <span class="tag"><span class="tag-icon">⚡</span> SEBI Certified</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">View My Work →</a>
+        <a href="#contact" class="btn-outline">Download Resume</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ STATS ═══ -->
-<section id="stats" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// Impact</div>
-    <h2 class="sec-title">By the <em>Numbers</em></h2>
-    <div class="stats-grid reveal-stagger">
-      <div class="stat-card">
-        <div class="stat-icon">🎯</div>
-        <div class="stat-num"><span class="counter" data-t="2034">0</span><span>+</span></div>
-        <div class="stat-lbl">LinkedIn Audience</div>
+    <!-- Right: Dev Pass Card -->
+    <div>
+      <div class="hero-photo-ring" style="margin-bottom: 1.5rem;">
+        <div class="hero-photo-inner">TS</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">🚀</div>
-        <div class="stat-num"><span class="counter" data-t="6">0</span></div>
-        <div class="stat-lbl">Startup Credits</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📊</div>
-        <div class="stat-num"><span class="counter" data-t="30">0</span><span>%</span></div>
-        <div class="stat-lbl">Faster Evaluations</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🏫</div>
-        <div class="stat-num"><span class="counter" data-t="25">0</span><span>+</span></div>
-        <div class="stat-lbl">Colleges Reached</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 01 · Who I Am</div>
-    <h2 class="sec-title">About <em>Me</em></h2>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a second-year <strong>BBA Finance & Banking</strong> student at IMS University Courses Campus, Ghaziabad — SEBI NISM Certified, passionate about financial markets, strategic problem-solving, and startup ecosystems.</p>
-        <p>I operate at the intersection of <strong>finance and innovation</strong>. As a Founder Fellow at 23 Ventures, I led college outreach, organised hackathons, built partner deals with Cloudflare and OpenAI, and signed MOUs with industry mentors — while delivering DCF models and Power BI dashboards during my finance internship.</p>
-        <div class="about-quote">
-          <p>"Finance is the language. Strategy is the lens. Execution is the edge."</p>
+      <div class="dev-pass">
+        <div class="pass-header">
+          <span class="pass-dept">Finance Department</span>
+          <span class="pass-year">Analyst Pass // 2026</span>
         </div>
-      </div>
-      <div class="about-cards reveal-stagger">
-        <div class="acard">
-          <div class="acard-icon">📊</div>
-          <div class="acard-title">Financial Modelling & DCF</div>
-          <div class="acard-desc">Built models enabling 30% faster project evaluations. Proficient in valuation, ratio analysis & forecasting.</div>
+
+        <div class="pass-identity">
+          <div class="pass-avatar">TS</div>
+          <div class="pass-name-block">
+            <div class="pass-name">Tanishq Singhal</div>
+            <div class="pass-role">Finance Student & Analyst</div>
+            <div class="pass-open">Open for Internships</div>
+          </div>
         </div>
-        <div class="acard">
-          <div class="acard-icon">🚀</div>
-          <div class="acard-title">Startup Ecosystem Builder</div>
-          <div class="acard-desc">6 startup credits. 25+ college partnerships. Hackathons, MOUs — full-cycle ecosystem ops.</div>
+
+        <div class="pass-tabs">
+          <div class="pass-tab active">📊 Stats</div>
+          <div class="pass-tab">🛠 Skills</div>
+          <div class="pass-tab">🏆 Certs</div>
         </div>
-        <div class="acard">
-          <div class="acard-icon">☁️</div>
-          <div class="acard-title">SEBI NISM Certified</div>
-          <div class="acard-desc">Investor Certification — valid March 2025 to March 2027. Regulatory foundation for capital markets.</div>
-        </div>
-        <div class="acard">
-          <div class="acard-icon">🏆</div>
-          <div class="acard-title">Top 10% · IIT Guwahati</div>
-          <div class="acard-desc">Winter Consulting 2025 — intensive strategy & business case program by IIT G's C&A Club.</div>
+
+        <div class="pass-stats">
+          <div class="pass-stat">
+            <span class="pass-stat-num">3+</span>
+            <span class="pass-stat-label">Internships & Fellowships</span>
+          </div>
+          <div class="pass-stat">
+            <span class="pass-stat-num">30%</span>
+            <span class="pass-stat-label">Evaluation Speed Improvement</span>
+          </div>
+          <div class="pass-stat">
+            <span class="pass-stat-num">25+</span>
+            <span class="pass-stat-label">College Partnerships Built</span>
+          </div>
+          <div class="pass-stat">
+            <span class="pass-stat-num">1</span>
+            <span class="pass-stat-label">SEBI Investor Certification</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ═══ EXPERIENCE ═══ -->
-<section id="experience" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 02 · Work Experience</div>
-    <h2 class="sec-title">Where I've <em>Worked</em></h2>
-    <div class="exp-list">
-
-      <div class="exp-card exp-card-featured reveal">
-        <div class="exp-card-inner">
-          <div class="exp-left">
-            <div class="exp-period">Apr 18, 2026<br/>Certificate of Appreciation</div>
-            <div class="exp-org">U.S. Embassy New Delhi<br/>· Microsoft Azure<br/>· American Center</div>
-            <div class="exp-tags-row">
-              <span class="etag etag-c">🇺🇸 Embassy</span>
-              <span class="etag etag-g">🪟 Microsoft</span>
-              <span class="etag etag-c">☁️ Azure</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <div class="exp-role">Event Organiser · American Center New Delhi</div>
-            <ul class="exp-bullets">
-              <li>Co-organised <strong>"Building a Secure Data Future: Exploring Cloud with Microsoft Azure"</strong> at the American Center New Delhi — co-branded with U.S. Embassy and Microsoft.</li>
-              <li>Received <strong>Certificate of Appreciation</strong> signed by Adelle Gillen, Public Diplomacy Officer, U.S. Embassy New Delhi.</li>
-              <li>Managed logistics, participant coordination, and on-ground execution across government, academia, and industry stakeholders.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-card-inner">
-          <div class="exp-left">
-            <div class="exp-period">Dec 2025 — Feb 2026</div>
-            <div class="exp-org">23 Ventures<br/>Founder Fellowship</div>
-            <div class="exp-tags-row">
-              <span class="etag etag-g">Startup Ops</span>
-              <span class="etag etag-c">Ecosystem</span>
-              <span class="etag etag-g">Partnerships</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <div class="exp-role">Founder Fellow</div>
-            <ul class="exp-bullets">
-              <li><strong>Secured 6 startup credits</strong> from Cloudflare, OpenAI, and Mixpanel out of 15+ applications filed.</li>
-              <li>Organised <strong>BVIMR Hackathon</strong> — 14 teams, 30+ participants, 2 expert judges, end-to-end planning.</li>
-              <li>Reached <strong>25+ colleges</strong> across Delhi NCR and Pune; signed MOU with a mentor holding 7+ years of MNC experience.</li>
-              <li>Hosted <strong>Builder's Build</strong> — offline startup event in New Delhi featuring Mr. Akshay Mathur.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-card-inner">
-          <div class="exp-left">
-            <div class="exp-period">Jun 2025 — Jul 2025</div>
-            <div class="exp-org">YHills Edutech<br/>Noida</div>
-            <div class="exp-tags-row">
-              <span class="etag etag-g">DCF</span>
-              <span class="etag etag-g">Excel</span>
-              <span class="etag etag-c">Reporting</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <div class="exp-role">Finance Intern</div>
-            <ul class="exp-bullets">
-              <li>Built <strong>DCF financial models</strong> enabling 30% faster project evaluations for stakeholders.</li>
-              <li>Prepared <strong>5+ financial reports</strong> including company profiles and forecasts — executive-ready deliverables.</li>
-              <li>Conducted revenue and cost trend analysis using <strong>Advanced Excel and Google Sheets</strong>.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-card-inner">
-          <div class="exp-left">
-            <div class="exp-period">May 2025 — Jun 2025</div>
-            <div class="exp-org">YHills Edutech<br/>Noida</div>
-            <div class="exp-tags-row">
-              <span class="etag etag-c">Leadership</span>
-              <span class="etag etag-g">Growth</span>
-              <span class="etag etag-c">Events</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <div class="exp-role">Campus Ambassador</div>
-            <ul class="exp-bullets">
-              <li>Generated <strong>40+ registrations</strong>, exceeding the 100% growth target via campus outreach.</li>
-              <li>Coordinated <strong>5+ events</strong> driving 150% brand engagement increase; managed 40+ member community.</li>
-              <li><strong>Certificate of Appreciation</strong> for excellent leadership — recognised directly by YHills CEO.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
   </div>
-</section>
+</div>
 
-<!-- ═══ PROJECTS ═══ -->
-<section id="projects" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 03 · Projects & Events</div>
-    <h2 class="sec-title">Work in <em>Action</em></h2>
-    <div class="proj-grid">
+<hr class="divider">
 
-      <div class="proj-card proj-card-wide reveal">
-        <div class="proj-img">
-          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg" alt="American Center Event" loading="lazy"/>
-        </div>
-        <div class="proj-body">
-          <div class="proj-eye">// U.S. Embassy · Microsoft · Apr 18, 2026</div>
-          <div class="proj-title">Building a Secure Data Future: Exploring Cloud with Microsoft Azure</div>
-          <p class="proj-desc">Flagship international tech event at the American Center New Delhi. Co-branded with the U.S. Embassy and Microsoft. Received <strong>Certificate of Appreciation</strong> signed by the Public Diplomacy Officer.</p>
-          <div class="proj-metrics-row">
-            <div class="pm"><div class="pm-val" style="color:var(--cyan);font-size:1rem;">American Center</div><div class="pm-lbl">Venue</div></div>
-            <div class="pm"><div class="pm-val" style="font-size:1rem;">U.S. Embassy</div><div class="pm-lbl">Partner</div></div>
-            <div class="pm"><div class="pm-val" style="font-size:1rem;">Microsoft</div><div class="pm-lbl">Co-Brand</div></div>
-          </div>
-        </div>
-      </div>
+<!-- ABOUT -->
+<section id="about" class="section-wrapper">
+  <div class="section-label">// about me</div>
+  <h2 class="section-title">Behind the <span>Numbers.</span></h2>
 
-      <div class="proj-card reveal">
-        <div class="proj-img">
-          <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg" alt="BVIMR Hackathon" loading="lazy"/>
-        </div>
-        <div class="proj-body">
-          <div class="proj-eye">// 23 Ventures · New Delhi</div>
-          <div class="proj-title">BVIMR Hackathon & Builder's Build</div>
-          <p class="proj-desc">Organised two flagship startup events as Founder Fellow. Full event lifecycle from ideation to execution with expert mentors including Mr. Akshay Mathur.</p>
-          <div class="proj-metrics-row">
-            <div class="pm"><div class="pm-val">14</div><div class="pm-lbl">Teams</div></div>
-            <div class="pm"><div class="pm-val">30+</div><div class="pm-lbl">Participants</div></div>
-            <div class="pm"><div class="pm-val">2</div><div class="pm-lbl">Events</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-img-placeholder">📊</div>
-        <div class="proj-body">
-          <div class="proj-eye">// Finance Internship · YHills · 2025</div>
-          <div class="proj-title">DCF Financial Models & Stakeholder Reports</div>
-          <p class="proj-desc">Built DCF analysis models and 5+ financial reports for stakeholder decision-making. <strong>Advanced Excel + Google Sheets</strong> across revenue, cost, and valuation analysis.</p>
-          <div class="proj-metrics-row">
-            <div class="pm"><div class="pm-val">30%</div><div class="pm-lbl">Faster Eval</div></div>
-            <div class="pm"><div class="pm-val">5+</div><div class="pm-lbl">Reports</div></div>
-            <div class="pm"><div class="pm-val" style="color:var(--cyan);">DCF</div><div class="pm-lbl">Key Model</div></div>
-          </div>
-        </div>
-      </div>
-
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+    <div>
+      <p style="color: var(--muted); margin-bottom: 1.25rem; font-size: 15px; line-height: 1.9;">
+        I'm a BBA Finance student at IMS Ghaziabad, obsessively building at the intersection of finance, strategy, and startups. I don't just study balance sheets — I build models, run numbers for real companies, and help founders structure their thinking.
+      </p>
+      <p style="color: var(--muted); margin-bottom: 1.25rem; font-size: 15px; line-height: 1.9;">
+        As a Founder Fellow at 23 Ventures, I operated across startup ecosystems — organizing hackathons, forging partnerships with 25+ colleges, and helping early-stage teams get their first tools and traction.
+      </p>
+      <p style="color: var(--muted); font-size: 15px; line-height: 1.9;">
+        My long-term goal is to build rare, irreplaceable expertise spanning investment banking, portfolio management, and venture capital — the complete arc from capital allocation to company building.
+      </p>
     </div>
-  </div>
-</section>
 
-<!-- ═══ SKILLS ═══ -->
-<section id="skills" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 04 · Capabilities</div>
-    <h2 class="sec-title">Skills &amp; <em>Tools</em></h2>
-    <div class="skills-grid">
-      <div class="sg reveal">
-        <div class="sg-title">// Technical Tools</div>
-        <div class="sg-sub">Financial modelling & data analysis</div>
-        <div class="stags">
-          <span class="stag stag-g">Advanced Excel</span>
-          <span class="stag stag-g">VLOOKUP / Index-Match</span>
-          <span class="stag stag-g">Pivot Tables</span>
-          <span class="stag stag-g">Power BI</span>
-          <span class="stag stag-g">DCF Analysis</span>
-          <span class="stag stag-g">Google Sheets</span>
-          <span class="stag stag-g">PowerPoint</span>
-          <span class="stag stag-g">Basic Python</span>
+    <div>
+      <div class="skills-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+        <div class="skill-card">
+          <span class="skill-icon">📊</span>
+          <div class="skill-name">Advanced Excel</div>
+          <div class="skill-level">VLOOKUP · Pivot · INDEX</div>
         </div>
-      </div>
-      <div class="sg reveal">
-        <div class="sg-title">// Finance & Analysis</div>
-        <div class="sg-sub">Valuation & investment frameworks</div>
-        <div class="stags">
-          <span class="stag stag-g">Financial Modelling</span>
-          <span class="stag stag-g">Ratio Analysis</span>
-          <span class="stag stag-g">EBITDA / PBT</span>
-          <span class="stag stag-g">Sales Growth Analysis</span>
-          <span class="stag stag-g">Financial Forecasting</span>
-          <span class="stag stag-g">Valuation Basics</span>
-          <span class="stag stag-g">Cost-Revenue Analysis</span>
+        <div class="skill-card">
+          <span class="skill-icon">📉</span>
+          <div class="skill-name">Financial Modeling</div>
+          <div class="skill-level">DCF · Comps · LBO</div>
         </div>
-      </div>
-      <div class="sg reveal">
-        <div class="sg-title">// Leadership & Strategy</div>
-        <div class="sg-sub">Team management & execution</div>
-        <div class="stags">
-          <span class="stag stag-c">Team Leadership (40+)</span>
-          <span class="stag stag-c">Event Management</span>
-          <span class="stag stag-c">Stakeholder Comms</span>
-          <span class="stag stag-c">Strategic Thinking</span>
-          <span class="stag stag-c">Problem Solving</span>
-          <span class="stag stag-c">Campus Outreach</span>
-          <span class="stag stag-c">Startup Ecosystem Ops</span>
+        <div class="skill-card">
+          <span class="skill-icon">📊</span>
+          <div class="skill-name">Power BI</div>
+          <div class="skill-level">Dashboards · Analytics</div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🔍</span>
+          <div class="skill-name">Equity Research</div>
+          <div class="skill-level">Ratio · Valuation</div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🌐</span>
+          <div class="skill-name">Macro Investing</div>
+          <div class="skill-level">Cycles · Rates · FX</div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🚀</span>
+          <div class="skill-name">Startup Strategy</div>
+          <div class="skill-level">GTM · Fundraising</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CERTIFICATIONS ═══ -->
-<section id="certifications" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 05 · Credentials</div>
-    <h2 class="sec-title">Certifications &amp; <em>Recognition</em></h2>
+<hr class="divider">
 
-    <div class="cert-featured reveal">
+<!-- EXPERIENCE -->
+<section id="experience" class="section-wrapper">
+  <div class="section-label">// work experience</div>
+  <h2 class="section-title">Where I've <span>Worked.</span></h2>
+
+  <div class="timeline">
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div class="exp-role">Founder Fellow</div>
+        <span class="exp-date">Dec 2025 – Feb 2026</span>
+      </div>
+      <div class="exp-company">23 Ventures · Startup Ecosystem</div>
+      <ul class="exp-bullets">
+        <li>Secured startup credits from Cloudflare, OpenAI, and Mixpanel — totaling significant non-dilutive value for portfolio companies</li>
+        <li>Organized hackathons and online events across Delhi NCR and Pune, driving student-to-startup pipelines</li>
+        <li>Built and managed partnerships with 25+ colleges, expanding 23 Ventures' deal flow and community reach</li>
+        <li>Contributed to early-stage startup evaluation and strategic resource allocation decisions</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div class="exp-role">Finance Intern</div>
+        <span class="exp-date">Jun 2025 – Aug 2025</span>
+      </div>
+      <div class="exp-company">Yhills · EdTech & Finance</div>
+      <ul class="exp-bullets">
+        <li>Built financial models that improved business evaluation speed by 30%, directly impacting team decision-making velocity</li>
+        <li>Created comprehensive financial reports and multi-period forecasts used in investor and stakeholder presentations</li>
+        <li>Performed deep revenue and cost trend analysis, identifying key drivers behind performance variances</li>
+        <li>Operated across EBITDA analysis, ratio analysis, and scenario modeling for different growth cases</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div class="exp-role">Campus Ambassador</div>
+        <span class="exp-date">May 2025 – Jun 2025</span>
+      </div>
+      <div class="exp-company">Yhills · Growth & Community</div>
+      <ul class="exp-bullets">
+        <li>Generated 40+ registrations through targeted outreach and event-driven marketing campaigns</li>
+        <li>Managed a 40+ student community, coordinating learning sessions and engagement initiatives</li>
+        <li>Organized and executed outreach events, developing stakeholder communication and leadership skills</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section class="section-wrapper">
+  <div class="section-label">// certifications & achievements</div>
+  <h2 class="section-title">Credentials & <span>Wins.</span></h2>
+
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon blue">📋</div>
       <div>
-        <div class="cert-feat-eye">🇺🇸 U.S. Embassy New Delhi · Microsoft Azure · Apr 18, 2026</div>
-        <div class="cert-feat-name">Certificate of Appreciation — American Center New Delhi</div>
-        <div class="cert-feat-desc">"Building a Secure Data Future: Exploring Cloud with Microsoft Azure" — flagship event in partnership with American Center New Delhi and Microsoft Azure.</div>
-        <div class="cert-feat-sign">Signed by <strong>Adelle Gillen</strong> · Public Diplomacy Officer, U.S. Embassy New Delhi</div>
-      </div>
-      <div class="cert-chips">
-        <span class="c-chip c-chip-c">U.S. Embassy</span>
-        <span class="c-chip c-chip-g">Microsoft Azure</span>
-        <span class="c-chip c-chip-c">American Center</span>
+        <div class="cert-title">SEBI NISM Investor Certification</div>
+        <div class="cert-sub">Valid until March 2027 · Securities & Capital Markets</div>
       </div>
     </div>
-
-    <div class="certs-grid reveal-stagger">
-      <div class="cert-card">
-        <div class="cert-issuer">SEBI · NISM</div>
-        <div class="cert-name">Investor Certification Examination</div>
-        <div class="cert-date">Mar 2025 · Valid till Mar 2027</div>
+    <div class="cert-card">
+      <div class="cert-icon gold">🏆</div>
+      <div>
+        <div class="cert-title">Winter Consulting Program</div>
+        <div class="cert-sub">IIT Guwahati · Top 10% of Cohort</div>
       </div>
-      <div class="cert-card">
-        <div class="cert-issuer">IIT Guwahati · C&A Club</div>
-        <div class="cert-name">Winter Consulting 2025 — Certificate of Excellence</div>
-        <div class="cert-date">Dec 2025 · Top 10% Ranking</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon cyan">🌐</div>
+      <div>
+        <div class="cert-title">McKinsey Forward Program</div>
+        <div class="cert-sub">Strategic Thinking & Problem Solving</div>
       </div>
-      <div class="cert-card">
-        <div class="cert-issuer">McKinsey.org</div>
-        <div class="cert-name">McKinsey Forward Program — Problem-Solving & Strategy</div>
-        <div class="cert-date">Dec 10, 2025</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">YHills Edutech</div>
-        <div class="cert-name">Finance Internship + Course + Project Completion</div>
-        <div class="cert-date">Jul 2025 · Triple Certification</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">YHills Edutech</div>
-        <div class="cert-name">Certificate of Appreciation — Campus Leadership</div>
-        <div class="cert-date">Jun 2025 · CEO Recognition</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">23 Ventures</div>
-        <div class="cert-name">Founder Fellowship — Startup Ecosystem Operations</div>
-        <div class="cert-date">Feb 2026 · 6 Credits Secured</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon blue">🎓</div>
+      <div>
+        <div class="cert-title">BBA Finance & Banking</div>
+        <div class="cert-sub">IMS Ghaziabad (UCC) · 2024–2027</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="section">
-  <div class="section-inner">
-    <div class="sec-label">// 06 · Let's Connect</div>
-    <div class="contact-grid">
-      <div>
-        <h2 class="contact-headline">Let's Build<br/><em>Something Great.</em></h2>
-        <p class="contact-desc">Open to internships, finance analyst roles, strategy positions, and startup collaborations. I bring analytical rigour, startup execution experience, and a drive to deliver measurable outcomes.</p>
-        <div class="open-badge">
-          <span class="open-dot"></span>
-          <span class="open-txt">Open to Work — Finance · Strategy · Startup Ops</span>
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects" class="section-wrapper">
+  <div class="section-label">// featured work</div>
+  <h2 class="section-title">Projects & <span>Analysis.</span></h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-banner b1">📊</div>
+      <div class="project-body">
+        <div class="project-name">
+          Financial Model — Startup Valuation
+          <span class="project-badge">Featured</span>
         </div>
-        <div class="contact-links">
-          <a href="mailto:tanishqsinghal018@gmail.com" class="clink">
-            <span class="clink-icon">✉️</span> tanishqsinghal018@gmail.com
-            <span class="clink-arrow">→</span>
-          </a>
-          <a href="tel:9313921414" class="clink">
-            <span class="clink-icon">📞</span> +91 9313921414
-            <span class="clink-arrow">→</span>
-          </a>
-          <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank" class="clink">
-            <span class="clink-icon">💼</span> linkedin.com/in/tanishq-singhal91
-            <span class="clink-arrow">↗</span>
-          </a>
-          <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank" class="clink">
-            <span class="clink-icon">📄</span> Download Full Resume (PDF)
-            <span class="clink-arrow">↓</span>
-          </a>
+        <p class="project-desc">Built a 3-statement DCF and comps model for an EdTech startup, incorporating revenue projections, burn rate analysis, and scenario-weighted terminal value.</p>
+        <div class="project-tags">
+          <span class="project-tag">Excel</span>
+          <span class="project-tag">DCF</span>
+          <span class="project-tag">Comps</span>
+          <span class="project-tag">EdTech</span>
         </div>
       </div>
-      <div class="reveal">
-        <div class="funnel">
-          <div class="funnel-header">// Opportunity Funnel</div>
-          <div class="funnel-item">
-            <span class="fi-icon">📊</span>
-            <div><div class="fi-title">Finance Analyst / Intern</div><div class="fi-sub">DCF, valuation, reporting, Power BI</div></div>
-            <span class="fi-arrow">→</span>
-          </div>
-          <div class="funnel-item">
-            <span class="fi-icon">🎯</span>
-            <div><div class="fi-title">Strategy & Consulting</div><div class="fi-sub">Business strategy, market analysis, case work</div></div>
-            <span class="fi-arrow">→</span>
-          </div>
-          <div class="funnel-item">
-            <span class="fi-icon">🚀</span>
-            <div><div class="fi-title">Startup Operations</div><div class="fi-sub">Growth, ecosystem, partnerships, events</div></div>
-            <span class="fi-arrow">→</span>
-          </div>
-          <div class="funnel-item">
-            <span class="fi-icon">🤝</span>
-            <div><div class="fi-title">Collaborations & Projects</div><div class="fi-sub">Finance research, analytical projects</div></div>
-            <span class="fi-arrow">→</span>
-          </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-banner b2">🌐</div>
+      <div class="project-body">
+        <div class="project-name">
+          Macro Market Dashboard
+        </div>
+        <p class="project-desc">Power BI dashboard tracking macro indicators — inflation, yield curves, FII flows, and sectoral momentum — to support portfolio positioning decisions.</p>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span>
+          <span class="project-tag">Macro</span>
+          <span class="project-tag">India Markets</span>
+          <span class="project-tag">FII/DII</span>
         </div>
       </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-banner b3">🚀</div>
+      <div class="project-body">
+        <div class="project-name">
+          23 Ventures — Ecosystem Strategy
+          <span class="project-badge">Live</span>
+        </div>
+        <p class="project-desc">Designed and executed partnership strategy for 23 Ventures' Founder Fellowship, securing non-dilutive credits and building a pipeline of 25+ college communities.</p>
+        <div class="project-tags">
+          <span class="project-tag">Strategy</span>
+          <span class="project-tag">Startups</span>
+          <span class="project-tag">Partnerships</span>
+          <span class="project-tag">VC</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact" class="section-wrapper">
+  <div class="section-label">// get in touch</div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2 class="contact-headline">Let's Build<br><span>Something Real.</span></h2>
+      <p class="contact-p">Looking for finance internships, research roles, or interesting conversations about markets, startups, and strategy. Reach out — I respond fast.</p>
+
+      <div class="contact-links">
+        <a href="mailto:tanishqsinghal@email.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div>
+            <div style="font-weight:600; color: var(--text); font-size:14px;">Email</div>
+            <div>tanishqsinghal@email.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/tanishqsinghal" class="contact-link" target="_blank">
+          <div class="contact-link-icon">💼</div>
+          <div>
+            <div style="font-weight:600; color: var(--text); font-size:14px;">LinkedIn</div>
+            <div>linkedin.com/in/tanishqsinghal</div>
+          </div>
+        </a>
+        <a href="#" class="contact-link">
+          <div class="contact-link-icon">📍</div>
+          <div>
+            <div style="font-weight:600; color: var(--text); font-size:14px;">Location</div>
+            <div>Delhi NCR, India</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="john@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="I'd love to connect about..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; justify-content:center;">
+        Send Message →
+      </button>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">T.SINGHAL</div>
-  <div class="footer-copy">© 2026 · Tanishq Singhal · IMS UCC Ghaziabad</div>
-  <div class="footer-links">
-    <a href="mailto:tanishqsinghal018@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/tanishq-singhal91" target="_blank">LinkedIn</a>
-    <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" target="_blank">Resume</a>
-  </div>
+  Designed & Built by <span>Tanishq Singhal</span> · © 2026 All Rights Reserved
 </footer>
 
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
 <script>
-/* Scroll progress + nav */
-const sp=document.getElementById('sp');
-const nav=document.getElementById('nav');
-const btt=document.getElementById('btt');
-window.addEventListener('scroll',()=>{
-  const st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;
-  sp.style.width=(st/dh*100)+'%';
-  nav.classList.toggle('scrolled',st>50);
-  btt.classList.toggle('visible',st>300);
-});
+  // Typed subtitle effect
+  const lines = [
+    "Investment Banking Analyst",
+    "Venture Capital Enthusiast",
+    "Financial Modeler",
+    "Startup Strategist",
+    "Portfolio Management Learner"
+  ];
+  let lineIdx = 0, charIdx = 0, deleting = false;
+  const el = document.getElementById('typed-text');
 
-/* Theme */
-const themeBtn=document.getElementById('theme-btn');
-const html=document.documentElement;
-const saved=localStorage.getItem('ts-theme')||'dark';
-html.setAttribute('data-theme',saved);
-themeBtn.textContent=saved==='dark'?'🌙':'☀️';
-themeBtn.addEventListener('click',()=>{
-  const n=html.getAttribute('data-theme')==='dark'?'light':'dark';
-  html.setAttribute('data-theme',n);
-  themeBtn.textContent=n==='dark'?'🌙':'☀️';
-  localStorage.setItem('ts-theme',n);
-});
+  function type() {
+    const current = lines[lineIdx];
+    if (!deleting) {
+      el.textContent = current.slice(0, ++charIdx);
+      if (charIdx === current.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = current.slice(0, --charIdx);
+      if (charIdx === 0) { deleting = false; lineIdx = (lineIdx + 1) % lines.length; }
+    }
+    setTimeout(type, deleting ? 40 : 70);
+  }
+  type();
 
-/* Mobile nav */
-const ham=document.getElementById('ham');
-const mobNav=document.getElementById('mob-nav');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mobNav.classList.toggle('open');});
-function closeMob(){ham.classList.remove('open');mobNav.classList.remove('open');}
-
-/* Smooth anchors */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  // Nav active on scroll
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
   });
-});
 
-/* Intersection observer */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));
-
-/* Counters */
-function easeOut(t){return 1-Math.pow(1-t,3);}
-function runCounter(el){
-  const target=parseInt(el.getAttribute('data-t'));
-  const dur=target>100?2000:1200;
-  const start=performance.now();
-  (function tick(now){
-    const p=Math.min((now-start)/dur,1);
-    el.textContent=Math.floor(easeOut(p)*target).toLocaleString();
-    if(p<1)requestAnimationFrame(tick);
-    else el.textContent=target.toLocaleString();
-  })(start);
-}
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('.counter').forEach(runCounter);});
-},{threshold:0.3}).observe(document.getElementById('stats'));
+  // Pass tabs
+  const tabs = document.querySelectorAll('.pass-tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+  }));
 </script>
 </body>
 </html>
