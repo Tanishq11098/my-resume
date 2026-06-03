@@ -1,860 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       SEMANTIC DOM ENGINEERING: PORTFOLIO METADATA KERNEL
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       This <head> section implements a comprehensive metadata architecture that combines:
-       1. Open Graph Protocol (OG) for social sharing optimization
-       2. Twitter Card meta tags for platform-specific rendering
-       3. Structured JSON-LD for semantic web understanding
-       4. Preload & prefetch directives for critical asset optimization
-       
-       The charset declaration (utf-8) ensures proper text encoding. Viewport meta
-       ensures responsive behavior on all devices. Theme-color meta provides browser
-       chrome customization on mobile browsers. ════════════════════════════════════════ -->
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tanishq Singhal - Principal Design Engineer & Full-Stack Architect. Fintech specialist. 2000+ LinkedIn audience. 30% project evaluation acceleration.">
-  <meta name="keywords" content="fintech, portfolio, design system, full-stack, javascript, css, architecture">
-  <meta name="author" content="Tanishq Singhal">
-  <meta name="theme-color" content="#0a192f">
-  <meta name="color-scheme" content="dark">
-
-  <!-- Senior Developer Annotation: Open Graph (OG) meta tags enable rich preview
-       cards when the portfolio is shared on social platforms (LinkedIn, Twitter, Facebook).
-       og:image should reference a high-resolution preview image (1200x630px optimal).
-       og:type="website" signals to crawlers this is a professional portfolio, not a video or article. -->
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Tanishq Singhal - Principal Design Engineer">
-  <meta property="og:description" content="Enterprise-grade portfolio system demonstrating fintech architecture mastery.">
-  <meta property="og:url" content="https://tanishq11098.github.io/my-resume">
-  <meta property="og:site_name" content="Tanishq Singhal Portfolio">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Senior Developer Annotation: Twitter Card meta tags (card type: summary_large_image)
-       ensure rich text + large image display when shared on Twitter/X. This increases
-       click-through rates significantly compared to plain text shares. -->
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tanishq Singhal - Principal Design Engineer">
-  <meta name="twitter:description" content="Enterprise-grade portfolio system demonstrating fintech architecture mastery.">
-  <meta name="twitter:creator" content="@TanishqSinghal">
-
-  <!-- Senior Developer Annotation: Preload directives inform the browser to begin
-       downloading critical resources before parsing the DOM. This reduces the critical
-       rendering path and improves Core Web Vitals (LCP, FID, CLS). We preload:
-       1. Font files (Poppins, Inter, Fira Code) for typography consistency
-       2. Critical CSS (style.css) for above-the-fold rendering
-       3. Hero image for immediate visual feedback -->
-
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" as="style">
-  <link rel="preload" href="style.css" as="style">
-  <link rel="preload" href="profile.jpg" as="image" type="image/jpeg">
-
-  <!-- Senior Developer Annotation: Canonical URL ensures search engines understand
-       this is the primary version of the page, preventing duplicate content penalties.
-       Used for SEO deduplication across different URL variations. -->
-
-  <link rel="canonical" href="https://tanishq11098.github.io/my-resume">
-
-  <!-- Stylesheet Links -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Senior Developer Annotation: Favicon provides visual branding in browser tabs.
-       Multiple formats (ico, png, svg) ensure compatibility across browsers and platforms.
-       The svg version scales perfectly on any display density. -->
-
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a192f' width='100' height='100'/><circle cx='50' cy='50' r='30' fill='%2364ffda'/></svg>">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%230a192f' width='180' height='180'/><circle cx='90' cy='90' r='60' fill='%2364ffda'/></svg>">
-
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       JSON-LD STRUCTURED DATA: SEO KERNEL
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       This JSON-LD (Linked Data) script embeds semantic metadata that search engines
-       parse to understand page content, enabling rich snippets in search results.
-       
-       Structure:
-       1. Person schema (Tanishq Singhal) - defines individual identity
-       2. CreativeWork schema - portfolio work portfolio items
-       3. SameAs links - profile verification across platforms
-       4. Image schema - for image search indexing
-       
-       Benefits:
-       - Google Knowledge Panel eligibility
-       - Rich snippet display in SERPs
-       - Voice search optimization
-       - Cross-platform profile linking
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Tanishq Singhal",
-    "jobTitle": "Principal Design Engineer & Full-Stack Architect",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Fintech Engineering Community"
-    },
-    "url": "https://tanishq11098.github.io/my-resume",
-    "image": "https://raw.githubusercontent.com/Tanishq11098/my-resume/main/profile.jpg",
-    "description": "Enterprise-grade portfolio demonstrating fintech architecture mastery, systems design expertise, and full-stack engineering leadership.",
-    "sameAs": [
-      "https://www.linkedin.com/in/tanishq-singhal",
-      "https://github.com/Tanishq11098",
-      "https://twitter.com/TanishqSinghal"
-    ],
-    "worksFor": [
-      {
-        "@type": "Organization",
-        "name": "YHills Edutech",
-        "jobTitle": "Finance Intern",
-        "startDate": "2024-01-01"
-      },
-      {
-        "@type": "Organization",
-        "name": "23 Ventures",
-        "jobTitle": "Founder Fellow",
-        "startDate": "2024-06-01"
-      },
-      {
-        "@type": "Organization",
-        "name": "U.S. Embassy / Microsoft",
-        "jobTitle": "Event Organiser",
-        "startDate": "2024-09-01"
-      }
-    ],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "name": "30% Project Evaluation Speed Increase",
-        "description": "Implemented DCF financial models and evaluation framework optimization",
-        "credentialCategory": "Achievement"
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "name": "6 Startup Credits",
-        "description": "Founder Fellow exposure to OpenAI, Cloudflare, and premium venture ecosystems",
-        "credentialCategory": "Achievement"
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "name": "Building a Secure Data Future",
-        "description": "Event organization at American Center, U.S. Embassy New Delhi",
-        "credentialCategory": "Achievement"
-      }
-    ],
-    "knowsAbout": [
-      "Fintech Architecture",
-      "Systems Design",
-      "CSS Design Systems",
-      "JavaScript Engines",
-      "Full-Stack Development",
-      "Performance Optimization",
-      "Accessibility (WCAG)",
-      "API Design"
-    ],
-    "interactionStatistic": {
-      "@type": "InteractionCounter",
-      "interactionType": "https://schema.org/FollowAction",
-      "userInteractionCount": "2034"
-    }
-  }
-  </script>
-
-  <!-- Senior Developer Annotation: BreadcrumbList schema enables search engines to
-       display breadcrumb navigation in search results, improving CTR. Helps users
-       understand page hierarchy and context. -->
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://tanishq11098.github.io/my-resume"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Experience",
-        "item": "https://tanishq11098.github.io/my-resume#experience"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Gallery",
-        "item": "https://tanishq11098.github.io/my-resume#gallery"
-      }
-    ]
-  }
-  </script>
-
-  <title>Tanishq Singhal - Principal Design Engineer & Full-Stack Architect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tanishq Singhal — Finance & Strategy Analyst. Venture Capital, Corporate Strategy, and Management expertise.">
+    <meta name="keywords" content="Finance, Strategy, VC, Corporate, Analyst, Management">
+    <meta name="author" content="Tanishq Singhal">
+    <title>Tanishq Singhal — Finance & Strategy Analyst</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       NAVIGATION ORGANISM: FIXED HEADER
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Navigation uses fixed positioning (position: fixed) to remain visible during
-       scroll. This improves user retention by providing always-accessible navigation.
-       
-       Accessibility Features:
-       - <nav> semantic tag (ARIA landmark)
-       - role="navigation" (backward compatibility)
-       - aria-label describes purpose
-       - Links use semantic <a> tags with href attributes
-       - Keyboard navigation supported via tabindex
-       
-       Performance:
-       - navbar class uses will-change declaration in CSS
-       - Backdrop-filter GPU-accelerated
-       - Fixed positioning doesn't trigger layout recalculation
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <nav class="navbar" role="navigation" aria-label="Primary navigation">
-    <div class="navbar-container">
-      <a href="#home" class="navbar-brand" aria-current="page">Tanishq</a>
-      <ul class="navbar-nav" role="menubar">
-        <li role="none">
-          <a href="#experience" class="navbar-nav-link" role="menuitem">Experience</a>
-        </li>
-        <li role="none">
-          <a href="#gallery" class="navbar-nav-link" role="menuitem">Gallery</a>
-        </li>
-        <li role="none">
-          <a href="#contact" class="navbar-nav-link" role="menuitem">Contact</a>
-        </li>
-        <li role="none">
-          <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" class="navbar-nav-link" role="menuitem" target="_blank" rel="noopener noreferrer">Resume</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       HERO SECTION: HARDWARE-ACCELERATED ORGANISM
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Hero section uses semantic <section> with aria-label to identify its purpose.
-       The background gradient uses radial-gradient with explicit transparent falloff
-       to create depth without additional DOM elements.
-       
-       GPU Acceleration:
-       - Hero uses ::before pseudo-element for background (no layout cost)
-       - Profile image uses decoding="async" to prevent blocking parsing
-       - Image loading="lazy" defers offscreen image loading
-       - Transform properties trigger GPU composition layer
-       
-       Accessibility:
-       - Main landmark (<main>) wraps primary content
-       - Heading hierarchy proper (<h1> for name)
-       - alt text on profile image
-       - ARIA labels on buttons
-       - High contrast text (64ffda on 0a192f = ~12.5:1 ratio, exceeds WCAG AAA)
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <main id="home">
-    <section class="hero" aria-label="Hero section - Professional introduction">
-      <div class="hero-content">
-        <h1 class="hero-name">Tanishq Singhal</h1>
-        <p class="hero-title">Principal Design Engineer & Full-Stack Architect</p>
-        <p class="hero-description">
-          Engineering enterprise-grade systems at the intersection of fintech, systems design, and performance optimization.
-          <strong>30% faster evaluation frameworks</strong>. <strong>2000+ engaged audience</strong>. 
-          Proven track record building scalable architectures from scratch.
-        </p>
-        
-        <!-- Senior Developer Annotation: CTA buttons use semantic <a> tags with button
-             styling (not <button> elements, which are form-specific). Each button includes:
-             - aria-label for screen reader users
-             - title attribute for hover tooltip
-             - rel="noopener noreferrer" for external links (security hardening)
-             - target="_blank" for external PDF (user control)
-             ════════════════════════════════════════════════════════════════════════════ -->
-
-        <div class="hero-cta">
-          <a href="#experience" class="button button-primary" aria-label="View my experience section">
-            View My Work
-          </a>
-          <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" 
-             class="button" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             aria-label="Download my resume as PDF">
-            Download Resume
-          </a>
-          <span class="availability-pulse" role="status" aria-label="Currently available for opportunities">
-            Available for Opportunities
-          </span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">TS</div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
-      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-image-wrapper">
+                <div class="profile-frame">
+                    <img src="profile.jpg" alt="Tanishq Singhal" class="profile-photo">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1 class="hero-title">Tanishq Singhal</h1>
+                <p class="hero-subtitle">Finance & Strategy Analyst</p>
+                <p class="hero-description">Venture Capital | Corporate Strategy | Operations Management</p>
+                <div class="hero-buttons">
+                    <a href="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/Tanishq_Singhal_Resume.pdf" download="Tanishq_Singhal_Resume.pdf" class="btn btn-gold">↓ Download Resume</a>
+                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       EXPERIENCE VAULT: CAREER HISTORY ORGANISM (MOLECULES NESTED)
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       The Experience Vault uses semantic <article> elements to represent self-contained
-       content blocks (each career milestone). This structure is semantically richer than
-       divs and helps screen readers understand content boundaries.
-       
-       Structure:
-       - <section id="experience"> wraps all experience (landmark region)
-       - <article> represents each job (semantic content boundary)
-       - <header> contains job title, company, dates (article metadata)
-       - <p> elements describe achievements using strong/em tags for emphasis
-       - Stat blocks render metrics using .stat-block molecules
-       
-       Accessibility:
-       - heading hierarchy: <h2> (section title), <h3> (job title)
-       - aria-label on stat blocks for screen readers
-       - Semantic structure supports outline extraction
-       - Color not sole indicator (strong tag for emphasis)
-       
-       SEO Benefits:
-       - <article> tags signal main content to crawlers
-       - Heading tags improve keyword matching
-       - Stat numbers in semantic markup (vs images)
-       - Structured data in head section links to experience
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <section id="experience" class="section" aria-label="Professional experience section">
-    <div class="section-subtitle">01. Professional Journey</div>
-    <h2 class="section-title">Experience Vault</h2>
-    <p class="section-description">
-      Three pivotal roles building enterprise systems, scaling startups, and architecting secure data futures.
-    </p>
-
-    <div class="grid grid-col-12" style="margin-top: var(--space-16);">
-
-      <!-- ──────── CAREER MOLECULE 1: YHILLS EDUTECH ──────── -->
-      <!-- Senior Developer Annotation: First <article> represents YHills Edutech role.
-           Uses 12-column grid span (full width) for consistent layout. Each article
-           includes header (semantic job metadata) and detailed achievement list. -->
-
-      <article class="card grid-col-12" style="margin-bottom: var(--space-12);">
-        <header style="margin-bottom: var(--space-6);">
-          <h3 class="card-title">Finance Intern</h3>
-          <div class="card-meta">
-            <span>YHills Edutech</span>
-            <span>•</span>
-            <span>Jan 2024 - May 2024</span>
-            <span>•</span>
-            <span>Bangalore, India</span>
-          </div>
-        </header>
-
-        <!-- Senior Developer Annotation: Achievement paragraphs use <strong> for key metrics
-             and <em> for technical emphasis. This semantic markup allows CSS styling
-             without requiring additional spans, reducing HTML verbosity. -->
-
-        <p style="margin-bottom: var(--space-4);">
-          Led financial modeling initiatives resulting in <strong>30% acceleration</strong> in project evaluation cycles. 
-          Designed and implemented <strong>DCF Financial Models</strong> using quantitative analysis frameworks.
-        </p>
-        <p style="margin-bottom: var(--space-6);">
-          Engineered automated valuation pipelines that reduced manual analysis time from 8 hours to 5.6 hours per project. 
-          Mentored 4 junior analysts on model framework standardization.
-        </p>
-
-        <!-- Senior Developer Annotation: Stat blocks render quantitative achievements using
-             semantic <div> structure. The .stat-block-value class uses CSS clamp() for
-             responsive scaling (defined in style.css typography engine). -->
-
-        <div class="grid grid-col-12">
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">30%</span>
-              <span class="stat-block-label">Evaluation Speed Increase</span>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>Finance & Strategy Analyst with a strong foundation in capital markets, venture ecosystems, and operational efficiency. Specialized in financial modeling, startup evaluation, and cross-functional coordination at scale.</p>
+                    <h3 class="subsection-title">Credentials</h3>
+                    <ul class="credentials-list">
+                        <li><strong>BBA in Finance & Banking</strong> — IMS UCC Ghaziabad</li>
+                        <li><strong>SEBI NISM Certified</strong> — Securities & Investment Markets</li>
+                        <li><strong>Founder Fellow</strong> — 23 Ventures</li>
+                        <li><strong>Event Organizer</strong> — U.S. Embassy & Microsoft Events</li>
+                    </ul>
+                </div>
+                <div class="about-metrics">
+                    <div class="metric-card">
+                        <div class="metric-number">30%</div>
+                        <div class="metric-label">Faster Project Evaluation</div>
+                        <p class="metric-detail">Via DCF modeling and financial analysis optimization</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">6</div>
+                        <div class="metric-label">Startup Credits Secured</div>
+                        <p class="metric-detail">For portfolio companies through fund coordination</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">200+</div>
+                        <div class="metric-label">Event Coordination</div>
+                        <p class="metric-detail">Zero operational latency at American Center</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">8→5.6h</span>
-              <span class="stat-block-label">Project Analysis Time Reduction</span>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3 class="experience-title">Founder Fellow</h3>
+                    <p class="experience-company">23 Ventures</p>
+                    <ul class="experience-list">
+                        <li>Accelerated project evaluation cycles by 30% via DCF modeling and financial framework optimization</li>
+                        <li>Secured 6 startup credits and coordinated fund deployment across venture portfolio companies</li>
+                        <li>Evaluated 50+ startup pitches using advanced financial analysis and market comparables</li>
+                        <li>Led market research for Series A/B investment opportunities in fintech and SaaS sectors</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Event Organizer & Coordinator</h3>
+                    <p class="experience-company">U.S. Embassy & Microsoft</p>
+                    <ul class="experience-list">
+                        <li>Coordinated 200+ attendees for "Building a Secure Data Future" event with zero operational latency</li>
+                        <li>Managed end-to-end logistics across government, corporate, and startup stakeholders</li>
+                        <li>Established cross-functional coordination protocols for high-impact public sector initiatives</li>
+                        <li>Delivered $500K+ in brand value and industry networking across partnerships</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Finance Intern & Analyst</h3>
+                    <p class="experience-company">YHills Edutech & 23 Ventures</p>
+                    <ul class="experience-list">
+                        <li>Developed comprehensive financial models for venture portfolio and corporate valuation scenarios</li>
+                        <li>Reduced project analysis time by 40% through model automation and framework optimization</li>
+                        <li>Conducted competitive landscape analysis for Series rounds and M&A due diligence</li>
+                        <li>SEBI NISM certified in securities markets and derivatives trading</li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Senior Developer Annotation: Skill tags use semantic <span> with .tag class.
-             Tag molecules include hover effects (backdrop-filter glow) and are keyboard
-             accessible via :focus-visible styling in CSS. -->
-
-        <div class="grid grid-col-12" style="gap: var(--space-2);">
-          <span class="tag">Financial Modeling</span>
-          <span class="tag">DCF Analysis</span>
-          <span class="tag">Python</span>
-          <span class="tag">Excel VBA</span>
-          <span class="tag">Quantitative Analysis</span>
-          <span class="tag">Valuation Engineering</span>
-        </div>
-      </article>
-
-      <!-- ──────── CAREER MOLECULE 2: 23 VENTURES ──────── -->
-
-      <article class="card grid-col-12" style="margin-bottom: var(--space-12);">
-        <header style="margin-bottom: var(--space-6);">
-          <h3 class="card-title">Founder Fellow</h3>
-          <div class="card-meta">
-            <span>23 Ventures</span>
-            <span>•</span>
-            <span>Jun 2024 - Aug 2024</span>
-            <span>•</span>
-            <span>Remote / Bangalore</span>
-          </div>
-        </header>
-
-        <p style="margin-bottom: var(--space-4);">
-          Immersed in premium startup ecosystem as a <strong>Founder Fellow</strong>, gaining hands-on exposure to 
-          <strong>6 venture-backed companies</strong> including OpenAI, Cloudflare, and tier-1 fintech platforms.
-        </p>
-        <p style="margin-bottom: var(--space-6);">
-          Conducted <strong>25+ college outreach initiatives</strong> to identify and mentor early-stage founders. 
-          Developed frameworks for evaluating startup PMF (Product-Market Fit) and scaling strategies across SaaS, 
-          fintech, and deep-tech verticals.
-        </p>
-
-        <div class="grid grid-col-12">
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">6</span>
-              <span class="stat-block-label">Startup Credits Earned</span>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Events & Speaking Engagements</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg" alt="American Center Event" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(2).jpeg" alt="Keynote Session" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(3).jpeg" alt="Networking" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(4).jpeg" alt="Data Governance" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(5).jpeg" alt="Reception" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(6).jpeg" alt="Government Partnership" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(7).jpeg" alt="Leadership Group" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg" alt="Startup Expo" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="8">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg" alt="College Outreach" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="9">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg" alt="Finance Workshop" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="10">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg" alt="Tech Showcase" class="gallery-image">
+                </div>
+                <div class="gallery-item" data-index="11">
+                    <img src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg" alt="Community" class="gallery-image">
+                </div>
             </div>
-          </div>
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">25+</span>
-              <span class="stat-block-label">College Outreach Touchpoints</span>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">✕</button>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div class="lightbox-nav">
+                <button class="lightbox-nav-btn" id="lightbox-prev" aria-label="Previous">❮</button>
+                <button class="lightbox-nav-btn" id="lightbox-next" aria-label="Next">❯</button>
             </div>
-          </div>
         </div>
-
-        <div class="grid grid-col-12" style="gap: var(--space-2);">
-          <span class="tag">Startup Ecosystem</span>
-          <span class="tag">Venture Capital</span>
-          <span class="tag">Founder Mentorship</span>
-          <span class="tag">Product Strategy</span>
-          <span class="tag">Market Analysis</span>
-          <span class="tag">Fintech / SaaS</span>
-        </div>
-      </article>
-
-      <!-- ──────── CAREER MOLECULE 3: U.S. EMBASSY / MICROSOFT ──────── -->
-
-      <article class="card grid-col-12" style="margin-bottom: var(--space-12);">
-        <header style="margin-bottom: var(--space-6);">
-          <h3 class="card-title">Event Organiser</h3>
-          <div class="card-meta">
-            <span>U.S. Embassy & Microsoft</span>
-            <span>•</span>
-            <span>Sep 2024 - Present</span>
-            <span>•</span>
-            <span>American Center, New Delhi</span>
-          </div>
-        </header>
-
-        <p style="margin-bottom: var(--space-4);">
-          Architected and executed flagship event <strong>"Building a Secure Data Future"</strong> at the American Center, 
-          U.S. Embassy New Delhi. Event gathered <strong>200+ attendees</strong> (mixed industry, government, and academic stakeholders).
-        </p>
-        <p style="margin-bottom: var(--space-6);">
-          Collaborated with Microsoft Security team, Indian government agencies, and academic institutions to craft 
-          multi-part narrative on cybersecurity resilience, data governance, and emerging threat landscapes. 
-          Managed end-to-end logistics, speaker coordination, and post-event stakeholder engagement.
-        </p>
-
-        <div class="grid grid-col-12">
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">200+</span>
-              <span class="stat-block-label">Event Attendees</span>
-            </div>
-          </div>
-          <div class="grid-col-6" style="margin-bottom: var(--space-8);">
-            <div class="stat-block">
-              <span class="stat-block-value">5</span>
-              <span class="stat-block-label">Government / Enterprise Partners</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-col-12" style="gap: var(--space-2);">
-          <span class="tag">Event Strategy</span>
-          <span class="tag">Stakeholder Relations</span>
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Data Governance</span>
-          <span class="tag">Public Speaking</span>
-          <span class="tag">Cross-functional Leadership</span>
-        </div>
-      </article>
-
     </div>
-  </section>
 
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       GALLERY ORGANISM: 12-ASSET HARDCODED GRID
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Gallery uses a semantic <section> landmark with <figure> elements for each image.
-       <figure> is the semantically correct container for images with captions.
-       
-       Image Optimization:
-       - decoding="async": Prevents image decoding from blocking the main thread.
-         Browser decodes image asynchronously, improving Core Web Vitals (FID).
-       
-       - loading="lazy": Lazy-loads offscreen images. Images only fetch when they
-         enter the viewport (via IntersectionObserver). Reduces initial page weight
-         by 60-80% for sites with gallery content.
-       
-       - aspect-ratio container: CSS aspect-ratio property maintains precise dimensions
-         (1:1 square) preventing Cumulative Layout Shift (CLS). Images fill container
-         via object-fit: cover and object-position: center.
-       
-       Accessibility:
-       - alt text on every image (descriptive, not decorative)
-       - title attribute for hover tooltips
-       - role="region" on section for landmark navigation
-       - Heading hierarchy proper (h2 for section title)
-       
-       Layout:
-       - Gallery uses CSS Grid with auto-fit and minmax()
-       - Responsive on all breakpoints (mobile: 1 column, tablet: 2-3, desktop: 4)
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <section id="gallery" class="section" role="region" aria-label="Photo gallery section">
-    <div class="section-subtitle">02. Visual Archive</div>
-    <h2 class="section-title">Impact Gallery</h2>
-    <p class="section-description">
-      A curated collection of 12 pivotal moments spanning startup ecosystems, government partnerships, and fintech innovation.
-    </p>
-
-    <div class="gallery" style="margin-top: var(--space-16);">
-
-      <!-- ──────── AMERICAN EVENT IMAGE 1 ──────── -->
-      <!-- Senior Developer Annotation: Each <figure> wraps image and optional caption.
-           The container div applies aspect-ratio CSS (defined via inline style to
-           ensure zero CLS). Images use decoding="async" and loading="lazy" for
-           performance. -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(1).jpeg"
-          alt="American Center, New Delhi - Building a Secure Data Future event kick-off panel"
-          title="Event organizer role at U.S. Embassy"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">📸</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">American Center Event</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-wrapper">
+                <form action="https://formspree.io/f/xyzpdwvk" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Connect</h3>
+                    <p><strong>Email:</strong> <a href="mailto:tanishqsinghal018@gmail.com">tanishqsinghal018@gmail.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> India</p>
+                </div>
+            </div>
         </div>
-      </figure>
+    </section>
 
-      <!-- ──────── AMERICAN EVENT IMAGE 2 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(2).jpeg"
-          alt="Keynote speaker addressing cybersecurity resilience initiatives"
-          title="U.S. Embassy event - Cybersecurity focus"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🎤</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Keynote Session</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Tanishq Singhal. All rights reserved. | Finance & Strategy Analyst</p>
         </div>
-      </figure>
+    </footer>
 
-      <!-- ──────── AMERICAN EVENT IMAGE 3 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(3).jpeg"
-          alt="Networking roundtable with government and enterprise representatives"
-          title="Stakeholder engagement - American Center"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🤝</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Networking</p>
-        </div>
-      </figure>
-
-      <!-- ──────── AMERICAN EVENT IMAGE 4 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(4).jpeg"
-          alt="Data governance panel discussion with Microsoft security experts"
-          title="Panel: Data Governance - Building a Secure Data Future"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">📊</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Data Governance</p>
-        </div>
-      </figure>
-
-      <!-- ──────── AMERICAN EVENT IMAGE 5 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(5).jpeg"
-          alt="Post-event networking reception with 200+ attendees"
-          title="Reception - American Center, New Delhi"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🎉</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Reception</p>
-        </div>
-      </figure>
-
-      <!-- ──────── AMERICAN EVENT IMAGE 6 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(6).jpeg"
-          alt="Strategic partnership announcement with government cybersecurity agency"
-          title="Government partnership - Secure Data Future initiative"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🏛️</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Government Partnership</p>
-        </div>
-      </figure>
-
-      <!-- ──────── AMERICAN EVENT IMAGE 7 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/american%20event%20(7).jpeg"
-          alt="Group photo with Microsoft, government, and academic leaders post-event"
-          title="Leadership gathering - Building a Secure Data Future"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">📸</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Leadership Group</p>
-        </div>
-      </figure>
-
-      <!-- ──────── EVENT IMAGE 1 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(1).jpg"
-          alt="23 Ventures startup ecosystem exposure event - founder mentorship"
-          title="23 Ventures - Founder Fellow program event"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">⚡</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Startup Expo</p>
-        </div>
-      </figure>
-
-      <!-- ──────── EVENT IMAGE 2 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(2).jpg"
-          alt="College outreach workshop - mentoring emerging founders"
-          title="Founder fellowship - College mentor initiative"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🎓</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">College Outreach</p>
-        </div>
-      </figure>
-
-      <!-- ──────── EVENT IMAGE 3 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(3).jpg"
-          alt="YHills Edutech finance team - DCF modeling workshop"
-          title="YHills Edutech internship - Financial modeling session"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">💰</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Finance Workshop</p>
-        </div>
-      </figure>
-
-      <!-- ──────── EVENT IMAGE 4 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(4).jpg"
-          alt="Portfolio project showcase - full-stack architecture demo"
-          title="Systems design presentation"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">💻</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Tech Showcase</p>
-        </div>
-      </figure>
-
-      <!-- ──────── EVENT IMAGE 5 ──────── -->
-
-      <figure class="gallery-item" style="aspect-ratio: 1 / 1;">
-        <img 
-          src="https://raw.githubusercontent.com/Tanishq11098/my-resume/main/event%20(5).jpg"
-          alt="Community engagement - fintech and systems design dialogue"
-          title="Professional community gathering"
-          decoding="async"
-          loading="lazy"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-icon">🌐</div>
-          <p style="font-size: 0.875rem; color: white; text-align: center;">Community</p>
-        </div>
-      </figure>
-
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       FOOTER: CONTACT & METADATA CLOSURE
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Footer uses semantic <footer> tag (ARIA landmark region). Contains contact
-       information and social links. Links use rel="noopener noreferrer" for security
-       hardening on external links.
-       
-       Accessibility:
-       - <footer> landmark allows easy navigation via screen reader landmarks
-       - Links have descriptive text (not "Click here")
-       - Copyright information in semantic <small> tag
-       - aria-label on social links for context
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <footer id="contact" class="section" role="contentinfo" aria-label="Contact and footer information">
-    <div class="divider"></div>
-    <div style="text-align: center; margin-block: var(--space-16);">
-      <h2 class="section-title" style="margin-bottom: var(--space-8);">Let's Build Together</h2>
-      <p class="section-description" style="margin-bottom: var(--space-8);">
-        Open to discussing fintech architecture, systems design, and high-performance portfolio optimization.
-      </p>
-
-      <!-- Senior Developer Annotation: Contact CTA uses semantic <a> tag with mailto: and
-           LinkedIn URL schemes. Each link includes aria-label for context. -->
-
-      <div class="flex flex-col items-center gap-6" style="margin-bottom: var(--space-12);">
-        <a href="mailto:tanishqsinghal110@gmail.com" class="button button-primary" aria-label="Send email to Tanishq">
-          Email Me
-        </a>
-        <nav aria-label="Social media links" style="display: flex; gap: var(--space-6); justify-content: center;">
-          <a href="https://www.linkedin.com/in/tanishq-singhal" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
-            LinkedIn
-          </a>
-          <a href="https://github.com/Tanishq11098" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
-            GitHub
-          </a>
-          <a href="https://twitter.com/TanishqSinghal" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile">
-            Twitter
-          </a>
-        </nav>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Senior Developer Annotation: Footer metadata includes copyright and build info.
-           <small> tag is semantically correct for legal text. Year is dynamic (2024+)
-           to ensure accuracy on future deployments. -->
-
-      <div style="text-align: center; color: var(--color-text-quaternary); font-size: 0.875rem;">
-        <small>
-          © 2024 Tanishq Singhal. Architected with CSS, JavaScript, and semantic HTML.
-          <br>
-          <span style="display: block; margin-top: var(--space-3);">
-            This portfolio demonstrates enterprise-grade systems design principles.
-          </span>
-        </small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       LIGHTBOX COMPONENT: MODAL IMAGE VIEWER
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Lightbox provides interactive image viewing with keyboard navigation and
-       focus trapping. Uses ARIA live region to announce to screen readers when
-       image changes. Backdrop-filter blur prevents interaction with background.
-       
-       This HTML shell is controlled by the JavaScript engine (script.js) which
-       handles open/close state, image swapping, and keyboard event listeners.
-       ═════════════════════════��══════════════════════════════════════════════════════ -->
-
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox viewer" aria-hidden="true">
-    <div class="lightbox-backdrop" role="presentation"></div>
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Close lightbox" type="button">
-        ✕
-      </button>
-      <img id="lightbox-image" class="lightbox-image" src="" alt="">
-      <div id="lightbox-caption" style="text-align: center; color: var(--color-text-secondary); font-size: 0.875rem; margin-top: var(--space-4);" role="region" aria-live="polite"></div>
-      <div class="lightbox-nav">
-        <button class="lightbox-nav-btn" id="lightbox-prev" aria-label="Previous image" type="button">❮</button>
-        <button class="lightbox-nav-btn" id="lightbox-next" aria-label="Next image" type="button">❯</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════════════════════════════════════
-       JAVASCRIPT ENGINE: MODULE LOADING
-       ════════════════════════════════════════════════════════════════════════════════
-       
-       Senior Developer Annotation:
-       Script tag uses defer attribute to ensure DOM is fully parsed before
-       execution. This prevents "Cannot read property of undefined" errors from
-       trying to access DOM elements before they exist.
-       
-       defer vs async:
-       - defer: Executes after DOM parsing (correct for DOM manipulation)
-       - async: Executes immediately when available (correct for third-party scripts)
-       
-       We use defer to ensure the PortfolioCore engine initializes only after all
-       HTML elements are rendered.
-       ════════════════════════════════════════════════════════════════════════════════ -->
-
-  <script defer src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
