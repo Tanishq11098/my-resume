@@ -1245,6 +1245,7 @@
     .mobile-nav-menu a:hover { background: var(--glow); color: var(--indigo); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    /* ─── RESPONSIVE / MOBILE ──────────────────────────────────────────── */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-photo-wrap { max-width: 300px; margin: 0 auto 2rem; }
@@ -1254,13 +1255,52 @@
       .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-left-bar { writing-mode: horizontal-tb; height: 50px; width: 100%; transform: translateY(-100%); transition: transform 0.6s cubic-bezier(0.4,0,0.2,1) 0.1s; }
+      .project-card.visible .project-left-bar { transform: translateY(0); }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       section { padding: 80px 0 60px; }
+      .container { padding: 0 1.25rem; }
+      .section-title { font-size: 1.8rem; }
+      .hero-name { font-size: clamp(2.2rem, 10vw, 4rem); letter-spacing: -1px; }
+      .hero-intro { font-size: 0.9rem; }
+      .hero-cta { gap: 0.75rem; }
+      .btn-primary, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.88rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .stats-row { gap: 0.75rem; }
-      .stat-box { padding: 1rem; }
+      .stat-box { padding: 1rem 0.75rem; min-width: 100px; }
+      .stat-number { font-size: 1.6rem; }
+      .ach-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .gallery-strip { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.65rem; }
+      .exp-card:nth-child(odd), .exp-card:nth-child(even) { transform: translateY(30px); }
+      .exp-card.visible { transform: translateY(0); }
+      .exp-right { padding: 1.25rem; }
+      .exp-left { padding: 1.25rem; }
+      .project-right { padding: 1.25rem; }
+      .contact-form-card, .contact-info-card { padding: 1.75rem; }
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+      .lightbox img { max-width: 95vw; max-height: 80vh; }
     }
+    @media (max-width: 480px) {
+      .hero-name { font-size: clamp(2rem, 12vw, 3rem); }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
+      .hero-socials { gap: 0.75rem; }
+      .stats-row { flex-wrap: wrap; }
+      .stat-box { min-width: calc(50% - 0.5rem); }
+      .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+      .about-stats { flex-direction: column; gap: 0.75rem; }
+      .nav-logo { font-size: 1.1rem; }
+      .ach-img-wrap { height: 160px; }
+      .cert-img-wrap { height: 180px; }
+      .project-outcomes { grid-template-columns: 1fr; }
+      .project-tags { gap: 0.4rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -1404,7 +1444,7 @@
           <span class="exp-company-badge">U.S. Embassy × Microsoft</span>
           <div class="exp-role-name">Event Organiser</div>
           <div class="exp-duration">📅 April 2026</div>
-          <span class="exp-type-badge">Contract / Event-Based</span>
+          <span class="exp-type-badge">Event-Based</span>
           <div class="exp-location">📍 New Delhi, India</div>
         </div>
         <div class="exp-right">
@@ -1430,7 +1470,7 @@
           <div class="exp-role-name">Founder Fellow</div>
           <div class="exp-duration">📅 Dec 2025 – Feb 2026</div>
           <span class="exp-type-badge">Fellowship (Full-time)</span>
-          <div class="exp-location">📍 Remote / Pan-India</div>
+          <div class="exp-location">📍 New Delhi, India</div>
         </div>
         <div class="exp-right">
           <div class="exp-bullets-title">Key Responsibilities</div>
@@ -1455,7 +1495,7 @@
           <div class="exp-role-name">Finance Intern</div>
           <div class="exp-duration">📅 Jun – Aug 2025</div>
           <span class="exp-type-badge">Internship</span>
-          <div class="exp-location">📍 Noida, India</div>
+          <div class="exp-location">📍 Remote</div>
         </div>
         <div class="exp-right">
           <div class="exp-bullets-title">Key Responsibilities</div>
@@ -1480,7 +1520,7 @@
           <div class="exp-role-name">Campus Ambassador</div>
           <div class="exp-duration">📅 May – Jun 2025</div>
           <span class="exp-type-badge">Part-time / Campus</span>
-          <div class="exp-location">📍 Noida / Remote</div>
+          <div class="exp-location">📍 Remote</div>
         </div>
         <div class="exp-right">
           <div class="exp-bullets-title">Key Responsibilities</div>
@@ -1865,16 +1905,16 @@
 
       <div class="ach-card scroll-reveal">
         <div class="ach-img-wrap">
-          <img src="Yhills Certificate of Appericiation.png" alt="U.S. Embassy Certificate" loading="lazy" />
+          <img src="american centre certificate.jpeg" alt="American Centre Certificate of Appreciation" loading="lazy" />
         </div>
         <div class="ach-body">
           <div class="ach-badges">
             <span class="badge-category badge-professional">Professional</span>
             <span class="ach-year">2026</span>
           </div>
-          <div class="ach-title">Certificate of Appreciation — U.S. Embassy &amp; Microsoft</div>
-          <div class="ach-institution">U.S. Embassy New Delhi</div>
-          <p class="ach-desc">Recognised by the U.S. Embassy New Delhi for exceptional quality of execution in organising the Microsoft Azure event at the American Center — a high-visibility international event involving government officials, Microsoft representatives, and 100+ attendees.</p>
+          <div class="ach-title">Certificate of Appreciation — American Centre</div>
+          <div class="ach-institution">American Centre, New Delhi</div>
+          <p class="ach-desc">Awarded a Certificate of Appreciation by the American Centre, New Delhi for outstanding contribution to organising the Microsoft Azure event in collaboration with the U.S. Embassy and Microsoft.</p>
         </div>
       </div>
 
