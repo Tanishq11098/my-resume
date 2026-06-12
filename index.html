@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tanishq Singhal — Finance. Strategy. Execution.</title>
   <meta name="description" content="Tanishq Singhal — BBA Finance & Banking Student, Event Organiser, Founder Fellow, and Finance Analyst. Portfolio showcasing experience, projects, and achievements." />
+  <meta property="og:title" content="Tanishq Singhal — Finance. Strategy. Execution." />
+  <meta property="og:description" content="BBA Finance & Banking Student | SEBI NISM Certified | IIT Guwahati Top 10% | Finance Analyst & Event Organiser" />
+  <meta property="og:image" content="profile.jpg.jpeg" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -63,35 +67,27 @@
       justify-content: space-between;
       transition: background 0.3s;
     }
-    .nav-logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--indigo);
-      letter-spacing: 2px;
-      text-shadow: 0 0 18px rgba(108,99,255,0.8);
-      text-decoration: none;
-    }
     .nav-logo-img {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.nav-logo-img img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-  border: 2px solid var(--indigo);
-  box-shadow: 0 0 12px rgba(108,99,255,0.6);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-.nav-logo-img:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(108,99,255,0.9);
-  border-color: var(--gold);
-}
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-img img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 2px solid var(--indigo);
+      box-shadow: 0 0 12px rgba(108,99,255,0.6);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .nav-logo-img:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(108,99,255,0.9);
+      border-color: var(--gold);
+    }
     .nav-links {
       display: flex;
       gap: 0.2rem;
@@ -223,27 +219,26 @@
       opacity: 0;
       animation: fadeSlideUp 0.8s 1.5s forwards;
     }
-    /* This should be inside <style> in <head>, NOT in <body> */
-.btn-resume {
-  padding: 0.85rem 2rem;
-  background: transparent;
-  color: var(--gold);
-  font-weight: 600;
-  font-size: 0.92rem;
-  border: 1.5px solid var(--gold);
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
-  display: inline-block;
-  letter-spacing: 0.3px;
-}
-.btn-resume:hover {
-  background: var(--gold);
-  color: #0a0a0f;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(245,200,66,0.4);
-}
+    .btn-resume {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1.5px solid var(--gold);
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+    .btn-resume:hover {
+      background: var(--gold);
+      color: #0a0a0f;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(245,200,66,0.4);
+    }
     .btn-primary {
       padding: 0.85rem 2rem;
       background: var(--indigo);
@@ -305,7 +300,6 @@
     }
     .social-icon:nth-child(1) { animation-delay: 2s; }
     .social-icon:nth-child(2) { animation-delay: 2.15s; }
-    .social-icon:nth-child(3) { animation-delay: 2.3s; }
     .social-icon:hover {
       transform: translateY(-4px) scale(1.1);
       box-shadow: 0 8px 24px rgba(108,99,255,0.4);
@@ -396,7 +390,6 @@
       transform: translateY(-2px);
     }
     .about-work-btns a:hover::after { width: 100%; }
-
     .mission-vision-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -443,10 +436,7 @@
     }
     .exp-card:nth-child(odd)  { transform: translateX(-80px); }
     .exp-card:nth-child(even) { transform: translateX(80px); }
-    .exp-card.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .exp-card.visible { opacity: 1; transform: translateX(0); }
     .exp-card:hover {
       transform: translateY(-6px) !important;
       box-shadow: 0 20px 50px rgba(108,99,255,0.2);
@@ -475,23 +465,11 @@
       border-radius: 20px;
       display: inline-block;
       margin-bottom: 0.5rem;
-      animation: none;
       white-space: nowrap;
     }
-    .exp-card:hover .exp-company-badge {
-      box-shadow: 0 0 12px rgba(245,200,66,0.5);
-    }
-    .exp-role-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-    }
-    .exp-duration {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
+    .exp-card:hover .exp-company-badge { box-shadow: 0 0 12px rgba(245,200,66,0.5); }
+    .exp-role-name { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .exp-duration { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
     .exp-type-badge {
       font-size: 0.7rem;
       font-weight: 600;
@@ -572,18 +550,8 @@
       transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
       display: inline-block;
     }
-    .edu-degree {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-    .edu-institution {
-      font-size: 0.88rem;
-      color: var(--indigo);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .edu-degree { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .edu-institution { font-size: 0.88rem; color: var(--indigo); font-weight: 600; margin-bottom: 0.5rem; }
     .edu-meta {
       font-size: 0.8rem;
       color: var(--muted);
@@ -649,9 +617,7 @@
       writing-mode: vertical-rl;
     }
     .project-card.visible .project-left-bar { transform: translateX(0); }
-    .project-card:hover .project-left-bar {
-      box-shadow: inset -4px 0 20px rgba(108,99,255,0.3);
-    }
+    .project-card:hover .project-left-bar { box-shadow: inset -4px 0 20px rgba(108,99,255,0.3); }
     .project-right { padding: 2rem 2rem 2rem 1.5rem; }
     .project-num {
       font-size: 0.7rem;
@@ -669,11 +635,7 @@
       transition: letter-spacing 0.3s;
     }
     .project-card:hover .project-title { letter-spacing: 0.5px; }
-    .project-type {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
+    .project-type { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
     .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
     .project-outcomes-title {
       font-size: 0.72rem;
@@ -750,9 +712,7 @@
       transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
     }
     .skill-category-card.visible { opacity: 1; transform: scale(1); }
-    .skill-category-card:hover {
-      box-shadow: 0 20px 50px rgba(108,99,255,0.2);
-    }
+    .skill-category-card:hover { box-shadow: 0 20px 50px rgba(108,99,255,0.2); }
     .skill-category-card:hover .skill-cat-icon { transform: rotate(360deg); }
     .skill-cat-icon {
       font-size: 1.8rem;
@@ -760,29 +720,12 @@
       display: inline-block;
       transition: transform 1.5s ease;
     }
-    .skill-cat-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.5px;
-    }
+    .skill-cat-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; letter-spacing: 0.5px; }
     .skill-list { display: flex; flex-direction: column; gap: 1.1rem; }
-    .skill-item {}
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.4rem;
-    }
+    .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
     .skill-name { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
     .skill-pct  { font-size: 0.82rem; color: var(--indigo); font-weight: 700; }
-    .skill-bar-track {
-      height: 6px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 3px;
-      overflow: hidden;
-    }
+    .skill-bar-track { height: 6px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
     .skill-bar-fill {
       height: 100%;
       border-radius: 3px;
@@ -808,21 +751,14 @@
       transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s, background 0.3s, border-color 0.3s;
       cursor: pointer;
     }
-    .cert-card.visible {
-      opacity: 1;
-      transform: rotate(0) translateY(0);
-    }
+    .cert-card.visible { opacity: 1; transform: rotate(0) translateY(0); }
     .cert-card:hover {
       box-shadow: 0 20px 50px rgba(245,200,66,0.2);
       background: #1e1a3a;
       border-color: rgba(245,200,66,0.4);
       transform: rotate(0) translateY(-4px) !important;
     }
-    .cert-img-wrap {
-      overflow: hidden;
-      height: 240px;
-      background: #0f0f1e;
-    }
+    .cert-img-wrap { overflow: hidden; height: 240px; background: #0f0f1e; }
     .cert-img-wrap img {
       width: 100%;
       height: 100%;
@@ -904,12 +840,9 @@
       padding: 1rem;
     }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-overlay-text {
-      font-size: 0.8rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-    /* Lightbox */
+    .gallery-overlay-text { font-size: 0.8rem; color: var(--text); font-weight: 600; }
+
+    /* ─── LIGHTBOX ──────────────────────────────────────────────────────── */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -963,6 +896,78 @@
     .lightbox-prev { left: 1.5rem; }
     .lightbox-next { right: 1.5rem; }
 
+    /* ─── RESUME PREVIEW MODAL ─────────────────────────────────────────── */
+    .resume-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .resume-modal.open { display: flex; }
+    .resume-modal iframe {
+      width: min(860px, 90vw);
+      height: 80vh;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(108,99,255,0.4);
+    }
+    .resume-modal-actions { display: flex; gap: 1rem; }
+    .resume-modal-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .resume-modal-close:hover { background: rgba(255,255,255,0.25); }
+
+    /* ─── BACK TO TOP ───────────────────────────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--indigo);
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(108,99,255,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s, background 0.2s;
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: var(--gold);
+      box-shadow: 0 4px 20px rgba(245,200,66,0.5);
+    }
+
     /* ─── ACHIEVEMENTS ─────────────────────────────────────────────────── */
     #achievements { background: linear-gradient(180deg, #0d0d1a 0%, var(--bg) 100%); }
     .achievements-subheading {
@@ -987,15 +992,9 @@
       flex: 1;
       min-width: 140px;
     }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--indigo);
-      display: block;
-    }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--indigo); display: block; }
     .stat-label { font-size: 0.8rem; color: var(--muted); }
     .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    /* gallery stagger */
     .gallery-item:nth-child(1) { transition-delay: 0.05s; }
     .gallery-item:nth-child(2) { transition-delay: 0.10s; }
     .gallery-item:nth-child(3) { transition-delay: 0.15s; }
@@ -1018,14 +1017,9 @@
       box-shadow: 0 0 0 1px rgba(245,200,66,0.3), 0 20px 50px rgba(245,200,66,0.15);
       transform: scale(1.02) !important;
     }
-    .ach-img-wrap {
-      height: 200px;
-      overflow: hidden;
-      background: #0f0f1e;
-    }
+    .ach-img-wrap { height: 200px; overflow: hidden; background: #0f0f1e; }
     .ach-img-wrap img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: contain;
       padding: 0.5rem;
       animation: kenBurns 8s ease-in-out infinite alternate;
@@ -1054,9 +1048,7 @@
       background: var(--gold-glow);
       border: 1px solid rgba(245,200,66,0.3);
     }
-    .ach-card:hover .badge-professional, .ach-card:hover .badge-academic {
-      box-shadow: 0 0 12px currentColor;
-    }
+    .ach-card:hover .badge-professional, .ach-card:hover .badge-academic { box-shadow: 0 0 12px currentColor; }
     .ach-year { font-size: 0.78rem; color: var(--muted); }
     .ach-title { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0.5rem 0; }
     .ach-institution { font-size: 0.82rem; color: var(--indigo); font-weight: 600; margin-bottom: 0.75rem; }
@@ -1087,7 +1079,7 @@
       padding: 2.5rem;
       opacity: 0;
       transform: translate(30px, 30px);
-      transition: opacity 0.8s ease, transform 0.8s ease, 0.1s 0.1s;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .contact-info-card.visible { opacity: 1; transform: translate(0,0); }
     .form-group { position: relative; margin-bottom: 2rem; }
@@ -1105,9 +1097,7 @@
       transition: border-color 0.3s;
     }
     .form-group textarea { height: 100px; }
-    .form-group input:focus, .form-group textarea:focus {
-      border-bottom-color: var(--indigo);
-    }
+    .form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--indigo); }
     .form-group label {
       position: absolute;
       left: 0; top: 0.75rem;
@@ -1160,21 +1150,9 @@
       transition: left 0.5s ease;
     }
     .btn-send:hover::before { left: 100%; }
-    .btn-send:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(108,99,255,0.5);
-    }
-    .contact-info-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .contact-info-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
+    .btn-send:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(108,99,255,0.5); }
+    .contact-info-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
+    .contact-info-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
     .contact-row {
       display: flex;
       align-items: center;
@@ -1187,9 +1165,7 @@
       cursor: default;
     }
     a.contact-row { cursor: pointer; }
-    .contact-row:hover {
-      transform: translateX(6px);
-    }
+    .contact-row:hover { transform: translateX(6px); }
     .contact-icon {
       width: 42px;
       height: 42px;
@@ -1220,28 +1196,11 @@
       padding: 2.5rem 2rem;
       text-align: center;
     }
-    .footer-name {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-    .footer-tagline {
-      font-size: 0.85rem;
-      color: var(--indigo);
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 1.25rem;
-    }
-    .footer-socials {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
+    .footer-name { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 0.25rem; }
+    .footer-tagline { font-size: 0.85rem; color: var(--indigo); font-weight: 600; letter-spacing: 1px; margin-bottom: 1.25rem; }
+    .footer-socials { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
     .footer-socials a {
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       border-radius: 10px;
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -1252,12 +1211,7 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    .footer-socials a:hover {
-      background: var(--indigo);
-      color: #fff;
-      border-color: var(--indigo);
-      transform: translateY(-3px);
-    }
+    .footer-socials a:hover { background: var(--indigo); color: #fff; border-color: var(--indigo); transform: translateY(-3px); }
     .footer-socials a svg { width: 17px; height: 17px; fill: currentColor; }
     .footer-copy { font-size: 0.78rem; color: var(--muted); }
 
@@ -1287,7 +1241,6 @@
     .mobile-nav-menu a:hover { background: var(--glow); color: var(--indigo); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
-    /* ─── RESPONSIVE / MOBILE ──────────────────────────────────────────── */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-photo-wrap { max-width: 300px; margin: 0 auto 2rem; }
@@ -1326,23 +1279,21 @@
       .lightbox-prev { left: 0.5rem; }
       .lightbox-next { right: 0.5rem; }
       .lightbox img { max-width: 95vw; max-height: 80vh; }
+      .back-to-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; font-size: 1rem; }
     }
     @media (max-width: 480px) {
       .hero-name { font-size: clamp(2rem, 12vw, 3rem); }
       .hero-cta { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
+      .btn-primary, .btn-outline, .btn-resume { width: 100%; max-width: 280px; text-align: center; }
       .hero-socials { gap: 0.75rem; }
       .stats-row { flex-wrap: wrap; }
       .stat-box { min-width: calc(50% - 0.5rem); }
       .gallery-strip { grid-template-columns: repeat(2, 1fr); }
-      .about-stats { flex-direction: column; gap: 0.75rem; }
-      .nav-logo { font-size: 1.1rem; }
       .ach-img-wrap { height: 160px; }
       .cert-img-wrap { height: 180px; }
       .project-outcomes { grid-template-columns: 1fr; }
       .project-tags { gap: 0.4rem; }
     }
-
   </style>
 </head>
 <body>
@@ -1352,7 +1303,7 @@
 
 <!-- ════════════════ NAV ════════════════ -->
 <nav id="main-nav">
-  <a href="#home" class="nav-logo-img">   <img src="profile.jpg.jpeg" alt="Tanishq Singhal" /> </a>
+  <a href="#home" class="nav-logo-img"><img src="profile.jpg.jpeg" alt="Tanishq Singhal" /></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#home"           id="nav-home">Home</a></li>
     <li><a href="#about"          id="nav-about">About</a></li>
@@ -1390,28 +1341,16 @@
       <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
     </div>
     <p class="hero-intro">
-      Tanishq Singhal is a driven BBA Finance &amp; Banking student with hands-on experience spanning
-      financial analysis, early-stage venture ecosystems, and high-profile international event
-      execution. With over a year of professional experience, he has delivered measurable
-      impact — reducing financial evaluation turnaround time by 30% at Yhills and coordinating a
-      Microsoft Azure event at the American Center in partnership with the U.S. Embassy. His work
-      spans financial modelling, stakeholder management, and community building across 25+ college
-      networks. Equally comfortable with Excel models and cross-functional coordination, Tanishq
-      brings a rare blend of analytical rigour and operational execution. He is currently seeking
-      opportunities at the intersection of finance, operations, and emerging ecosystems — where
-      strategy meets real-world impact.
+      Tanishq Singhal is a driven BBA Finance &amp; Banking student, <strong style="color:var(--text);">SEBI NISM Certified Investor</strong> and <strong style="color:var(--text);">IIT Guwahati Top 10% alumnus</strong>, with hands-on experience spanning financial analysis, early-stage venture ecosystems, and high-profile international event execution. With over a year of professional experience, he has delivered measurable impact — reducing financial evaluation turnaround time by 30% at Yhills and coordinating a Microsoft Azure event at the American Center in partnership with the U.S. Embassy. His work spans financial modelling, stakeholder management, and community building across 25+ college networks. Equally comfortable with Excel models and cross-functional coordination, Tanishq brings a rare blend of analytical rigour and operational execution. He is currently seeking opportunities at the intersection of finance, operations, and emerging ecosystems — where strategy meets real-world impact.
     </p>
     <div class="hero-cta">
-  <a href="#about" class="btn-primary">Learn More About Me</a>
-  <a href="#contact" class="btn-outline">Get In Touch</a>
-  <a href="Tanishq_Singhal_Resume.pdf" download="Tanishq_Singhal_Resume.pdf" class="btn-resume">
-    ⬇ Download Resume
-  </a>
-</div>
+      <a href="#about" class="btn-primary">Learn More About Me</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+      <button onclick="document.getElementById('resume-iframe').src='Tanishq_Singhal_Resume.pdf'; document.getElementById('resume-modal').classList.add('open'); document.body.style.overflow='hidden';" class="btn-resume">
+        👁 Preview Resume
+      </button>
+    </div>
     <div class="hero-socials">
-      <a href="https://github.com" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
-        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
       <a href="https://linkedin.com/in/tanishq-singhal91" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
@@ -1428,7 +1367,6 @@
     <div class="section-label">Who I Am</div>
     <h2 class="section-title">About <span class="indigo-accent">Me</span></h2>
     <div class="about-grid">
-      <!-- LEFT: Photo + buttons -->
       <div>
         <div class="about-photo-wrap scroll-reveal" data-direction="left">
           <img src="profile.jpg.jpeg" alt="Tanishq Singhal" loading="lazy" />
@@ -1441,7 +1379,6 @@
           <a href="#certifications">Certifications</a>
         </div>
       </div>
-      <!-- RIGHT: Summary + Mission/Vision -->
       <div>
         <p class="about-summary scroll-reveal" data-direction="right">
           Currently pursuing a BBA in Finance &amp; Banking at IMS UCC Ghaziabad, Tanishq Singhal is
@@ -1459,15 +1396,11 @@
         <div class="mission-vision-grid">
           <div class="mv-card">
             <div class="mv-card-title">🎯 Mission</div>
-            <p>To build a career that bridges rigorous financial analysis with operational
-              excellence — creating tangible value for organisations, communities, and
-              early-stage ecosystems.</p>
+            <p>To build a career that bridges rigorous financial analysis with operational excellence — creating tangible value for organisations, communities, and early-stage ecosystems.</p>
           </div>
           <div class="mv-card">
             <div class="mv-card-title">🔭 Vision</div>
-            <p>To become a leading finance and strategy professional who shapes impactful
-              decisions at the intersection of business, technology, and innovation —
-              turning numbers into narratives and plans into outcomes.</p>
+            <p>To become a leading finance and strategy professional who shapes impactful decisions at the intersection of business, technology, and innovation — turning numbers into narratives and plans into outcomes.</p>
           </div>
         </div>
       </div>
@@ -1483,7 +1416,6 @@
     <p class="section-subtitle">Over a year of professional experience across international events, venture ecosystems, and financial analysis.</p>
     <div class="exp-timeline">
 
-      <!-- Role 1 -->
       <div class="exp-card scroll-reveal">
         <div class="exp-left">
           <span class="exp-company-badge">U.S. Embassy × Microsoft</span>
@@ -1508,7 +1440,6 @@
         </div>
       </div>
 
-      <!-- Role 2 -->
       <div class="exp-card scroll-reveal">
         <div class="exp-left">
           <span class="exp-company-badge">23 Ventures</span>
@@ -1533,7 +1464,6 @@
         </div>
       </div>
 
-      <!-- Role 3 -->
       <div class="exp-card scroll-reveal">
         <div class="exp-left">
           <span class="exp-company-badge">Yhills</span>
@@ -1558,7 +1488,6 @@
         </div>
       </div>
 
-      <!-- Role 4 -->
       <div class="exp-card scroll-reveal">
         <div class="exp-left">
           <span class="exp-company-badge">Yhills</span>
@@ -1599,10 +1528,7 @@
         <div class="edu-icon">🎓</div>
         <div class="edu-degree">Bachelor of Business Administration — Finance &amp; Banking (BBA)</div>
         <div class="edu-institution">IMS UCC, Ghaziabad</div>
-        <div class="edu-meta">
-          <span>📅 2024 – 2027</span>
-          <span>Full-time</span>
-        </div>
+        <div class="edu-meta"><span>📅 2024 – 2027</span><span>Full-time</span></div>
         <ul class="edu-highlights">
           <li>Specialising in Financial Analysis, Banking Operations, and Corporate Finance with focus on real-world application</li>
           <li>Actively applying academic learning through internships, fellowships, and industry events alongside coursework</li>
@@ -1614,11 +1540,7 @@
         <div class="edu-icon">📚</div>
         <div class="edu-degree">Class 12 — Commerce (CBSE)</div>
         <div class="edu-institution">Divine Educational Institute</div>
-        <div class="edu-meta">
-          <span>✅ Completed</span>
-          <span class="edu-score-badge">72%</span>
-          <span>Full-time</span>
-        </div>
+        <div class="edu-meta"><span>✅ Completed</span><span class="edu-score-badge">72%</span><span>Full-time</span></div>
         <ul class="edu-highlights">
           <li>Studied core commerce subjects including Accountancy, Business Studies, and Economics</li>
           <li>Developed early interest in financial concepts and business operations</li>
@@ -1630,11 +1552,7 @@
         <div class="edu-icon">🏫</div>
         <div class="edu-degree">Class 10 — CBSE</div>
         <div class="edu-institution">Divine Educational Institute</div>
-        <div class="edu-meta">
-          <span>✅ Completed</span>
-          <span class="edu-score-badge">72%</span>
-          <span>Full-time</span>
-        </div>
+        <div class="edu-meta"><span>✅ Completed</span><span class="edu-score-badge">72%</span><span>Full-time</span></div>
         <ul class="edu-highlights">
           <li>Completed secondary education with well-rounded academic foundations</li>
           <li>Developed strong skills in Mathematics, Science, and English</li>
@@ -1654,7 +1572,6 @@
     <p class="section-subtitle">A portfolio of initiatives spanning event management, ecosystem building, financial modelling, and community growth.</p>
     <div class="project-list">
 
-      <!-- Project 1 -->
       <div class="project-card scroll-reveal">
         <div class="project-left-bar">🏛️</div>
         <div class="project-right">
@@ -1680,7 +1597,6 @@
         </div>
       </div>
 
-      <!-- Project 2 -->
       <div class="project-card scroll-reveal">
         <div class="project-left-bar">🚀</div>
         <div class="project-right">
@@ -1707,7 +1623,6 @@
         </div>
       </div>
 
-      <!-- Project 3 -->
       <div class="project-card scroll-reveal">
         <div class="project-left-bar">📊</div>
         <div class="project-right">
@@ -1734,7 +1649,6 @@
         </div>
       </div>
 
-      <!-- Project 4 -->
       <div class="project-card scroll-reveal">
         <div class="project-left-bar">📣</div>
         <div class="project-right">
@@ -1775,63 +1689,50 @@
         <img src="american event (1).jpeg" alt="American Center Event Photo 1" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">American Center, New Delhi · April 2026</span></div>
       </div>
-
       <div class="gallery-item" data-src="american event (2).jpeg" data-caption="Microsoft Azure Event — U.S. Embassy Collaboration">
         <img src="american event (2).jpeg" alt="American Center Event Photo 2" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">U.S. Embassy × Microsoft Collaboration</span></div>
       </div>
-
       <div class="gallery-item" data-src="american event (3).jpeg" data-caption="Event Coordination — Microsoft Azure">
         <img src="american event (3).jpeg" alt="American Center Event Photo 3" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">On-Ground Event Coordination</span></div>
       </div>
-
       <div class="gallery-item" data-src="american event (4).jpeg" data-caption="100+ Attendees — International Tech Event">
         <img src="american event (4).jpeg" alt="American Center Event Photo 4" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">100+ Attendees · Zero Disruptions</span></div>
       </div>
-
       <div class="gallery-item" data-src="american event (5).jpeg" data-caption="Stakeholder Alignment — Microsoft &amp; U.S. Embassy">
         <img src="american event (5).jpeg" alt="American Center Event Photo 5" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">Cross-Organisational Stakeholder Alignment</span></div>
       </div>
-
       <div class="gallery-item" data-src="american event (6).jpeg" data-caption="American Center Event Operations">
         <img src="american event (6).jpeg" alt="American Center Event Photo 6" loading="lazy" />
         <div class="gallery-overlay"><span class="gallery-overlay-text">Event Operations &amp; Execution</span></div>
       </div>
-<!-- Add these after your last american event gallery item -->
-
-<div class="gallery-item" data-src="23 Venture (1).jpg" data-caption="23 Ventures — Founder Fellow">
-  <img src="23 Venture (1).jpg" alt="23 Ventures Event 1" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">23 Ventures · Founder Fellow Program</span></div>
-</div>
-
-<div class="gallery-item" data-src="23 Venture (2).jpg" data-caption="23 Ventures — Ecosystem Building">
-  <img src="23 Venture (2).jpg" alt="23 Ventures Event 2" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">Ecosystem Expansion Initiative</span></div>
-</div>
-
-<div class="gallery-item" data-src="23 Venture (3).jpg" data-caption="23 Ventures — Hackathon">
-  <img src="23 Venture (3).jpg" alt="23 Ventures Event 3" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">Hackathon & Virtual Events</span></div>
-</div>
-
-<div class="gallery-item" data-src="23 Venture (4).jpg" data-caption="23 Ventures — College Outreach">
-  <img src="23 Venture (4).jpg" alt="23 Ventures Event 4" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">25+ College Outreach Network</span></div>
-</div>
-
-<div class="gallery-item" data-src="23 Venture (5).jpg" data-caption="23 Ventures — Community">
-  <img src="23 Venture (5).jpg" alt="23 Ventures Event 5" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">Community & Partnership Building</span></div>
-</div>
-
-<div class="gallery-item" data-src="23 Ventures.png" data-caption="23 Ventures — Founder Fellow Badge">
-  <img src="23 Ventures.png" alt="23 Ventures" loading="lazy" />
-  <div class="gallery-overlay"><span class="gallery-overlay-text">23 Ventures · Dec 2025 – Feb 2026</span></div>
-</div>
-     
+      <div class="gallery-item" data-src="23 Venture (1).jpg" data-caption="23 Ventures — Founder Fellow">
+        <img src="23 Venture (1).jpg" alt="23 Ventures Event 1" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">23 Ventures · Founder Fellow Program</span></div>
+      </div>
+      <div class="gallery-item" data-src="23 Venture (2).jpg" data-caption="23 Ventures — Ecosystem Building">
+        <img src="23 Venture (2).jpg" alt="23 Ventures Event 2" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Ecosystem Expansion Initiative</span></div>
+      </div>
+      <div class="gallery-item" data-src="23 Venture (3).jpg" data-caption="23 Ventures — Hackathon">
+        <img src="23 Venture (3).jpg" alt="23 Ventures Event 3" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Hackathon &amp; Virtual Events</span></div>
+      </div>
+      <div class="gallery-item" data-src="23 Venture (4).jpg" data-caption="23 Ventures — College Outreach">
+        <img src="23 Venture (4).jpg" alt="23 Ventures Event 4" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">25+ College Outreach Network</span></div>
+      </div>
+      <div class="gallery-item" data-src="23 Venture (5).jpg" data-caption="23 Ventures — Community">
+        <img src="23 Venture (5).jpg" alt="23 Ventures Event 5" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Community &amp; Partnership Building</span></div>
+      </div>
+      <div class="gallery-item" data-src="23 Ventures.png" data-caption="23 Ventures — Founder Fellow Badge">
+        <img src="23 Ventures.png" alt="23 Ventures" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-overlay-text">23 Ventures · Dec 2025 – Feb 2026</span></div>
+      </div>
 
     </div>
   </div>
@@ -1925,7 +1826,7 @@
 
       <div class="cert-card scroll-reveal" style="--card-rotate: 1.5deg;">
         <div class="cert-img-wrap">
-          <img src="IITG%20(10%25%20Achiver).png" alt="IIT Guwahati Certificate" loading="lazy" /> 2. Achievements section — IIT card:
+          <img src="IITG%20(10%25%20Achiver).png" alt="IIT Guwahati Certificate" loading="lazy" />
         </div>
         <div class="cert-info">
           <div class="cert-provider">IIT Guwahati</div>
@@ -1972,7 +1873,7 @@
     </p>
     <div class="stats-row">
       <div class="stat-box"><span class="stat-number" data-count="1">0</span><span class="stat-label">Years Experience</span></div>
-      <div class="stat-box"><span class="stat-number" data-count="2">0</span><span class="stat-label">Certifications</span></div>
+      <div class="stat-box"><span class="stat-number" data-count="4">0</span><span class="stat-label">Certifications</span></div>
       <div class="stat-box"><span class="stat-number" data-count="4">0</span><span class="stat-label">Projects</span></div>
       <div class="stat-box"><span class="stat-number" data-count="3">0</span><span class="stat-label">Awards &amp; Honours</span></div>
     </div>
@@ -2035,7 +1936,6 @@
     <p class="section-subtitle">Open to internships, fellowships, and strategic opportunities. Let's build something meaningful together.</p>
     <div class="contact-grid">
 
-      <!-- LEFT: Form -->
       <div class="contact-form-card scroll-reveal">
         <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1.75rem;color:var(--text);">Send Me a Message</h3>
         <form id="contact-form" onsubmit="handleContactSubmit(event)">
@@ -2063,7 +1963,6 @@
         </form>
       </div>
 
-      <!-- RIGHT: Info -->
       <div class="contact-info-card scroll-reveal">
         <div class="contact-info-title">Contact Information</div>
         <div class="contact-info-sub">Reach out through any of these channels — I'm always open to a good conversation.</div>
@@ -2075,6 +1974,7 @@
             <div class="contact-row-value">tanishqsinghal018@gmail.com</div>
           </div>
         </div>
+
         <div class="contact-row">
           <div class="contact-icon">📱</div>
           <div>
@@ -2082,7 +1982,18 @@
             <div class="contact-row-value">+91 9313921414</div>
           </div>
         </div>
-              <a href="https://linkedin.com/in/tanishq-singhal91" target="_blank" rel="noopener" class="contact-row">
+
+        <a href="https://wa.me/919313921414" target="_blank" rel="noopener" class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="contact-row-label">WhatsApp</div>
+            <div class="contact-row-value">+91 9313921414</div>
+          </div>
+        </a>
+
+        <a href="https://linkedin.com/in/tanishq-singhal91" target="_blank" rel="noopener" class="contact-row">
           <div class="contact-icon">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </div>
@@ -2091,16 +2002,8 @@
             <div class="contact-row-value">linkedin.com/in/tanishq-singhal91</div>
           </div>
         </a>
-      
 
-        <div style="margin-top:2rem;padding:1.25rem;background:rgba(108,99,255,0.08);border:1px solid var(--border);border-radius:12px;">
-          <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">
-            💡 <strong style="color:var(--text);">Open to opportunities</strong><br/>
-            Finance internships · Strategy roles · Event coordination · Fellowship programs
-          </div>
-        </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -2110,14 +2013,14 @@
   <div class="footer-name">Tanishq Singhal</div>
   <div class="footer-tagline">Finance. Strategy. Execution.</div>
   <div class="footer-socials">
-    <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-    </a>
     <a href="https://linkedin.com/in/tanishq-singhal91" target="_blank" rel="noopener" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
     <a href="mailto:tanishqsinghal018@gmail.com" aria-label="Email">
       <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.9.732-1.636 1.636-1.636h.909L12 10.09l9.455-6.27h.909A1.636 1.636 0 0124 5.457z"/></svg>
+    </a>
+    <a href="https://wa.me/919313921414" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
   </div>
   <div class="footer-copy">© 2026 Tanishq Singhal. Built with purpose.</div>
@@ -2131,15 +2034,26 @@
   <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next">›</button>
 </div>
 
+<!-- ════════════════ RESUME PREVIEW MODAL ════════════════ -->
+<div class="resume-modal" id="resume-modal">
+  <button class="resume-modal-close" id="resume-modal-close">✕</button>
+  <iframe id="resume-iframe" src="" title="Resume Preview"></iframe>
+  <div class="resume-modal-actions">
+    <a href="Tanishq_Singhal_Resume.pdf" download="Tanishq_Singhal_Resume.pdf" class="btn-resume">⬇ Download Resume</a>
+    <button onclick="document.getElementById('resume-modal').classList.remove('open'); document.getElementById('resume-iframe').src=''; document.body.style.overflow='';" class="btn-outline" style="cursor:pointer;">Close</button>
+  </div>
+</div>
+
+<!-- ════════════════ BACK TO TOP ════════════════ -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
 <!-- ════════════════ JAVASCRIPT ════════════════ -->
 <script>
 // ─── STARFIELD ────────────────────────────────────────────────────────────
 const canvas = document.getElementById('star-canvas');
 const ctx    = canvas.getContext('2d');
 let stars    = [];
-let mouse    = { x: 0, y: 0 };
 let parallaxOffset = { x: 0, y: 0 };
-let animFrame;
 
 const STAR_COLORS = ['#FFFFFF','#FFFFFF','#A8B8FF','#FFE5A0','#c9d5ff'];
 const NUM_STARS   = 190;
@@ -2153,13 +2067,13 @@ function createStar() {
   const size   = Math.random() * 2.5 + 0.5;
   const isGlow = Math.random() < 0.15;
   return {
-    x:       Math.random() * canvas.width,
-    y:       Math.random() * canvas.height,
+    x:        Math.random() * canvas.width,
+    y:        Math.random() * canvas.height,
     size,
-    color:   STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
-    alpha:   Math.random() * 0.6 + 0.2,
-    speed:   Math.random() * 0.015 + 0.005,
-    phase:   Math.random() * Math.PI * 2,
+    color:    STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
+    alpha:    Math.random() * 0.6 + 0.2,
+    speed:    Math.random() * 0.015 + 0.005,
+    phase:    Math.random() * Math.PI * 2,
     isGlow,
     parallax: Math.random() * 0.04 + 0.01,
   };
@@ -2176,18 +2090,14 @@ function drawStars(time) {
   const py = parallaxOffset.y;
   stars.forEach(s => {
     const twinkle = Math.sin(time * s.speed * 60 + s.phase);
-    const a = s.alpha + twinkle * 0.3;
+    const a  = s.alpha + twinkle * 0.3;
     const sx = s.x + px * s.parallax * 10;
     const sy = s.y + py * s.parallax * 10;
+    const r  = parseInt(s.color.slice(1,3),16);
+    const g  = parseInt(s.color.slice(3,5),16);
+    const b  = parseInt(s.color.slice(5,7),16);
     ctx.save();
     if (s.isGlow) {
-      const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, s.size * 4);
-      grad.addColorStop(0, s.color.replace('#','rgba(') + `,${a})`);
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      // fix color format
-      const r = parseInt(s.color.slice(1,3),16);
-      const g = parseInt(s.color.slice(3,5),16);
-      const b = parseInt(s.color.slice(5,7),16);
       const g2 = ctx.createRadialGradient(sx, sy, 0, sx, sy, s.size * 5);
       g2.addColorStop(0, `rgba(${r},${g},${b},${Math.min(a,1)})`);
       g2.addColorStop(1, `rgba(${r},${g},${b},0)`);
@@ -2196,9 +2106,6 @@ function drawStars(time) {
       ctx.arc(sx, sy, s.size * 5, 0, Math.PI * 2);
       ctx.fill();
     }
-    const r = parseInt(s.color.slice(1,3),16);
-    const g = parseInt(s.color.slice(3,5),16);
-    const b = parseInt(s.color.slice(5,7),16);
     ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(Math.max(a,0),1)})`;
     ctx.beginPath();
     ctx.arc(sx, sy, s.size, 0, Math.PI * 2);
@@ -2209,7 +2116,7 @@ function drawStars(time) {
 
 function animate(time) {
   drawStars(time * 0.001);
-  animFrame = requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
 }
 
 window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
@@ -2225,38 +2132,29 @@ initStars();
 requestAnimationFrame(animate);
 
 // ─── NAV: HAMBURGER + ACTIVE SECTION ──────────────────────────────────────
-const hamburger   = document.getElementById('hamburger');
-const mobileMenu  = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-}
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function closeMobileMenu() { mobileMenu.classList.remove('open'); }
 
 const sections = document.querySelectorAll('section[id]');
 const navItems = {
-  home: document.getElementById('nav-home'),
-  about: document.getElementById('nav-about'),
-  experience: document.getElementById('nav-exp'),
-  education: document.getElementById('nav-edu'),
-  projects: document.getElementById('nav-proj'),
-  skills: document.getElementById('nav-skills'),
-  certifications: document.getElementById('nav-cert'),
-  achievements: document.getElementById('nav-ach'),
-  contact: document.getElementById('nav-contact'),
-  gallery: document.getElementById('nav-gallery'),
+  home:          document.getElementById('nav-home'),
+  about:         document.getElementById('nav-about'),
+  experience:    document.getElementById('nav-exp'),
+  education:     document.getElementById('nav-edu'),
+  projects:      document.getElementById('nav-proj'),
+  skills:        document.getElementById('nav-skills'),
+  certifications:document.getElementById('nav-cert'),
+  achievements:  document.getElementById('nav-ach'),
+  contact:       document.getElementById('nav-contact'),
+  gallery:       document.getElementById('nav-gallery'),
 };
 
 function updateActiveNav() {
   let current = 'home';
-  sections.forEach(s => {
-    const top = s.getBoundingClientRect().top;
-    if (top <= 90) current = s.id;
-  });
-  Object.keys(navItems).forEach(k => {
-    navItems[k] && navItems[k].classList.remove('active');
-  });
+  sections.forEach(s => { if (s.getBoundingClientRect().top <= 90) current = s.id; });
+  Object.keys(navItems).forEach(k => navItems[k] && navItems[k].classList.remove('active'));
   navItems[current] && navItems[current].classList.add('active');
 }
 window.addEventListener('scroll', updateActiveNav, { passive: true });
@@ -2264,6 +2162,7 @@ window.addEventListener('scroll', updateActiveNav, { passive: true });
 // ─── TYPEWRITER ────────────────────────────────────────────────────────────
 const designations = [
   'BBA Finance & Banking Student',
+  'SEBI NISM Certified Investor',
   'Event Organiser',
   'Founder Fellow',
   'Finance Analyst',
@@ -2285,38 +2184,24 @@ function typeNext() {
 }
 setTimeout(typeNext, 1500);
 
-// ─── SCROLL REVEAL ──────────────────────────────────────────────────────────
+// ─── SCROLL REVEAL ────────────────────────────────────────────────────────
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
 const revealObserver  = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Skill bars
       entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        const w = bar.dataset.width;
-        setTimeout(() => { bar.style.width = w + '%'; }, 200);
-      });
-      // Stat counters
-      entry.target.querySelectorAll('[data-count]').forEach(el => {
-        const target = parseInt(el.dataset.count);
-        let current = 0;
-        const step = Math.ceil(target / 30);
-        const interval = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = current + '+';
-          if (current >= target) clearInterval(interval);
-        }, 50);
+        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 200);
       });
     }
   });
 }, observerOptions);
 
-// Generic scroll-reveal: cards, about photo, mv cards etc.
 document.querySelectorAll(
   '.exp-card, .edu-card, .project-card, .skill-category-card, .cert-card, .ach-card, .contact-form-card, .contact-info-card, .about-photo-wrap, .mv-card, .gallery-item, .scroll-reveal'
 ).forEach(el => revealObserver.observe(el));
 
-// Stat boxes (separate observer so counters fire)
+// ─── STAT COUNTERS ────────────────────────────────────────────────────────
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -2336,18 +2221,13 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.stats-row').forEach(el => statsObserver.observe(el));
 
-// Staggered delays for skill cards
-document.querySelectorAll('.skill-category-card').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.08}s`;
-});
-document.querySelectorAll('.cert-card').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.12}s`;
-});
-document.querySelectorAll('.ach-card').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.1}s`;
-});
+// ─── STAGGER DELAYS ───────────────────────────────────────────────────────
+document.querySelectorAll('.skill-category-card').forEach((el, i) => { el.style.transitionDelay = `${i * 0.08}s`; });
+document.querySelectorAll('.cert-card').forEach((el, i) => { el.style.transitionDelay = `${i * 0.12}s`; });
+document.querySelectorAll('.ach-card').forEach((el, i) => { el.style.transitionDelay = `${i * 0.1}s`; });
+document.querySelectorAll('.gallery-item').forEach((el, i) => { el.style.transitionDelay = `${i * 0.07}s`; });
 
-// ─── CONTACT FORM ──────────────────────────────────────────────────────────
+// ─── CONTACT FORM ─────────────────────────────────────────────────────────
 function handleContactSubmit(e) {
   e.preventDefault();
   const name    = document.getElementById('cf-name').value;
@@ -2355,11 +2235,9 @@ function handleContactSubmit(e) {
   const subject = document.getElementById('cf-subject').value;
   const message = document.getElementById('cf-message').value;
   const body    = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-  const mailto  = `mailto:tanishqsinghal018@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
+  window.location.href = `mailto:tanishqsinghal018@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-// Send button pulse after page load
 setTimeout(() => {
   const btn = document.getElementById('send-btn');
   if (btn) {
@@ -2370,19 +2248,18 @@ setTimeout(() => {
 }, 3000);
 
 // ─── LIGHTBOX ─────────────────────────────────────────────────────────────
-const lightbox  = document.getElementById('lightbox');
-const lbImg     = document.getElementById('lb-img');
-const lbClose   = document.getElementById('lb-close');
-const lbPrev    = document.getElementById('lb-prev');
-const lbNext    = document.getElementById('lb-next');
+const lightbox     = document.getElementById('lightbox');
+const lbImg        = document.getElementById('lb-img');
+const lbClose      = document.getElementById('lb-close');
+const lbPrev       = document.getElementById('lb-prev');
+const lbNext       = document.getElementById('lb-next');
 const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-let currentLbIdx = 0;
+let currentLbIdx   = 0;
 
 function openLightbox(idx) {
   currentLbIdx = idx;
-  const item = galleryItems[idx];
-  lbImg.src = item.dataset.src;
-  lbImg.alt = item.dataset.caption || 'Gallery image';
+  lbImg.src = galleryItems[idx].dataset.src;
+  lbImg.alt = galleryItems[idx].dataset.caption || 'Gallery image';
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -2393,39 +2270,47 @@ function closeLightbox() {
 }
 function showLbPrev() {
   currentLbIdx = (currentLbIdx - 1 + galleryItems.length) % galleryItems.length;
-  const item = galleryItems[currentLbIdx];
-  lbImg.src = item.dataset.src;
-  lbImg.alt = item.dataset.caption || 'Gallery image';
+  lbImg.src = galleryItems[currentLbIdx].dataset.src;
 }
 function showLbNext() {
   currentLbIdx = (currentLbIdx + 1) % galleryItems.length;
-  const item = galleryItems[currentLbIdx];
-  lbImg.src = item.dataset.src;
-  lbImg.alt = item.dataset.caption || 'Gallery image';
+  lbImg.src = galleryItems[currentLbIdx].dataset.src;
 }
 
-galleryItems.forEach((item, idx) => {
-  item.addEventListener('click', () => openLightbox(idx));
-});
+galleryItems.forEach((item, idx) => item.addEventListener('click', () => openLightbox(idx)));
 lbClose.addEventListener('click', closeLightbox);
 lbPrev.addEventListener('click', showLbPrev);
 lbNext.addEventListener('click', showLbNext);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => {
   if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape')      closeLightbox();
-  if (e.key === 'ArrowLeft')   showLbPrev();
-  if (e.key === 'ArrowRight')  showLbNext();
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  showLbPrev();
+  if (e.key === 'ArrowRight') showLbNext();
 });
 
-// ─── CERT CARD MOUSE-TILT ────────────────────────────────────────────────
+// ─── RESUME MODAL ─────────────────────────────────────────────────────────
+const resumeModal      = document.getElementById('resume-modal');
+const resumeIframe     = document.getElementById('resume-iframe');
+const resumeModalClose = document.getElementById('resume-modal-close');
+
+function closeResumeModal() {
+  resumeModal.classList.remove('open');
+  resumeIframe.src = '';
+  document.body.style.overflow = '';
+}
+resumeModalClose.addEventListener('click', closeResumeModal);
+resumeModal.addEventListener('click', e => { if (e.target === resumeModal) closeResumeModal(); });
+document.addEventListener('keydown', e => {
+  if (resumeModal.classList.contains('open') && e.key === 'Escape') closeResumeModal();
+});
+
+// ─── CERT CARD MOUSE-TILT ─────────────────────────────────────────────────
 document.querySelectorAll('.cert-card').forEach(card => {
   card.addEventListener('mousemove', e => {
-    const rect   = card.getBoundingClientRect();
-    const cx     = rect.left + rect.width  / 2;
-    const cy     = rect.top  + rect.height / 2;
-    const dx     = (e.clientX - cx) / (rect.width  / 2);
-    const dy     = (e.clientY - cy) / (rect.height / 2);
+    const rect = card.getBoundingClientRect();
+    const dx   = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+    const dy   = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
     card.style.transform = `rotate(0deg) translateY(-4px) rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg)`;
   });
   card.addEventListener('mouseleave', () => {
@@ -2437,10 +2322,13 @@ document.querySelectorAll('.cert-card').forEach(card => {
   });
 });
 
-// ─── GALLERY STAGGER DELAYS (override CSS if needed) ─────────────────────
-document.querySelectorAll('.gallery-item').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.07}s`;
-});
+// ─── BACK TO TOP ──────────────────────────────────────────────────────────
+const backToTopBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) backToTopBtn.classList.add('visible');
+  else backToTopBtn.classList.remove('visible');
+}, { passive: true });
+backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>
